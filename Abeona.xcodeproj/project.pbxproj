@@ -22,6 +22,8 @@
 		46CF8F271E1EDB8A00657F55 /* UITabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CF8F261E1EDB8A00657F55 /* UITabBarView.m */; };
 		46D0900F1E2009D300C323F1 /* WalkthroughView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D0900E1E2009D300C323F1 /* WalkthroughView.m */; };
 		46D090111E2009DB00C323F1 /* WalkthroughView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46D090101E2009DB00C323F1 /* WalkthroughView.xib */; };
+		46D090141E201EC400C323F1 /* UIButtonExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D090131E201EC400C323F1 /* UIButtonExtension.m */; };
+		46D090171E201F6800C323F1 /* UILabelClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D090151E201F6800C323F1 /* UILabelClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,10 @@
 		46D0900D1E2009D300C323F1 /* WalkthroughView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughView.h; sourceTree = "<group>"; };
 		46D0900E1E2009D300C323F1 /* WalkthroughView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughView.m; sourceTree = "<group>"; };
 		46D090101E2009DB00C323F1 /* WalkthroughView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalkthroughView.xib; sourceTree = "<group>"; };
+		46D090121E201EC400C323F1 /* UIButtonExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonExtension.h; sourceTree = "<group>"; };
+		46D090131E201EC400C323F1 /* UIButtonExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonExtension.m; sourceTree = "<group>"; };
+		46D090151E201F6800C323F1 /* UILabelClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelClass.m; sourceTree = "<group>"; };
+		46D090161E201F6800C323F1 /* UILabelClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelClass.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,8 +228,12 @@
 		46CF8F1C1E1ECC6B00657F55 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				46D090151E201F6800C323F1 /* UILabelClass.m */,
+				46D090161E201F6800C323F1 /* UILabelClass.h */,
 				46CF8F251E1EDB8A00657F55 /* UITabBarView.h */,
 				46CF8F261E1EDB8A00657F55 /* UITabBarView.m */,
+				46D090121E201EC400C323F1 /* UIButtonExtension.h */,
+				46D090131E201EC400C323F1 /* UIButtonExtension.m */,
 			);
 			path = "Custom Classes";
 			sourceTree = "<group>";
@@ -384,10 +394,12 @@
 				46D0900F1E2009D300C323F1 /* WalkthroughView.m in Sources */,
 				46CF8F1B1E1ECADD00657F55 /* ExploreCardiffViewController.m in Sources */,
 				46CF8F151E1ECA9B00657F55 /* SignInViewController.m in Sources */,
+				46D090171E201F6800C323F1 /* UILabelClass.m in Sources */,
 				46CF8F101E1ECA4B00657F55 /* WalkthroughViewController.m in Sources */,
 				46CF8ED61E1EB38400657F55 /* AppDelegate.m in Sources */,
 				46CF8F181E1ECAC200657F55 /* PlanJourneyViewController.m in Sources */,
 				46CF8F241E1EDACA00657F55 /* SelectLocationViewController.m in Sources */,
+				46D090141E201EC400C323F1 /* UIButtonExtension.m in Sources */,
 				46CF8F271E1EDB8A00657F55 /* UITabBarView.m in Sources */,
 				46CF8ED31E1EB38400657F55 /* main.m in Sources */,
 			);
