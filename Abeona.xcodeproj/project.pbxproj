@@ -1,0 +1,649 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		46CF8ED31E1EB38400657F55 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CF8ED21E1EB38400657F55 /* main.m */; };
+		46CF8ED61E1EB38400657F55 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CF8ED51E1EB38400657F55 /* AppDelegate.m */; };
+		46CF8EDC1E1EB38400657F55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46CF8EDA1E1EB38400657F55 /* Main.storyboard */; };
+		46CF8EDE1E1EB38400657F55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46CF8EDD1E1EB38400657F55 /* Assets.xcassets */; };
+		46CF8EE11E1EB38400657F55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46CF8EDF1E1EB38400657F55 /* LaunchScreen.storyboard */; };
+		46CF8EEC1E1EB38500657F55 /* AbeonaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CF8EEB1E1EB38500657F55 /* AbeonaTests.m */; };
+		46CF8EF71E1EB38500657F55 /* AbeonaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CF8EF61E1EB38500657F55 /* AbeonaUITests.m */; };
+		46CF8F101E1ECA4B00657F55 /* WalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CF8F0E1E1ECA4B00657F55 /* WalkthroughViewController.m */; };
+		46CF8F151E1ECA9B00657F55 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CF8F141E1ECA9B00657F55 /* SignInViewController.m */; };
+		46CF8F181E1ECAC200657F55 /* PlanJourneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CF8F171E1ECAC200657F55 /* PlanJourneyViewController.m */; };
+		46CF8F1B1E1ECADD00657F55 /* ExploreCardiffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CF8F1A1E1ECADD00657F55 /* ExploreCardiffViewController.m */; };
+		46CF8F241E1EDACA00657F55 /* SelectLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CF8F231E1EDACA00657F55 /* SelectLocationViewController.m */; };
+		46CF8F271E1EDB8A00657F55 /* UITabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CF8F261E1EDB8A00657F55 /* UITabBarView.m */; };
+		46D0900F1E2009D300C323F1 /* WalkthroughView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D0900E1E2009D300C323F1 /* WalkthroughView.m */; };
+		46D090111E2009DB00C323F1 /* WalkthroughView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46D090101E2009DB00C323F1 /* WalkthroughView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		46CF8EE81E1EB38500657F55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46CF8EC61E1EB38400657F55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46CF8ECD1E1EB38400657F55;
+			remoteInfo = Abeona;
+		};
+		46CF8EF31E1EB38500657F55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46CF8EC61E1EB38400657F55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46CF8ECD1E1EB38400657F55;
+			remoteInfo = Abeona;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		46CF8ECE1E1EB38400657F55 /* Abeona.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Abeona.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		46CF8ED21E1EB38400657F55 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		46CF8ED41E1EB38400657F55 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		46CF8ED51E1EB38400657F55 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		46CF8EDB1E1EB38400657F55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		46CF8EDD1E1EB38400657F55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		46CF8EE01E1EB38400657F55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		46CF8EE21E1EB38400657F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46CF8EE71E1EB38500657F55 /* AbeonaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AbeonaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		46CF8EEB1E1EB38500657F55 /* AbeonaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbeonaTests.m; sourceTree = "<group>"; };
+		46CF8EED1E1EB38500657F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46CF8EF21E1EB38500657F55 /* AbeonaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AbeonaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		46CF8EF61E1EB38500657F55 /* AbeonaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbeonaUITests.m; sourceTree = "<group>"; };
+		46CF8EF81E1EB38500657F55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46CF8F0D1E1ECA4B00657F55 /* WalkthroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughViewController.h; sourceTree = "<group>"; };
+		46CF8F0E1E1ECA4B00657F55 /* WalkthroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughViewController.m; sourceTree = "<group>"; };
+		46CF8F131E1ECA9B00657F55 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		46CF8F141E1ECA9B00657F55 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		46CF8F161E1ECAC200657F55 /* PlanJourneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanJourneyViewController.h; sourceTree = "<group>"; };
+		46CF8F171E1ECAC200657F55 /* PlanJourneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanJourneyViewController.m; sourceTree = "<group>"; };
+		46CF8F191E1ECADD00657F55 /* ExploreCardiffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreCardiffViewController.h; sourceTree = "<group>"; };
+		46CF8F1A1E1ECADD00657F55 /* ExploreCardiffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreCardiffViewController.m; sourceTree = "<group>"; };
+		46CF8F201E1ECCF400657F55 /* AbeonaPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbeonaPrefixHeader.pch; sourceTree = "<group>"; };
+		46CF8F221E1EDACA00657F55 /* SelectLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLocationViewController.h; sourceTree = "<group>"; };
+		46CF8F231E1EDACA00657F55 /* SelectLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectLocationViewController.m; sourceTree = "<group>"; };
+		46CF8F251E1EDB8A00657F55 /* UITabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITabBarView.h; sourceTree = "<group>"; };
+		46CF8F261E1EDB8A00657F55 /* UITabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITabBarView.m; sourceTree = "<group>"; };
+		46D0900D1E2009D300C323F1 /* WalkthroughView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughView.h; sourceTree = "<group>"; };
+		46D0900E1E2009D300C323F1 /* WalkthroughView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughView.m; sourceTree = "<group>"; };
+		46D090101E2009DB00C323F1 /* WalkthroughView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalkthroughView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		46CF8ECB1E1EB38400657F55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46CF8EE41E1EB38500657F55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46CF8EEF1E1EB38500657F55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		46CF8EC51E1EB38400657F55 = {
+			isa = PBXGroup;
+			children = (
+				46CF8ED01E1EB38400657F55 /* Abeona */,
+				46CF8EEA1E1EB38500657F55 /* AbeonaTests */,
+				46CF8EF51E1EB38500657F55 /* AbeonaUITests */,
+				46CF8ECF1E1EB38400657F55 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		46CF8ECF1E1EB38400657F55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				46CF8ECE1E1EB38400657F55 /* Abeona.app */,
+				46CF8EE71E1EB38500657F55 /* AbeonaTests.xctest */,
+				46CF8EF21E1EB38500657F55 /* AbeonaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		46CF8ED01E1EB38400657F55 /* Abeona */ = {
+			isa = PBXGroup;
+			children = (
+				46D0900C1E2009A900C323F1 /* Custom Views */,
+				46CF8F1C1E1ECC6B00657F55 /* Custom Classes */,
+				46CF8F071E1EB46000657F55 /* Resources */,
+				46CF8F041E1EB46000657F55 /* ViewControllers */,
+				46CF8ED41E1EB38400657F55 /* AppDelegate.h */,
+				46CF8ED51E1EB38400657F55 /* AppDelegate.m */,
+				46CF8EDA1E1EB38400657F55 /* Main.storyboard */,
+				46CF8EDD1E1EB38400657F55 /* Assets.xcassets */,
+				46CF8EDF1E1EB38400657F55 /* LaunchScreen.storyboard */,
+				46CF8EE21E1EB38400657F55 /* Info.plist */,
+				46CF8ED11E1EB38400657F55 /* Supporting Files */,
+			);
+			path = Abeona;
+			sourceTree = "<group>";
+		};
+		46CF8ED11E1EB38400657F55 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				46CF8ED21E1EB38400657F55 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		46CF8EEA1E1EB38500657F55 /* AbeonaTests */ = {
+			isa = PBXGroup;
+			children = (
+				46CF8EEB1E1EB38500657F55 /* AbeonaTests.m */,
+				46CF8EED1E1EB38500657F55 /* Info.plist */,
+			);
+			path = AbeonaTests;
+			sourceTree = "<group>";
+		};
+		46CF8EF51E1EB38500657F55 /* AbeonaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				46CF8EF61E1EB38500657F55 /* AbeonaUITests.m */,
+				46CF8EF81E1EB38500657F55 /* Info.plist */,
+			);
+			path = AbeonaUITests;
+			sourceTree = "<group>";
+		};
+		46CF8F041E1EB46000657F55 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				46CF8F211E1EDAB500657F55 /* SelectLocationViewController */,
+				46CF8F0C1E1ECA4B00657F55 /* WalkthroughViewController */,
+				46CF8F0F1E1ECA4B00657F55 /* SignInViewController */,
+				46CF8F111E1ECA7900657F55 /* PlanJourneyVeiwController */,
+				46CF8F121E1ECA7900657F55 /* ExploreCardiffViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		46CF8F071E1EB46000657F55 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				46CF8F201E1ECCF400657F55 /* AbeonaPrefixHeader.pch */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		46CF8F0C1E1ECA4B00657F55 /* WalkthroughViewController */ = {
+			isa = PBXGroup;
+			children = (
+				46CF8F0D1E1ECA4B00657F55 /* WalkthroughViewController.h */,
+				46CF8F0E1E1ECA4B00657F55 /* WalkthroughViewController.m */,
+			);
+			path = WalkthroughViewController;
+			sourceTree = "<group>";
+		};
+		46CF8F0F1E1ECA4B00657F55 /* SignInViewController */ = {
+			isa = PBXGroup;
+			children = (
+				46CF8F131E1ECA9B00657F55 /* SignInViewController.h */,
+				46CF8F141E1ECA9B00657F55 /* SignInViewController.m */,
+			);
+			path = SignInViewController;
+			sourceTree = "<group>";
+		};
+		46CF8F111E1ECA7900657F55 /* PlanJourneyVeiwController */ = {
+			isa = PBXGroup;
+			children = (
+				46CF8F161E1ECAC200657F55 /* PlanJourneyViewController.h */,
+				46CF8F171E1ECAC200657F55 /* PlanJourneyViewController.m */,
+			);
+			path = PlanJourneyVeiwController;
+			sourceTree = "<group>";
+		};
+		46CF8F121E1ECA7900657F55 /* ExploreCardiffViewController */ = {
+			isa = PBXGroup;
+			children = (
+				46CF8F191E1ECADD00657F55 /* ExploreCardiffViewController.h */,
+				46CF8F1A1E1ECADD00657F55 /* ExploreCardiffViewController.m */,
+			);
+			path = ExploreCardiffViewController;
+			sourceTree = "<group>";
+		};
+		46CF8F1C1E1ECC6B00657F55 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				46CF8F251E1EDB8A00657F55 /* UITabBarView.h */,
+				46CF8F261E1EDB8A00657F55 /* UITabBarView.m */,
+			);
+			path = "Custom Classes";
+			sourceTree = "<group>";
+		};
+		46CF8F211E1EDAB500657F55 /* SelectLocationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				46CF8F221E1EDACA00657F55 /* SelectLocationViewController.h */,
+				46CF8F231E1EDACA00657F55 /* SelectLocationViewController.m */,
+			);
+			path = SelectLocationViewController;
+			sourceTree = "<group>";
+		};
+		46D0900C1E2009A900C323F1 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				46D0900D1E2009D300C323F1 /* WalkthroughView.h */,
+				46D0900E1E2009D300C323F1 /* WalkthroughView.m */,
+				46D090101E2009DB00C323F1 /* WalkthroughView.xib */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		46CF8ECD1E1EB38400657F55 /* Abeona */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46CF8EFB1E1EB38500657F55 /* Build configuration list for PBXNativeTarget "Abeona" */;
+			buildPhases = (
+				46CF8ECA1E1EB38400657F55 /* Sources */,
+				46CF8ECB1E1EB38400657F55 /* Frameworks */,
+				46CF8ECC1E1EB38400657F55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Abeona;
+			productName = Abeona;
+			productReference = 46CF8ECE1E1EB38400657F55 /* Abeona.app */;
+			productType = "com.apple.product-type.application";
+		};
+		46CF8EE61E1EB38500657F55 /* AbeonaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46CF8EFE1E1EB38500657F55 /* Build configuration list for PBXNativeTarget "AbeonaTests" */;
+			buildPhases = (
+				46CF8EE31E1EB38500657F55 /* Sources */,
+				46CF8EE41E1EB38500657F55 /* Frameworks */,
+				46CF8EE51E1EB38500657F55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46CF8EE91E1EB38500657F55 /* PBXTargetDependency */,
+			);
+			name = AbeonaTests;
+			productName = AbeonaTests;
+			productReference = 46CF8EE71E1EB38500657F55 /* AbeonaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		46CF8EF11E1EB38500657F55 /* AbeonaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46CF8F011E1EB38500657F55 /* Build configuration list for PBXNativeTarget "AbeonaUITests" */;
+			buildPhases = (
+				46CF8EEE1E1EB38500657F55 /* Sources */,
+				46CF8EEF1E1EB38500657F55 /* Frameworks */,
+				46CF8EF01E1EB38500657F55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46CF8EF41E1EB38500657F55 /* PBXTargetDependency */,
+			);
+			name = AbeonaUITests;
+			productName = AbeonaUITests;
+			productReference = 46CF8EF21E1EB38500657F55 /* AbeonaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46CF8EC61E1EB38400657F55 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Toqir Ahmad";
+				TargetAttributes = {
+					46CF8ECD1E1EB38400657F55 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					46CF8EE61E1EB38500657F55 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 46CF8ECD1E1EB38400657F55;
+					};
+					46CF8EF11E1EB38500657F55 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 46CF8ECD1E1EB38400657F55;
+					};
+				};
+			};
+			buildConfigurationList = 46CF8EC91E1EB38400657F55 /* Build configuration list for PBXProject "Abeona" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 46CF8EC51E1EB38400657F55;
+			productRefGroup = 46CF8ECF1E1EB38400657F55 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				46CF8ECD1E1EB38400657F55 /* Abeona */,
+				46CF8EE61E1EB38500657F55 /* AbeonaTests */,
+				46CF8EF11E1EB38500657F55 /* AbeonaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		46CF8ECC1E1EB38400657F55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46CF8EE11E1EB38400657F55 /* LaunchScreen.storyboard in Resources */,
+				46CF8EDE1E1EB38400657F55 /* Assets.xcassets in Resources */,
+				46CF8EDC1E1EB38400657F55 /* Main.storyboard in Resources */,
+				46D090111E2009DB00C323F1 /* WalkthroughView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46CF8EE51E1EB38500657F55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46CF8EF01E1EB38500657F55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		46CF8ECA1E1EB38400657F55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46D0900F1E2009D300C323F1 /* WalkthroughView.m in Sources */,
+				46CF8F1B1E1ECADD00657F55 /* ExploreCardiffViewController.m in Sources */,
+				46CF8F151E1ECA9B00657F55 /* SignInViewController.m in Sources */,
+				46CF8F101E1ECA4B00657F55 /* WalkthroughViewController.m in Sources */,
+				46CF8ED61E1EB38400657F55 /* AppDelegate.m in Sources */,
+				46CF8F181E1ECAC200657F55 /* PlanJourneyViewController.m in Sources */,
+				46CF8F241E1EDACA00657F55 /* SelectLocationViewController.m in Sources */,
+				46CF8F271E1EDB8A00657F55 /* UITabBarView.m in Sources */,
+				46CF8ED31E1EB38400657F55 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46CF8EE31E1EB38500657F55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46CF8EEC1E1EB38500657F55 /* AbeonaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46CF8EEE1E1EB38500657F55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46CF8EF71E1EB38500657F55 /* AbeonaUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		46CF8EE91E1EB38500657F55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46CF8ECD1E1EB38400657F55 /* Abeona */;
+			targetProxy = 46CF8EE81E1EB38500657F55 /* PBXContainerItemProxy */;
+		};
+		46CF8EF41E1EB38500657F55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46CF8ECD1E1EB38400657F55 /* Abeona */;
+			targetProxy = 46CF8EF31E1EB38500657F55 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		46CF8EDA1E1EB38400657F55 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46CF8EDB1E1EB38400657F55 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		46CF8EDF1E1EB38400657F55 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46CF8EE01E1EB38400657F55 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		46CF8EF91E1EB38500657F55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		46CF8EFA1E1EB38500657F55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		46CF8EFC1E1EB38500657F55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = Abeona/Resources/AbeonaPrefixHeader.pch;
+				INFOPLIST_FILE = Abeona/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeraByteLogics.Abeona;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		46CF8EFD1E1EB38500657F55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = Abeona/Resources/AbeonaPrefixHeader.pch;
+				INFOPLIST_FILE = Abeona/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeraByteLogics.Abeona;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		46CF8EFF1E1EB38500657F55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AbeonaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeraByteLogics.AbeonaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Abeona.app/Abeona";
+			};
+			name = Debug;
+		};
+		46CF8F001E1EB38500657F55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AbeonaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeraByteLogics.AbeonaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Abeona.app/Abeona";
+			};
+			name = Release;
+		};
+		46CF8F021E1EB38500657F55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AbeonaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeraByteLogics.AbeonaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Abeona;
+			};
+			name = Debug;
+		};
+		46CF8F031E1EB38500657F55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AbeonaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeraByteLogics.AbeonaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Abeona;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		46CF8EC91E1EB38400657F55 /* Build configuration list for PBXProject "Abeona" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46CF8EF91E1EB38500657F55 /* Debug */,
+				46CF8EFA1E1EB38500657F55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46CF8EFB1E1EB38500657F55 /* Build configuration list for PBXNativeTarget "Abeona" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46CF8EFC1E1EB38500657F55 /* Debug */,
+				46CF8EFD1E1EB38500657F55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46CF8EFE1E1EB38500657F55 /* Build configuration list for PBXNativeTarget "AbeonaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46CF8EFF1E1EB38500657F55 /* Debug */,
+				46CF8F001E1EB38500657F55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46CF8F011E1EB38500657F55 /* Build configuration list for PBXNativeTarget "AbeonaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46CF8F021E1EB38500657F55 /* Debug */,
+				46CF8F031E1EB38500657F55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 46CF8EC61E1EB38400657F55 /* Project object */;
+}

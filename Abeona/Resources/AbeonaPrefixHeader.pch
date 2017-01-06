@@ -1,0 +1,22 @@
+//
+//  AbeonaPrefixHeader.pch
+//  Abeona
+//
+//  Created by Toqir Ahmad on 05/01/2017.
+//  Copyright © 2017 Toqir Ahmad. All rights reserved.
+//
+
+#ifndef AbeonaPrefixHeader_pch
+#define AbeonaPrefixHeader_pch
+
+#define SCREEN_WIDTH ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
+
+#define SCREEN_HEIGHT ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "SelectLocationViewController.h"
+
+#endif /* AbeonaPrefixHeader_pch */
