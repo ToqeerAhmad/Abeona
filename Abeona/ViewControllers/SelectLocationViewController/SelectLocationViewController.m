@@ -9,6 +9,7 @@
 #import "SelectLocationViewController.h"
 
 @interface SelectLocationViewController ()
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraintofGetRoutesBtn;
 
 @end
 
@@ -17,6 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _bottomConstraintofGetRoutesBtn.constant = 30;
+}
+
+- (IBAction)GetRoutes:(id)sender {
+    GetRoutesViewController *routesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GetRoutesViewController"];
+    [self.navigationController pushViewController:routesVC animated:true];
+    
 }
 
 - (void)didReceiveMemoryWarning {

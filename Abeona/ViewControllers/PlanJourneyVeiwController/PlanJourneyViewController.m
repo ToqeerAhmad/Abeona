@@ -24,6 +24,7 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
+
 - (IBAction)pushToSelectLocation:(id)sender {
     
     SelectLocationViewController *homeVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectLocationViewController"];

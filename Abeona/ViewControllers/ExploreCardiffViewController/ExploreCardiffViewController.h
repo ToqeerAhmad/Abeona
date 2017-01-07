@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface ExploreCardiffViewController : UIViewController
+@interface ExploreCardiffViewController : UIViewController <MKMapViewDelegate>
+
+@property (nonatomic, weak) IBOutlet MKMapView *map;
 
 @end

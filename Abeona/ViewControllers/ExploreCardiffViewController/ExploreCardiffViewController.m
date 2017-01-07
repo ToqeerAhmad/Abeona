@@ -8,10 +8,9 @@
 
 #import "ExploreCardiffViewController.h"
 #import <MapKit/MapKit.h>
+
 @interface ExploreCardiffViewController () 
-{
-    MKMapView *mapView;
-}
+
 @end
 
 @implementation ExploreCardiffViewController
@@ -24,22 +23,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    [self addMapToView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 }
-
-- (void)addMapToView {
-    
-    mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    mapView.delegate = (id)self;
-    [self.view addSubview:mapView];
-    
-}
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

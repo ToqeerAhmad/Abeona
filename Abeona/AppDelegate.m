@@ -18,6 +18,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = (id)self;
+    
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
+    {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager startUpdatingLocation];
+
+    
     return YES;
 }
 
@@ -46,6 +57,33 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    [self.locationManager stopUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error {
+    [self.locationManager stopUpdatingLocation];
+    NSLog(@"error::%@",error);
+    switch([error code])
+    {
+        case kCLErrorNetwork: // general, network-related error
+        {
+            [HelperClass showAlertView:@"Error" andMessage:@"Please check your network connection or that you are not in airplane mode" andView:self.window.rootViewController];
+        }
+            break;
+        case kCLErrorDenied:{
+            [HelperClass showAlertView:@"Error" andMessage:@"User has denied to use current Location" andView:self.window.rootViewController];
+        }
+            break;
+        default:
+        {
+            [HelperClass showAlertView:@"Error" andMessage:@"Please enable your location for app." andView:self.window.rootViewController];
+        }
+            break;
+    }
 }
 
 

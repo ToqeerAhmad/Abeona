@@ -19,5 +19,10 @@
 
 #import "SelectLocationViewController.h"
 #import "SignInViewController.h"
+#import "HelperClass.h"
+#import "GetRoutesViewController.h"
+#import "OptionsTableViewCell.h"
+#import "RouteDetailsViewController.h"
+#import "RouteTableViewCell.h"
 
 #endif /* AbeonaPrefixHeader_pch */
