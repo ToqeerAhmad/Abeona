@@ -24,5 +24,15 @@
 #import "OptionsTableViewCell.h"
 #import "RouteDetailsViewController.h"
 #import "RouteTableViewCell.h"
+#import "AnnotationModel.h"
+#import "DXAnnotation.h"
+#import "DXAnnotationView.h"
+#import "DXAnnotationSettings.h"
+#import "MapCallOutView.h"
+#import "ExploreCardiffTableViewCell.h"
+#import "ExploreCardiffDetailViewController.h"
+#import "PicturesTableViewCell.h"
+#import "DetailDescriptionTableViewCell.h"
+#import "MapTableViewCell.h"
 
 #endif /* AbeonaPrefixHeader_pch */

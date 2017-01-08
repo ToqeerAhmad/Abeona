@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PicturesTableViewCell" rowHeight="315" id="KGk-i7-Jjw" customClass="PicturesTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="354"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="353"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophyImage" translatesAutoresizingMaskIntoConstraints="NO" id="8Gb-Ap-Cs9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="258"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="8Gb-Ap-Cs9" secondAttribute="height" multiplier="125:86" id="GIU-bj-Zmt"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Champions League Trophy Display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hi3-2Q-fcu">
+                        <rect key="frame" x="12" y="266" width="351" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POPULAR WITH FANS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJb-AY-oUL">
+                        <rect key="frame" x="25" y="294" width="338" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.66666666669999997" green="0.43921568630000002" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smallTrophyIcon" translatesAutoresizingMaskIntoConstraints="NO" id="v78-M4-BLe">
+                        <rect key="frame" x="12" y="297" width="8" height="8"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="8" id="16E-rr-YfF"/>
+                            <constraint firstAttribute="width" constant="8" id="o6l-zt-b3A"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Westgate Street, Cardiff, CF10 1NS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0b-eA-GqT">
+                        <rect key="frame" x="25" y="311" width="338" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationIcon" translatesAutoresizingMaskIntoConstraints="NO" id="PC3-YX-2OG">
+                        <rect key="frame" x="12" y="315" width="8" height="8"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="8" id="WLh-Y3-IIe"/>
+                            <constraint firstAttribute="width" constant="8" id="YbN-7h-bUx"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open today until 5pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iy3-1d-nsd">
+                        <rect key="frame" x="25" y="329" width="338" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="qX7-uD-qbm">
+                        <rect key="frame" x="12" y="333" width="8" height="8"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="8" id="R3y-YK-T22"/>
+                            <constraint firstAttribute="width" constant="8" id="dyp-hT-bzN"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5zU-Zg-PdR">
+                        <rect key="frame" x="0.0" y="352" width="375" height="1"/>
+                        <color key="backgroundColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="N5i-eB-i6X"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hi3-2Q-fcu" firstAttribute="top" secondItem="8Gb-Ap-Cs9" secondAttribute="bottom" constant="8" id="2EF-Xb-RkN"/>
+                    <constraint firstItem="D0b-eA-GqT" firstAttribute="leading" secondItem="PC3-YX-2OG" secondAttribute="trailing" constant="5" id="65r-2B-LrF"/>
+                    <constraint firstItem="D0b-eA-GqT" firstAttribute="centerY" secondItem="PC3-YX-2OG" secondAttribute="centerY" id="9GF-3b-Tk3"/>
+                    <constraint firstItem="PC3-YX-2OG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Cd4-ph-YB9"/>
+                    <constraint firstItem="iy3-1d-nsd" firstAttribute="centerY" secondItem="qX7-uD-qbm" secondAttribute="centerY" id="Fq8-ih-SGr"/>
+                    <constraint firstItem="mJb-AY-oUL" firstAttribute="top" secondItem="hi3-2Q-fcu" secondAttribute="bottom" constant="4" id="GRX-W4-4Na"/>
+                    <constraint firstAttribute="trailing" secondItem="D0b-eA-GqT" secondAttribute="trailing" constant="12" id="V9M-Sc-CfQ"/>
+                    <constraint firstAttribute="trailing" secondItem="mJb-AY-oUL" secondAttribute="trailing" constant="12" id="VAq-fd-NXe"/>
+                    <constraint firstItem="qX7-uD-qbm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="VXd-E0-3pi"/>
+                    <constraint firstItem="D0b-eA-GqT" firstAttribute="top" secondItem="mJb-AY-oUL" secondAttribute="bottom" constant="2" id="Xfq-aA-ita"/>
+                    <constraint firstItem="v78-M4-BLe" firstAttribute="centerY" secondItem="mJb-AY-oUL" secondAttribute="centerY" id="Y7A-dE-IZ8"/>
+                    <constraint firstItem="mJb-AY-oUL" firstAttribute="leading" secondItem="v78-M4-BLe" secondAttribute="trailing" constant="5" id="bA2-1S-MSV"/>
+                    <constraint firstItem="iy3-1d-nsd" firstAttribute="top" secondItem="D0b-eA-GqT" secondAttribute="bottom" constant="1" id="biH-8q-wrK"/>
+                    <constraint firstAttribute="bottom" secondItem="5zU-Zg-PdR" secondAttribute="bottom" id="bwY-UL-8Kw"/>
+                    <constraint firstAttribute="trailing" secondItem="5zU-Zg-PdR" secondAttribute="trailing" id="c9J-j3-HB3"/>
+                    <constraint firstItem="qX7-uD-qbm" firstAttribute="top" secondItem="PC3-YX-2OG" secondAttribute="bottom" constant="10" id="cai-rJ-tSF"/>
+                    <constraint firstItem="v78-M4-BLe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="eBD-w0-4Z8"/>
+                    <constraint firstItem="8Gb-Ap-Cs9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="f3S-Ty-kaF"/>
+                    <constraint firstItem="v78-M4-BLe" firstAttribute="top" secondItem="hi3-2Q-fcu" secondAttribute="bottom" constant="7" id="iz7-Hv-Tpo"/>
+                    <constraint firstItem="hi3-2Q-fcu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="kPT-Iw-0eU"/>
+                    <constraint firstAttribute="trailing" secondItem="8Gb-Ap-Cs9" secondAttribute="trailing" id="lEE-tH-1Ek"/>
+                    <constraint firstItem="iy3-1d-nsd" firstAttribute="leading" secondItem="qX7-uD-qbm" secondAttribute="trailing" constant="5" id="qN3-it-Xhm"/>
+                    <constraint firstItem="5zU-Zg-PdR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sK3-g1-Hkg"/>
+                    <constraint firstAttribute="trailing" secondItem="hi3-2Q-fcu" secondAttribute="trailing" constant="12" id="vyu-6x-PPa"/>
+                    <constraint firstAttribute="trailing" secondItem="iy3-1d-nsd" secondAttribute="trailing" constant="12" id="wKF-fj-uqX"/>
+                    <constraint firstItem="8Gb-Ap-Cs9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xAN-aj-hS6"/>
+                    <constraint firstItem="PC3-YX-2OG" firstAttribute="top" secondItem="v78-M4-BLe" secondAttribute="bottom" constant="10" id="yKX-Ak-Ufk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="92.5" y="19"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="clockIcon" width="8" height="8"/>
+        <image name="locationIcon" width="8" height="8"/>
+        <image name="smallTrophyIcon" width="8" height="8"/>
+        <image name="trophyImage" width="125" height="100"/>
+    </resources>
+</document>

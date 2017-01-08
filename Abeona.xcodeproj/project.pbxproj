@@ -9,6 +9,22 @@
 /* Begin PBXBuildFile section */
 		464B2BC61E217D3A00535E99 /* RouteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BC41E217D3A00535E99 /* RouteTableViewCell.m */; };
 		464B2BC71E217D3A00535E99 /* RouteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464B2BC51E217D3A00535E99 /* RouteTableViewCell.xib */; };
+		464B2BD11E22933800535E99 /* DXAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BCA1E22933800535E99 /* DXAnnotation.m */; };
+		464B2BD21E22933800535E99 /* DXAnnotationSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BCC1E22933800535E99 /* DXAnnotationSettings.m */; };
+		464B2BD31E22933800535E99 /* DXAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BCE1E22933800535E99 /* DXAnnotationView.m */; };
+		464B2BD41E22933800535E99 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BD01E22933800535E99 /* MyAnnotation.m */; };
+		464B2BD71E2293AC00535E99 /* AnnotationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BD61E2293AC00535E99 /* AnnotationModel.m */; };
+		464B2BDB1E22957700535E99 /* MapCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BDA1E22957700535E99 /* MapCallOutView.m */; };
+		464B2BDD1E22957E00535E99 /* MapCallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464B2BDC1E22957E00535E99 /* MapCallOutView.xib */; };
+		464B2BE11E22B08200535E99 /* ExploreCardiffTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BDF1E22B08200535E99 /* ExploreCardiffTableViewCell.m */; };
+		464B2BE21E22B08200535E99 /* ExploreCardiffTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464B2BE01E22B08200535E99 /* ExploreCardiffTableViewCell.xib */; };
+		464B2BE61E22B8AF00535E99 /* ExploreCardiffDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BE51E22B8AF00535E99 /* ExploreCardiffDetailViewController.m */; };
+		464B2BEB1E22B99B00535E99 /* PicturesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BE91E22B99B00535E99 /* PicturesTableViewCell.m */; };
+		464B2BEC1E22B99B00535E99 /* PicturesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464B2BEA1E22B99B00535E99 /* PicturesTableViewCell.xib */; };
+		464B2BF51E22C43F00535E99 /* DetailDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BF31E22C43F00535E99 /* DetailDescriptionTableViewCell.m */; };
+		464B2BF61E22C43F00535E99 /* DetailDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464B2BF41E22C43F00535E99 /* DetailDescriptionTableViewCell.xib */; };
+		464B2BFA1E22C75100535E99 /* MapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BF81E22C75100535E99 /* MapTableViewCell.m */; };
+		464B2BFB1E22C75100535E99 /* MapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464B2BF91E22C75100535E99 /* MapTableViewCell.xib */; };
 		46CD370A1E203E8100F83128 /* UIViewExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CD37091E203E8100F83128 /* UIViewExtension.m */; };
 		46CD370D1E2040D500F83128 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46CD370C1E2040D500F83128 /* MapKit.framework */; };
 		46CD37111E2045AF00F83128 /* GetRoutesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CD37101E2045AF00F83128 /* GetRoutesViewController.m */; };
@@ -56,6 +72,33 @@
 		464B2BC31E217D3A00535E99 /* RouteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteTableViewCell.h; sourceTree = "<group>"; };
 		464B2BC41E217D3A00535E99 /* RouteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteTableViewCell.m; sourceTree = "<group>"; };
 		464B2BC51E217D3A00535E99 /* RouteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteTableViewCell.xib; sourceTree = "<group>"; };
+		464B2BC91E22933800535E99 /* DXAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXAnnotation.h; sourceTree = "<group>"; };
+		464B2BCA1E22933800535E99 /* DXAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXAnnotation.m; sourceTree = "<group>"; };
+		464B2BCB1E22933800535E99 /* DXAnnotationSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXAnnotationSettings.h; sourceTree = "<group>"; };
+		464B2BCC1E22933800535E99 /* DXAnnotationSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXAnnotationSettings.m; sourceTree = "<group>"; };
+		464B2BCD1E22933800535E99 /* DXAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXAnnotationView.h; sourceTree = "<group>"; };
+		464B2BCE1E22933800535E99 /* DXAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXAnnotationView.m; sourceTree = "<group>"; };
+		464B2BCF1E22933800535E99 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		464B2BD01E22933800535E99 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		464B2BD51E2293AC00535E99 /* AnnotationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationModel.h; sourceTree = "<group>"; };
+		464B2BD61E2293AC00535E99 /* AnnotationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationModel.m; sourceTree = "<group>"; };
+		464B2BD91E22957700535E99 /* MapCallOutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCallOutView.h; sourceTree = "<group>"; };
+		464B2BDA1E22957700535E99 /* MapCallOutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapCallOutView.m; sourceTree = "<group>"; };
+		464B2BDC1E22957E00535E99 /* MapCallOutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapCallOutView.xib; sourceTree = "<group>"; };
+		464B2BDE1E22B08200535E99 /* ExploreCardiffTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreCardiffTableViewCell.h; sourceTree = "<group>"; };
+		464B2BDF1E22B08200535E99 /* ExploreCardiffTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreCardiffTableViewCell.m; sourceTree = "<group>"; };
+		464B2BE01E22B08200535E99 /* ExploreCardiffTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExploreCardiffTableViewCell.xib; sourceTree = "<group>"; };
+		464B2BE41E22B8AF00535E99 /* ExploreCardiffDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploreCardiffDetailViewController.h; sourceTree = "<group>"; };
+		464B2BE51E22B8AF00535E99 /* ExploreCardiffDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploreCardiffDetailViewController.m; sourceTree = "<group>"; };
+		464B2BE81E22B99B00535E99 /* PicturesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturesTableViewCell.h; sourceTree = "<group>"; };
+		464B2BE91E22B99B00535E99 /* PicturesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturesTableViewCell.m; sourceTree = "<group>"; };
+		464B2BEA1E22B99B00535E99 /* PicturesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicturesTableViewCell.xib; sourceTree = "<group>"; };
+		464B2BF21E22C43F00535E99 /* DetailDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailDescriptionTableViewCell.h; sourceTree = "<group>"; };
+		464B2BF31E22C43F00535E99 /* DetailDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailDescriptionTableViewCell.m; sourceTree = "<group>"; };
+		464B2BF41E22C43F00535E99 /* DetailDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailDescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		464B2BF71E22C75100535E99 /* MapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTableViewCell.h; sourceTree = "<group>"; };
+		464B2BF81E22C75100535E99 /* MapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTableViewCell.m; sourceTree = "<group>"; };
+		464B2BF91E22C75100535E99 /* MapTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapTableViewCell.xib; sourceTree = "<group>"; };
 		46CD37081E203E8100F83128 /* UIViewExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExtension.h; sourceTree = "<group>"; };
 		46CD37091E203E8100F83128 /* UIViewExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExtension.m; sourceTree = "<group>"; };
 		46CD370C1E2040D500F83128 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -130,6 +173,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		464B2BC81E22933800535E99 /* Annotation Classes */ = {
+			isa = PBXGroup;
+			children = (
+				464B2BC91E22933800535E99 /* DXAnnotation.h */,
+				464B2BCA1E22933800535E99 /* DXAnnotation.m */,
+				464B2BCB1E22933800535E99 /* DXAnnotationSettings.h */,
+				464B2BCC1E22933800535E99 /* DXAnnotationSettings.m */,
+				464B2BCD1E22933800535E99 /* DXAnnotationView.h */,
+				464B2BCE1E22933800535E99 /* DXAnnotationView.m */,
+				464B2BCF1E22933800535E99 /* MyAnnotation.h */,
+				464B2BD01E22933800535E99 /* MyAnnotation.m */,
+				464B2BD51E2293AC00535E99 /* AnnotationModel.h */,
+				464B2BD61E2293AC00535E99 /* AnnotationModel.m */,
+			);
+			path = "Annotation Classes";
+			sourceTree = "<group>";
+		};
+		464B2BD81E22956000535E99 /* MapCallOutView */ = {
+			isa = PBXGroup;
+			children = (
+				464B2BD91E22957700535E99 /* MapCallOutView.h */,
+				464B2BDA1E22957700535E99 /* MapCallOutView.m */,
+				464B2BDC1E22957E00535E99 /* MapCallOutView.xib */,
+			);
+			path = MapCallOutView;
+			sourceTree = "<group>";
+		};
+		464B2BE31E22B89E00535E99 /* ExploreCardiffDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				464B2BE41E22B8AF00535E99 /* ExploreCardiffDetailViewController.h */,
+				464B2BE51E22B8AF00535E99 /* ExploreCardiffDetailViewController.m */,
+				464B2BE71E22B97200535E99 /* UITableViewCells */,
+			);
+			path = ExploreCardiffDetailViewController;
+			sourceTree = "<group>";
+		};
+		464B2BE71E22B97200535E99 /* UITableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				464B2BE81E22B99B00535E99 /* PicturesTableViewCell.h */,
+				464B2BE91E22B99B00535E99 /* PicturesTableViewCell.m */,
+				464B2BEA1E22B99B00535E99 /* PicturesTableViewCell.xib */,
+				464B2BF21E22C43F00535E99 /* DetailDescriptionTableViewCell.h */,
+				464B2BF31E22C43F00535E99 /* DetailDescriptionTableViewCell.m */,
+				464B2BF41E22C43F00535E99 /* DetailDescriptionTableViewCell.xib */,
+				464B2BF71E22C75100535E99 /* MapTableViewCell.h */,
+				464B2BF81E22C75100535E99 /* MapTableViewCell.m */,
+				464B2BF91E22C75100535E99 /* MapTableViewCell.xib */,
+			);
+			path = UITableViewCells;
+			sourceTree = "<group>";
+		};
 		46CD370B1E2040D500F83128 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +246,7 @@
 		46CD37121E20462000F83128 /* Custom Views Cells */ = {
 			isa = PBXGroup;
 			children = (
+				464B2BD81E22956000535E99 /* MapCallOutView */,
 				46CD37181E20464300F83128 /* WalkthroughView */,
 				46CD371C1E20464300F83128 /* UITableViewCells */,
 			);
@@ -175,6 +272,9 @@
 				464B2BC31E217D3A00535E99 /* RouteTableViewCell.h */,
 				464B2BC41E217D3A00535E99 /* RouteTableViewCell.m */,
 				464B2BC51E217D3A00535E99 /* RouteTableViewCell.xib */,
+				464B2BDE1E22B08200535E99 /* ExploreCardiffTableViewCell.h */,
+				464B2BDF1E22B08200535E99 /* ExploreCardiffTableViewCell.m */,
+				464B2BE01E22B08200535E99 /* ExploreCardiffTableViewCell.xib */,
 			);
 			path = UITableViewCells;
 			sourceTree = "<group>";
@@ -264,6 +364,7 @@
 				46CF8F0F1E1ECA4B00657F55 /* SignInViewController */,
 				46CF8F111E1ECA7900657F55 /* PlanJourneyVeiwController */,
 				46CF8F121E1ECA7900657F55 /* ExploreCardiffViewController */,
+				464B2BE31E22B89E00535E99 /* ExploreCardiffDetailViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -272,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				46CF8F201E1ECCF400657F55 /* AbeonaPrefixHeader.pch */,
+				464B2BC81E22933800535E99 /* Annotation Classes */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -452,10 +554,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464B2BFB1E22C75100535E99 /* MapTableViewCell.xib in Resources */,
 				46CF8EE11E1EB38400657F55 /* LaunchScreen.storyboard in Resources */,
+				464B2BE21E22B08200535E99 /* ExploreCardiffTableViewCell.xib in Resources */,
+				464B2BDD1E22957E00535E99 /* MapCallOutView.xib in Resources */,
 				46CF8EDE1E1EB38400657F55 /* Assets.xcassets in Resources */,
 				46CD37261E20466C00F83128 /* OptionsTableViewCell.xib in Resources */,
 				46CF8EDC1E1EB38400657F55 /* Main.storyboard in Resources */,
+				464B2BEC1E22B99B00535E99 /* PicturesTableViewCell.xib in Resources */,
+				464B2BF61E22C43F00535E99 /* DetailDescriptionTableViewCell.xib in Resources */,
 				46CD371E1E20464300F83128 /* WalkthroughView.xib in Resources */,
 				464B2BC71E217D3A00535E99 /* RouteTableViewCell.xib in Resources */,
 			);
@@ -482,23 +589,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464B2BE61E22B8AF00535E99 /* ExploreCardiffDetailViewController.m in Sources */,
 				46CF8F1B1E1ECADD00657F55 /* ExploreCardiffViewController.m in Sources */,
 				46CF8F151E1ECA9B00657F55 /* SignInViewController.m in Sources */,
 				46CD37251E20466C00F83128 /* OptionsTableViewCell.m in Sources */,
+				464B2BDB1E22957700535E99 /* MapCallOutView.m in Sources */,
+				464B2BF51E22C43F00535E99 /* DetailDescriptionTableViewCell.m in Sources */,
 				46CD37111E2045AF00F83128 /* GetRoutesViewController.m in Sources */,
+				464B2BD11E22933800535E99 /* DXAnnotation.m in Sources */,
 				46D090171E201F6800C323F1 /* UILabelClass.m in Sources */,
 				46CF8F101E1ECA4B00657F55 /* WalkthroughViewController.m in Sources */,
 				46CF8ED61E1EB38400657F55 /* AppDelegate.m in Sources */,
+				464B2BE11E22B08200535E99 /* ExploreCardiffTableViewCell.m in Sources */,
+				464B2BD71E2293AC00535E99 /* AnnotationModel.m in Sources */,
 				46CD370A1E203E8100F83128 /* UIViewExtension.m in Sources */,
 				46CF8F181E1ECAC200657F55 /* PlanJourneyViewController.m in Sources */,
 				46CF8F241E1EDACA00657F55 /* SelectLocationViewController.m in Sources */,
+				464B2BD41E22933800535E99 /* MyAnnotation.m in Sources */,
+				464B2BD31E22933800535E99 /* DXAnnotationView.m in Sources */,
 				464B2BC61E217D3A00535E99 /* RouteTableViewCell.m in Sources */,
+				464B2BEB1E22B99B00535E99 /* PicturesTableViewCell.m in Sources */,
 				46D090141E201EC400C323F1 /* UIButtonExtension.m in Sources */,
 				46CD372A1E204DBC00F83128 /* RouteDetailsViewController.m in Sources */,
 				46CF8F271E1EDB8A00657F55 /* UITabBarView.m in Sources */,
 				46D0901B1E202E4B00C323F1 /* HelperClass.m in Sources */,
 				46CF8ED31E1EB38400657F55 /* main.m in Sources */,
 				46CD371D1E20464300F83128 /* WalkthroughView.m in Sources */,
+				464B2BFA1E22C75100535E99 /* MapTableViewCell.m in Sources */,
+				464B2BD21E22933800535E99 /* DXAnnotationSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

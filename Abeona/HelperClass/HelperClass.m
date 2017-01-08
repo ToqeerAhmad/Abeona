@@ -10,6 +10,14 @@
 
 @implementation HelperClass
 
+
++(CGSize)getCellHeight:(int)originalHeight OriginalWidth:(int)originalWidth
+{
+    float height=(originalHeight*SCREEN_WIDTH)/originalWidth;
+    CGSize size=CGSizeMake(SCREEN_WIDTH,height);
+    return size;
+}
+
 +(BOOL)isValidEmail:(NSString *)email
 {
     BOOL stricterFilter = NO; // Discussion

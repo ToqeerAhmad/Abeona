@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MapCallOutView">
+            <rect key="frame" x="0.0" y="0.0" width="112" height="184"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="callOutViewImage" translatesAutoresizingMaskIntoConstraints="NO" id="lfJ-Os-L0O">
+                    <rect key="frame" x="0.0" y="0.0" width="112" height="184"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophyImage" translatesAutoresizingMaskIntoConstraints="NO" id="fBm-ta-uds">
+                    <rect key="frame" x="5" y="5" width="102" height="82"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="82" id="yfr-Bk-LZR"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Champions League Trophy Display" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNj-yt-edR">
+                    <rect key="frame" x="5" y="92" width="102" height="24"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uL0-ag-Acc">
+                    <rect key="frame" x="16" y="119" width="80" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="3X2-sK-NJh"/>
+                        <constraint firstAttribute="width" constant="80" id="7oZ-Cn-z0f"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                    <state key="normal" title="Click to view">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="fBm-ta-uds" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="0u0-De-uAQ"/>
+                <constraint firstAttribute="trailing" secondItem="fBm-ta-uds" secondAttribute="trailing" constant="5" id="2iv-4I-hGf"/>
+                <constraint firstItem="lfJ-Os-L0O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="A55-7g-u9j"/>
+                <constraint firstAttribute="trailing" secondItem="lfJ-Os-L0O" secondAttribute="trailing" id="Ay4-TP-GMy"/>
+                <constraint firstAttribute="bottom" secondItem="lfJ-Os-L0O" secondAttribute="bottom" id="NIz-71-ekz"/>
+                <constraint firstItem="bNj-yt-edR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="RNC-BW-TOc"/>
+                <constraint firstItem="uL0-ag-Acc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="UGL-eW-W2X"/>
+                <constraint firstItem="uL0-ag-Acc" firstAttribute="top" secondItem="bNj-yt-edR" secondAttribute="bottom" constant="3" id="Vmu-v1-JBN"/>
+                <constraint firstItem="fBm-ta-uds" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="XiQ-Vm-T4d"/>
+                <constraint firstAttribute="trailing" secondItem="uL0-ag-Acc" secondAttribute="trailing" constant="16" id="cWI-oh-OiC"/>
+                <constraint firstAttribute="trailing" secondItem="bNj-yt-edR" secondAttribute="trailing" constant="5" id="fCJ-0z-15k"/>
+                <constraint firstItem="bNj-yt-edR" firstAttribute="top" secondItem="fBm-ta-uds" secondAttribute="bottom" constant="5" id="lU3-Xg-dZA"/>
+                <constraint firstItem="uL0-ag-Acc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oOZ-Nz-h6H"/>
+                <constraint firstItem="lfJ-Os-L0O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xli-tw-Wof"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="viewDetailBtn" destination="uL0-ag-Acc" id="TGn-ur-Fn7"/>
+            </connections>
+            <point key="canvasLocation" x="38" y="221"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="callOutViewImage" width="112" height="184"/>
+        <image name="trophyImage" width="125" height="100"/>
+    </resources>
+</document>

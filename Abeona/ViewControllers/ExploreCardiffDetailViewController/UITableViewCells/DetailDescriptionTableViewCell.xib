@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DetailDescriptionCell" rowHeight="143" id="KGk-i7-Jjw" customClass="DetailDescriptionTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Champions League Trophy is on display between the hours of 9am and 5pm every day at Westgate Street." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxJ-e3-1QI">
+                        <rect key="frame" x="14" y="8" width="347" height="51"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G86-bH-DhM">
+                        <rect key="frame" x="14" y="71" width="347" height="67"/>
+                        <string key="text">Want to take the family or your fellow fans to see the trophy before the winners get their hands on it? Check out the map below for directions and how to get there!</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIe-tU-ZcW">
+                        <rect key="frame" x="0.0" y="137" width="375" height="1"/>
+                        <color key="backgroundColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="zH0-DH-f8G"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="XxJ-e3-1QI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="3DV-5w-h5I"/>
+                    <constraint firstItem="ZIe-tU-ZcW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HZl-mL-1tC"/>
+                    <constraint firstAttribute="bottom" secondItem="ZIe-tU-ZcW" secondAttribute="bottom" id="WYc-vD-qL7"/>
+                    <constraint firstItem="G86-bH-DhM" firstAttribute="top" secondItem="XxJ-e3-1QI" secondAttribute="bottom" constant="12" id="YPc-FJ-3PJ"/>
+                    <constraint firstAttribute="trailing" secondItem="ZIe-tU-ZcW" secondAttribute="trailing" id="eP8-Cr-X1P"/>
+                    <constraint firstAttribute="trailing" secondItem="G86-bH-DhM" secondAttribute="trailing" constant="14" id="nJ3-EU-DvO"/>
+                    <constraint firstItem="G86-bH-DhM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="vAF-bK-Uus"/>
+                    <constraint firstAttribute="trailing" secondItem="XxJ-e3-1QI" secondAttribute="trailing" constant="14" id="xj9-xK-vAC"/>
+                    <constraint firstItem="XxJ-e3-1QI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ytt-Bc-hNF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="33.5" y="103.5"/>
+        </tableViewCell>
+    </objects>
+</document>

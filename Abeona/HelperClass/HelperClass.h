@@ -10,6 +10,7 @@
 
 @interface HelperClass : NSObject
 
++(CGSize)getCellHeight:(int)originalHeight OriginalWidth:(int)originalWidth;
 + (UIColor *)colorwithHexString:(NSString *)hexStr alpha:(CGFloat)alpha;
 +(BOOL)isValidEmail:(NSString *)email;
 +(NSString *)getDate:(NSString *) date withFormat :(NSString *)dateFormat;
@@ -18,7 +19,6 @@
 +(NSString *)getUserId;
 + (void)showAlertView:(NSString*)heading andMessage:(NSString *)message andView:(UIViewController *)view;
 +(void)returnImageFromUrlWithCache:(NSString *)imageURL andImagePlacement:(UIImageView *)imagePlacement;
-+(BOOL) NSStringIsValidEmail:(NSString *)checkString;
 +(BOOL)isValidNumericString:(NSString*)string;
 +(BOOL)internationalPhoneNumberVaidation:(NSString*)string;
 
