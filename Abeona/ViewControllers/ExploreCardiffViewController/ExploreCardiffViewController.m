@@ -28,8 +28,15 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isCardiff"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"isCardiff"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        ExploreCardiffDetailViewController *detailVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ExploreCardiffDetailViewController"];
+        [self.navigationController pushViewController:detailVc animated:false];
+    }else {
+        [self setAnnotations];
+    }
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    [self setAnnotations];
 }
 
 -(void)setAnnotations

@@ -49,6 +49,7 @@
 		46D090141E201EC400C323F1 /* UIButtonExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D090131E201EC400C323F1 /* UIButtonExtension.m */; };
 		46D090171E201F6800C323F1 /* UILabelClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D090151E201F6800C323F1 /* UILabelClass.m */; };
 		46D0901B1E202E4B00C323F1 /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D0901A1E202E4B00C323F1 /* HelperClass.m */; };
+		46D564851E2427F500A94CD3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D564841E2427F500A94CD3 /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,8 @@
 		46D090161E201F6800C323F1 /* UILabelClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelClass.h; sourceTree = "<group>"; };
 		46D090191E202E4B00C323F1 /* HelperClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClass.h; sourceTree = "<group>"; };
 		46D0901A1E202E4B00C323F1 /* HelperClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperClass.m; sourceTree = "<group>"; };
+		46D564831E2427F500A94CD3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		46D564841E2427F500A94CD3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +360,7 @@
 		46CF8F041E1EB46000657F55 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				46D564821E2427B500A94CD3 /* HomeViewcontroller */,
 				46CD37271E204DAE00F83128 /* RouteDetailsViewController */,
 				46CD370E1E2045A100F83128 /* GetRoutesViewController */,
 				46CF8F211E1EDAB500657F55 /* SelectLocationViewController */,
@@ -445,6 +449,15 @@
 				46D0901A1E202E4B00C323F1 /* HelperClass.m */,
 			);
 			path = HelperClass;
+			sourceTree = "<group>";
+		};
+		46D564821E2427B500A94CD3 /* HomeViewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				46D564831E2427F500A94CD3 /* HomeViewController.h */,
+				46D564841E2427F500A94CD3 /* HomeViewController.m */,
+			);
+			path = HomeViewcontroller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -595,6 +608,7 @@
 				46CD37251E20466C00F83128 /* OptionsTableViewCell.m in Sources */,
 				464B2BDB1E22957700535E99 /* MapCallOutView.m in Sources */,
 				464B2BF51E22C43F00535E99 /* DetailDescriptionTableViewCell.m in Sources */,
+				46D564851E2427F500A94CD3 /* HomeViewController.m in Sources */,
 				46CD37111E2045AF00F83128 /* GetRoutesViewController.m in Sources */,
 				464B2BD11E22933800535E99 /* DXAnnotation.m in Sources */,
 				46D090171E201F6800C323F1 /* UILabelClass.m in Sources */,

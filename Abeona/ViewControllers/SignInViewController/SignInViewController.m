@@ -20,10 +20,8 @@
 }
 
 - (IBAction)pushToHomeScreen:(id)sender {
-    
-    UITabBarController *homeVc = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-    [self.navigationController pushViewController:homeVc animated:true];
-    
+    HomeViewController *homeVc = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    [self.navigationController pushViewController:homeVc animated:true];    
 }
 
 - (void)didReceiveMemoryWarning {

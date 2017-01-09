@@ -38,9 +38,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return [HelperClass getCellHeight:354 OriginalWidth:375].height;
+        return [HelperClass getCellHeight:365 OriginalWidth:375].height;
     }else if (indexPath.row == 1) {
-        return [HelperClass getCellHeight:145 OriginalWidth:375].height;
+        return [HelperClass getCellHeight:165 OriginalWidth:375].height;
     }else {
         return [HelperClass getCellHeight:376 OriginalWidth:375].height;
     }

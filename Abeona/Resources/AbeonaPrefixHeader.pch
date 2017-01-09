@@ -34,5 +34,6 @@
 #import "PicturesTableViewCell.h"
 #import "DetailDescriptionTableViewCell.h"
 #import "MapTableViewCell.h"
+#import "HomeViewController.h"
 
 #endif /* AbeonaPrefixHeader_pch */
