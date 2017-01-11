@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface RouteTableViewCell : UITableViewCell
+
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *labelTopConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *leaveImageHeightConstraint;
 
@@ -18,5 +19,7 @@
 @property (nonatomic, strong) IBOutlet UIView *halfLine;
 @property (nonatomic, strong) IBOutlet UIView *fullLine;
 @property (nonatomic, strong) IBOutlet UIView *alertView;
+
+@property (nonatomic, strong) IBOutlet UIButton *detailBtn;
 
 @end

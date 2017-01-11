@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 
 @interface MapTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet MKMapView *mapview;
+@property (nonatomic, strong) IBOutlet UIView *customView;
 
 @end

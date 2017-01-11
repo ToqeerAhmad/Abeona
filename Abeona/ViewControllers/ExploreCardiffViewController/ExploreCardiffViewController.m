@@ -7,9 +7,8 @@
 //
 
 #import "ExploreCardiffViewController.h"
-#import <MapKit/MapKit.h>
 
-@interface ExploreCardiffViewController () 
+@interface ExploreCardiffViewController ()  <GMSMapViewDelegate>
 {
     BOOL isMapSelected;
 }
@@ -17,7 +16,6 @@
 
 @implementation ExploreCardiffViewController
 
-@synthesize map,customView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,77 +32,61 @@
         ExploreCardiffDetailViewController *detailVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ExploreCardiffDetailViewController"];
         [self.navigationController pushViewController:detailVc animated:false];
     }else {
-        [self setAnnotations];
+        [self loadView];
     }
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
 -(void)setAnnotations
 {
-    map.delegate = self;
-//    [map setUserTrackingMode:MKUserTrackingModeFollow];
-    [map setMapType:MKMapTypeStandard];
-    [map setZoomEnabled:YES];
-    [map setScrollEnabled:YES];
-    
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(31.554606, 74.357158);
-    
-    DXAnnotation *annotation1 = [[DXAnnotation alloc] initWithLocation:coordinate andTag:0];
-    [map addAnnotation:annotation1];
-    [map setRegion:MKCoordinateRegionMakeWithDistance(annotation1.coordinate, 10000, 10000)];
 
 //    [self zoomMap:0.01 andCoordiantes:coordinates];
 }
 
 #pragma mark - MAPView Delegate
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView
-            viewForAnnotation:(id<MKAnnotation>)annotation {
+- (void)loadView {
+    // Create a GMSCameraPosition that tells the map to display the
+    // coordinate -33.86,151.20 at zoom level 6.
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
+                                                            longitude:151.20
+                                                                 zoom:6];
+    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) camera:camera];
+    mapView.delegate = self;
+    mapView.myLocationEnabled = YES;
+    self.view = mapView;
     
-    if ([annotation isKindOfClass:[DXAnnotation class]]) {
-        
-        UIImageView *pinView = nil;
-        
-        DXAnnotationView *annotationView = (DXAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass([DXAnnotationView class])];
-        if (!annotationView) {
-            pinView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"annotationImage"]];
-            customView = [[[NSBundle mainBundle] loadNibNamed:@"MapCallOutView" owner:self options:nil] firstObject];
-            [customView.viewDetailBtn addTarget:self action:@selector(callMe:) forControlEvents:UIControlEventTouchUpInside];
-            DXAnnotation *anotation = annotation;
-            customView.viewDetailBtn.tag = anotation.tagDX;
-            annotationView = [[DXAnnotationView alloc] initWithAnnotation:annotation
-                                                          reuseIdentifier:NSStringFromClass([DXAnnotationView class])
-                                                                  pinView:pinView
-                                                              calloutView:customView
-                                                                 settings:[DXAnnotationSettings defaultSettings]];
-        }else {
-            
-            //Changing PinView's image to test the recycle
-            pinView = (UIImageView *)annotationView.pinView;
-            pinView.image = [UIImage imageNamed:@"annotationImage"];
-        }
-        
-        
-        return annotationView;
-    }
-    return nil;
+    // Creates a marker in the center of the map.
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
+    marker.icon = [UIImage imageNamed:@"annotationImage"];
+    marker.map = mapView;
+    marker.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
+    
 }
 
-- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
-    
-    if ([view isKindOfClass:[DXAnnotationView class]]) {
-        [((DXAnnotationView *)view)hideCalloutView];
-        view.layer.zPosition = -1;
-    }
+- (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
+     MapCallOutView *customView =  [[[NSBundle mainBundle] loadNibNamed:@"MapCallOutView" owner:self options:nil] objectAtIndex:0];
+    [customView.viewDetailBtn addTarget:self action:@selector(callMe:) forControlEvents:UIControlEventTouchUpInside];
+    return customView;
 }
 
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    
-    if ([view isKindOfClass:[DXAnnotationView class]]) {
-        [((DXAnnotationView *)view)showCalloutView];
-        view.layer.zPosition = 0;
-    }
+
+-(BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker
+{
+    [mapView setSelectedMarker:marker];
+    return true;
 }
+
+
+- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+    ExploreCardiffDetailViewController *detailVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ExploreCardiffDetailViewController"];
+    [self.navigationController pushViewController:detailVc animated:true];
+
+}
+
+
+
 
 #pragma mark - TableView Delegate & DataSource
 
@@ -147,8 +129,7 @@
 
 
 - (void)callMe:(UIButton *)sender {
-    ExploreCardiffDetailViewController *detailVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ExploreCardiffDetailViewController"];
-    [self.navigationController pushViewController:detailVc animated:true];
+    
 }
 
 

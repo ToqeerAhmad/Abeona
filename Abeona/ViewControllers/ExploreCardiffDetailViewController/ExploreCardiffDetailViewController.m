@@ -11,7 +11,7 @@
 #import "ExploreCardiffDetailViewController.h"
 
 
-@interface ExploreCardiffDetailViewController ()
+@interface ExploreCardiffDetailViewController ()  <GMSMapViewDelegate>
 
 @end
 
@@ -61,6 +61,7 @@
     }else {
         
         MapTableViewCell *cell = (MapTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MapTableViewCell" forIndexPath:indexPath];
+        [self loadView:cell];
         return cell;
     }
 }
@@ -68,6 +69,20 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
+
+- (void)loadView:(MapTableViewCell *)cell {
+    // Create a GMSCameraPosition that tells the map to display the
+    // coordinate -33.86,151.20 at zoom level 6.
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
+                                                            longitude:151.20
+                                                                 zoom:6];
+    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, cell.customView.frame.size.width,cell.customView.frame.size.height ) camera:camera];
+    mapView.myLocationEnabled = YES;
+    [cell.customView addSubview:mapView];
+    
+    // Creates a marker in the center of the map.
+}
+
 
 
 - (void)didReceiveMemoryWarning {

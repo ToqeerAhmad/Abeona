@@ -162,6 +162,7 @@
             <connections>
                 <outlet property="alertView" destination="Zpx-vH-lse" id="HKv-GC-fEJ"/>
                 <outlet property="circleImageView" destination="imr-JV-U2l" id="cpJ-bC-jqg"/>
+                <outlet property="detailBtn" destination="uqo-Rz-BtL" id="uqy-rr-gds"/>
                 <outlet property="fullLine" destination="2D1-15-rN0" id="Tsw-xp-zz4"/>
                 <outlet property="halfLine" destination="PHd-YS-sev" id="J90-dj-WSS"/>
                 <outlet property="labelTopConstraint" destination="cVK-va-N7l" id="9vG-uk-dBG"/>

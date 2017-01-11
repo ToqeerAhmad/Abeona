@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface ExploreCardiffDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 typedef enum

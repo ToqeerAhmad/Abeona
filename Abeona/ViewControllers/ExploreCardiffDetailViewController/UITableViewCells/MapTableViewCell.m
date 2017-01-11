@@ -13,11 +13,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.mapview.layer.cornerRadius = 3.0;
-    self.mapview.layer.borderColor = [HelperClass colorwithHexString:@"2C2C2C" alpha:1.0].CGColor;
-    self.mapview.layer.borderWidth = 1.0;
-    self.mapview.layer.masksToBounds = true;
+    self.customView.layer.cornerRadius = 3.0;
+    self.customView.layer.borderColor = [HelperClass colorwithHexString:@"2C2C2C" alpha:1.0].CGColor;
+    self.customView.layer.borderWidth = 1.0;
+    self.customView.layer.masksToBounds = true;
 }
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

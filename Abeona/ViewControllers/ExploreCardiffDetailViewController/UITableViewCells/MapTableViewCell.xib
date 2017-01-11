@@ -18,9 +18,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="su1-R8-yY1">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2H6-a2-lEi">
                         <rect key="frame" x="17" y="48" width="341" height="310"/>
-                    </mapView>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Get There" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5d-ep-K9n" customClass="UILabelClass">
                         <rect key="frame" x="17" y="12" width="143" height="21"/>
                         <constraints>
@@ -33,16 +34,16 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="2H6-a2-lEi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="KFI-SZ-Sms"/>
                     <constraint firstItem="u5d-ep-K9n" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="KLc-lh-8Cx"/>
-                    <constraint firstItem="su1-R8-yY1" firstAttribute="top" secondItem="u5d-ep-K9n" secondAttribute="bottom" constant="15" id="QfX-BV-cEg"/>
-                    <constraint firstItem="su1-R8-yY1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="SzL-RD-3rI"/>
-                    <constraint firstAttribute="bottom" secondItem="su1-R8-yY1" secondAttribute="bottom" constant="17.5" id="U4g-4k-Q1u"/>
-                    <constraint firstAttribute="trailing" secondItem="su1-R8-yY1" secondAttribute="trailing" constant="17" id="VX3-Td-HcA"/>
+                    <constraint firstItem="2H6-a2-lEi" firstAttribute="top" secondItem="u5d-ep-K9n" secondAttribute="bottom" constant="15" id="R24-8p-iu8"/>
+                    <constraint firstAttribute="bottom" secondItem="2H6-a2-lEi" secondAttribute="bottom" constant="17" id="UbL-VC-bWL"/>
                     <constraint firstItem="u5d-ep-K9n" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Y08-eW-4Eq"/>
+                    <constraint firstAttribute="trailing" secondItem="2H6-a2-lEi" secondAttribute="trailing" constant="17" id="wvc-Zt-RGE"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="mapview" destination="su1-R8-yY1" id="0KH-JS-apu"/>
+                <outlet property="customView" destination="2H6-a2-lEi" id="T9c-Vb-ds6"/>
             </connections>
             <point key="canvasLocation" x="35.5" y="158"/>
         </tableViewCell>
