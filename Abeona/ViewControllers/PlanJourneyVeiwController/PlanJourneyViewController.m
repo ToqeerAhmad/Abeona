@@ -20,6 +20,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isCardiff"] || [[NSUserDefaults standardUserDefaults] boolForKey:@"isCardiffDetail"]) {

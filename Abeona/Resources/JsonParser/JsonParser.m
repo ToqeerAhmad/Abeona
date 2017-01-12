@@ -25,6 +25,7 @@
         object.longitude = [[dict objectForKey:@"acf"] objectForKey:@"longitude"];
         object.address = [[dict objectForKey:@"acf"] objectForKey:@"address"];
         object.phone = [[dict objectForKey:@"acf"] objectForKey:@"phone"];
+        object.hours = [[dict objectForKey:@"acf"] objectForKey:@"hours"];
         object.type = [[dict objectForKey:@"acf"] objectForKey:@"attraction_type"];
         object.typeMarket = [[dict objectForKey:@"acf"] objectForKey:@"target_market"];
         [model.resposeArray addObject:object];

@@ -11,7 +11,7 @@
 @interface ExploreCardiffViewController ()  
 {
     BOOL isMapSelected;
-    MBProgressHUD *progressBar;
+    NSMutableArray *placesArray;
 }
 @end
 
@@ -23,6 +23,7 @@
     [super viewDidLoad];
    model = [ModelLocator getInstance];
     // Do any additional setup after loading the view.
+    placesArray = [[NSMutableArray alloc] initWithArray:model.resposeArray];
 
 }
 
@@ -32,12 +33,10 @@
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isCardiff"]) {
         [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"isCardiff"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        ExploreCardiffDetailViewController *detailVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ExploreCardiffDetailViewController"];
-        [self.navigationController pushViewController:detailVc animated:false];
+        ResponseModel *selectedObject = [model.resposeArray objectAtIndex:model.index];
+        [self sendToDetailVC:selectedObject];
     }else {
-         [self loadView];
-//        [self getDataFromAPI];
-       
+         [self loadView];       
     }
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.view bringSubviewToFront:self.topView];
@@ -58,15 +57,22 @@
      [super loadView];
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
-                                                            longitude:151.20
-                                                                 zoom:14];
-    
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-    marker.title = @"Sydney";
-    marker.snippet = @"Australia";
-    marker.map = self.mapContainerView;
+    self.mapContainerView.delegate = self;
+    for(ResponseModel *placeObject in placesArray)
+    {
+        CLLocationCoordinate2D position = { [placeObject.lattitude doubleValue], [placeObject.longitude    doubleValue] };
+        GMSMarker *marker = [GMSMarker markerWithPosition:position];
+        marker.map = self.mapContainerView;
+        marker.icon = [UIImage imageNamed:@"annotationImage"];
+        
+    }
+    ResponseModel *placeObject = [placesArray objectAtIndex:1];
+   CLLocationCoordinate2D coordinates =  CLLocationCoordinate2DMake(placeObject.lattitude.doubleValue, placeObject.longitude.doubleValue);
+
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:coordinates.latitude
+                                                            longitude:coordinates.longitude
+                                                                 zoom:15];
+
     
     //set the camera for the map
     self.mapContainerView.camera = camera;
@@ -76,9 +82,18 @@
 }
 
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
-     MapCallOutView *customView =  [[[NSBundle mainBundle] loadNibNamed:@"MapCallOutView" owner:self options:nil] objectAtIndex:0];
-    [customView.viewDetailBtn addTarget:self action:@selector(callMe:) forControlEvents:UIControlEventTouchUpInside];
-    return customView;
+    
+    for (ResponseModel *object in placesArray) {
+        if (marker.position.longitude == object.longitude.doubleValue && marker.position.latitude == object.lattitude.doubleValue ) {
+            MapCallOutView *customView =  [[[NSBundle mainBundle] loadNibNamed:@"MapCallOutView" owner:self options:nil] objectAtIndex:0];
+            customView.lblTitle.text = object.title;
+            [customView.placeImage setImageWithURL:[NSURL URLWithString:object.image] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            return customView;
+        }else {
+            
+        }
+    }
+    return nil;
 }
 
 
@@ -90,13 +105,21 @@
 
 
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+    
+    for (ResponseModel *object in placesArray) {
+        if (marker.position.longitude == object.longitude.doubleValue && marker.position.latitude == object.lattitude.doubleValue ) {
+            [self sendToDetailVC:object];
+        }
+    }
+}
+
+- (void)sendToDetailVC:(ResponseModel *)selectedObject {
+    
     ExploreCardiffDetailViewController *detailVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ExploreCardiffDetailViewController"];
+    detailVc.placeObject = selectedObject;
     [self.navigationController pushViewController:detailVc animated:true];
 
 }
-
-
-
 
 #pragma mark - TableView Delegate & DataSource
 
@@ -105,7 +128,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return placesArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -113,13 +136,20 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+   
+    ResponseModel *placeObject = [placesArray objectAtIndex:indexPath.row];
     ExploreCardiffTableViewCell *cell = (ExploreCardiffTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ExploreCardiffCell" forIndexPath:indexPath];
+    [cell.placeImage setImageWithURL:[NSURL URLWithString:placeObject.image] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    cell.lblTitle.text = placeObject.title;
+    cell.lblAttraction_type.text = placeObject.type;
+    cell.lblAddress.text = placeObject.address;
+    cell.lblHours.text = placeObject.hours;
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self callMe:nil];
+    
 }
 
 
@@ -138,51 +168,32 @@
     }
 }
 
-
-
-- (void)callMe:(UIButton *)sender {
+- (IBAction)selectCategoryForPlaces:(id)sender {
     
+    placesArray = [[NSMutableArray alloc] init];
+    if ([sender tag] == 0) { // ALL
+        placesArray = model.resposeArray;
+    }else if ([sender tag] == 1) {
+        for (ResponseModel *placeObject in model.resposeArray) {
+            if ([placeObject.type isEqualToString:@"Eat & Drink"]) {
+                [placesArray addObject:placeObject];
+            }
+        }
+    }else if ([sender tag] == 2) {
+        for (ResponseModel *placeObject in model.resposeArray) {
+            if ([placeObject.type isEqualToString:@"See & Do"]) {
+                [placesArray addObject:placeObject];
+            }
+        }
+    }else {
+        for (ResponseModel *placeObject in model.resposeArray) {
+            if ([placeObject.type isEqualToString:@"Shopping"]) {
+                [placesArray addObject:placeObject];
+            }
+        }
+    }
+    [self.table reloadData];
 }
-    
-#pragma mark - Web API
-    
-- (void)getDataFromAPI {
-    
-    WebServices *service = [[WebServices alloc] init];
-    service.delegate = self;
-    NSMutableDictionary *params = [NSMutableDictionary new];
-    [service SendRequestForData:params andServiceURL:@"https://www.projectabeona.com/wp-json/wp/v2/pages/?parent=6" andServiceReturnType:@""];
-    
-}
-
-
-
--(void) webServiceStart
-{
-    progressBar=[MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] delegate] window] animated:NO];
-    progressBar.labelText=@"Please Wait...";
-    [progressBar show:YES];
-}
-
-
-/////// in case error occured in web service
-
--(void) webServiceError:(NSString *)errorType
-{
-    [HelperClass showAlertView:@"Alert" andMessage:errorType andView:self];
-    [progressBar hide:YES];
-}
-
-
-// successful web service call end //////////
-
--(void) webServiceEnd
-{
-    
-    [progressBar hide:YES];
-}
-
-
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];

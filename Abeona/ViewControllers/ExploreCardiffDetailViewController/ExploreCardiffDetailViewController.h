@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "ResponseModel.h"
 
 @interface ExploreCardiffDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 typedef enum
@@ -21,6 +22,6 @@ typedef enum
     WeekdaySaturday
 } Weekday;
 @property (nonatomic, weak) IBOutlet UITableView *table;
-
+@property (nonatomic, strong) ResponseModel *placeObject;
 
 @end

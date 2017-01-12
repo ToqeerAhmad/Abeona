@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModelLocator.h"
 
 @interface HomeViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionview;
+@property (nonatomic, strong) ModelLocator *model;
+
 
 @end

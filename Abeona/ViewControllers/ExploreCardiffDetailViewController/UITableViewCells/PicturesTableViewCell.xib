@@ -108,6 +108,13 @@
                     <constraint firstItem="PC3-YX-2OG" firstAttribute="top" secondItem="v78-M4-BLe" secondAttribute="bottom" constant="10" id="yKX-Ak-Ufk"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="lblAddress" destination="D0b-eA-GqT" id="q1K-1w-Riv"/>
+                <outlet property="lblHours" destination="iy3-1d-nsd" id="U6a-tj-KNJ"/>
+                <outlet property="lblTitle" destination="hi3-2Q-fcu" id="XKq-Y4-hdY"/>
+                <outlet property="lblTypeMarket" destination="mJb-AY-oUL" id="l4D-7k-wne"/>
+                <outlet property="placeImage" destination="8Gb-Ap-Cs9" id="NPc-tp-KDF"/>
+            </connections>
             <point key="canvasLocation" x="92.5" y="19"/>
         </tableViewCell>
     </objects>

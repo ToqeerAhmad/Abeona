@@ -10,4 +10,6 @@
 
 @interface DetailDescriptionTableViewCell : UITableViewCell
 
+@property (nonatomic, weak) IBOutlet UITextView *txtcontent;
+
 @end

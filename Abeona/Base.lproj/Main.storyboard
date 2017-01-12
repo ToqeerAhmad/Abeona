@@ -357,7 +357,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ArtworkByArtistCell" id="YCr-ij-7EQ">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ArtworkByArtistCell" id="YCr-ij-7EQ" customClass="PlaceCollectionViewCell">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="188"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -400,6 +400,11 @@
                                                     <constraint firstAttribute="bottom" secondItem="sSB-Vx-2vx" secondAttribute="bottom" constant="8" id="lRx-xC-PwV"/>
                                                 </constraints>
                                                 <size key="customSize" width="180" height="188"/>
+                                                <connections>
+                                                    <outlet property="lblAttraction_type" destination="sSB-Vx-2vx" id="Po9-4Y-eed"/>
+                                                    <outlet property="lblTypeMarket" destination="437-WL-hJD" id="iZs-Y6-c5z"/>
+                                                    <outlet property="placeImage" destination="NyE-83-uLH" id="2B6-yx-Xg1"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                         <connections>
@@ -1068,8 +1073,11 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectCategoryForPlaces:" destination="n1T-dn-jau" eventType="touchUpInside" id="brO-aW-N4E"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpH-PV-4gz">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpH-PV-4gz">
                                         <rect key="frame" x="319" y="7" width="46" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="5zW-nF-92c"/>
@@ -1080,8 +1088,11 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectCategoryForPlaces:" destination="n1T-dn-jau" eventType="touchUpInside" id="HcB-1b-5cb"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vI5-QL-MRw">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vI5-QL-MRw">
                                         <rect key="frame" x="216" y="7" width="64" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="64" id="bQv-Hp-XwZ"/>
@@ -1092,8 +1103,11 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectCategoryForPlaces:" destination="n1T-dn-jau" eventType="touchUpInside" id="OXZ-uj-jky"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vou-ub-v2t">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vou-ub-v2t">
                                         <rect key="frame" x="92" y="7" width="83" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="6wf-kB-PMR"/>
@@ -1104,6 +1118,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectCategoryForPlaces:" destination="n1T-dn-jau" eventType="touchUpInside" id="aVt-LI-sN0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.1019607843" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>

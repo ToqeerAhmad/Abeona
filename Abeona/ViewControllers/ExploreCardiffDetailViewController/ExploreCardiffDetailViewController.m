@@ -17,6 +17,8 @@
 
 @implementation ExploreCardiffDetailViewController
 
+@synthesize placeObject;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -40,7 +42,7 @@
     if (indexPath.row == 0) {
         return [HelperClass getCellHeight:365 OriginalWidth:375].height;
     }else if (indexPath.row == 1) {
-        return [HelperClass getCellHeight:165 OriginalWidth:375].height;
+        return [HelperClass getCellHeight:250 OriginalWidth:375].height;
     }else {
         return [HelperClass getCellHeight:376 OriginalWidth:375].height;
     }
@@ -51,11 +53,16 @@
     if (indexPath.row == 0) {
         
         PicturesTableViewCell *cell = (PicturesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"PicturesTableViewCell" forIndexPath:indexPath];
+        cell.placeObject = placeObject;
+        [cell setUpCell];
         return cell;
 
     }else if (indexPath.row == 1) {
         
         DetailDescriptionTableViewCell *cell = (DetailDescriptionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DetailDescriptionCell" forIndexPath:indexPath];
+        NSString *refinedDescription = [placeObject.content stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
+        refinedDescription = [refinedDescription stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
+        cell.txtcontent.text = refinedDescription;
         return cell;
         
     }else {
@@ -73,10 +80,14 @@
 - (void)loadView:(MapTableViewCell *)cell {
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
-                                                            longitude:151.20
-                                                                 zoom:6];
+    CLLocationCoordinate2D coordinates =  CLLocationCoordinate2DMake(placeObject.lattitude.doubleValue, placeObject.longitude.doubleValue);
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:coordinates.latitude
+                                                            longitude:coordinates.longitude
+                                                                 zoom:15];
     GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, cell.customView.frame.size.width,cell.customView.frame.size.height ) camera:camera];
+    mapView.myLocationEnabled = YES;
+    mapView.userInteractionEnabled = false;
     mapView.myLocationEnabled = YES;
     [cell.customView addSubview:mapView];
     

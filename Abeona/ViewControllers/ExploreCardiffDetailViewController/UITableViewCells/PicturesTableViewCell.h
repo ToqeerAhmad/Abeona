@@ -10,4 +10,13 @@
 
 @interface PicturesTableViewCell : UITableViewCell
 
+@property (nonatomic, weak) IBOutlet UILabel *lblTitle;
+@property (nonatomic, weak) IBOutlet UILabel *lblHours;
+@property (nonatomic, weak) IBOutlet UILabel *lblAddress;
+@property (nonatomic, weak) IBOutlet UILabel *lblTypeMarket;
+@property (nonatomic, weak) IBOutlet UIImageView *placeImage;
+@property (nonatomic, strong) ResponseModel *placeObject;
+
+- (void)setUpCell;
+
 @end

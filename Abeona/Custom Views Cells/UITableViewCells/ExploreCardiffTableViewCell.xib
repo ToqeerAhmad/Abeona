@@ -99,6 +99,13 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="lblAddress" destination="Ha0-d3-VIQ" id="J25-uM-aGu"/>
+                <outlet property="lblAttraction_type" destination="Vn8-mU-dRW" id="UEd-iw-uK0"/>
+                <outlet property="lblHours" destination="kVF-bp-YZy" id="Jqc-B7-gOC"/>
+                <outlet property="lblTitle" destination="Re7-nR-4zb" id="cEp-d6-60J"/>
+                <outlet property="placeImage" destination="PN0-Zj-O2e" id="YNA-Jz-BHS"/>
+            </connections>
             <point key="canvasLocation" x="61.5" y="33"/>
         </tableViewCell>
     </objects>

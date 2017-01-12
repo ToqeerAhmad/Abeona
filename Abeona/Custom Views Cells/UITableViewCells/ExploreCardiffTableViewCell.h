@@ -10,5 +10,10 @@
 
 @interface ExploreCardiffTableViewCell : UITableViewCell
 
+@property (nonatomic, weak) IBOutlet UILabel *lblAttraction_type;
+@property (nonatomic, weak) IBOutlet UILabel *lblTitle;
+@property (nonatomic, weak) IBOutlet UIImageView *placeImage;
+@property (nonatomic, weak) IBOutlet UILabel *lblAddress;
+@property (nonatomic, weak) IBOutlet UILabel *lblHours;
 
 @end

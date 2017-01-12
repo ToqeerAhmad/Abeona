@@ -10,6 +10,7 @@
 
 @interface MapCallOutView : UIView
 
-@property (nonatomic, strong) IBOutlet UIButton *viewDetailBtn;
+@property (nonatomic, weak) IBOutlet UILabel *lblTitle;
+@property (nonatomic, weak) IBOutlet UIImageView *placeImage;
 
 @end

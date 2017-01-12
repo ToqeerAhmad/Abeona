@@ -17,6 +17,8 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+#import "UIImageView+WebCache.h"
+#import "UIImageView+UIActivityIndicatorForSDWebImage.h"
 #import "SelectLocationViewController.h"
 #import "SignInViewController.h"
 #import "HelperClass.h"
@@ -41,5 +43,5 @@
 #import "WebServices.h"
 #import "JsonParser.h"
 #import "MBProgressHUD.h"
-
+#import "ResponseModel.h"
 #endif /* AbeonaPrefixHeader_pch */
