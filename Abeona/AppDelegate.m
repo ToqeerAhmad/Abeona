@@ -69,23 +69,23 @@
        didFailWithError:(NSError *)error {
     [self.locationManager stopUpdatingLocation];
     NSLog(@"error::%@",error);
-    switch([error code])
-    {
-        case kCLErrorNetwork: // general, network-related error
-        {
-            [HelperClass showAlertView:@"Error" andMessage:@"Please check your network connection or that you are not in airplane mode" andView:self.window.rootViewController];
-        }
-            break;
-        case kCLErrorDenied:{
-            [HelperClass showAlertView:@"Error" andMessage:@"User has denied to use current Location" andView:self.window.rootViewController];
-        }
-            break;
-        default:
-        {
-            [HelperClass showAlertView:@"Error" andMessage:@"Please enable your location for app." andView:self.window.rootViewController];
-        }
-            break;
-    }
+//    switch([error code])
+//    {
+//        case kCLErrorNetwork: // general, network-related error
+//        {
+//            [HelperClass showAlertView:@"Error" andMessage:@"Please check your network connection or that you are not in airplane mode" andView:self.window.rootViewController];
+//        }
+//            break;
+//        case kCLErrorDenied:{
+//            [HelperClass showAlertView:@"Error" andMessage:@"User has denied to use current Location" andView:self.window.rootViewController];
+//        }
+//            break;
+//        default:
+//        {
+//            [HelperClass showAlertView:@"Error" andMessage:@"Please enable your location for app." andView:self.window.rootViewController];
+//        }
+//            break;
+//    }
 }
 
 

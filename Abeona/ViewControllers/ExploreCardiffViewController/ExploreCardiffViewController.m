@@ -8,33 +8,41 @@
 
 #import "ExploreCardiffViewController.h"
 
-@interface ExploreCardiffViewController ()  <GMSMapViewDelegate>
+@interface ExploreCardiffViewController ()  
 {
     BOOL isMapSelected;
+    MBProgressHUD *progressBar;
 }
 @end
 
 @implementation ExploreCardiffViewController
 
+@synthesize model;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   model = [ModelLocator getInstance];
     // Do any additional setup after loading the view.
-    [self.table registerNib:[UINib nibWithNibName:@"ExploreCardiffTableViewCell" bundle:nil] forCellReuseIdentifier:@"ExploreCardiffCell"];
 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isCardiff"]) {
         [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"isCardiff"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         ExploreCardiffDetailViewController *detailVc = [self.storyboard instantiateViewControllerWithIdentifier:@"ExploreCardiffDetailViewController"];
         [self.navigationController pushViewController:detailVc animated:false];
     }else {
-        [self loadView];
+         [self loadView];
+//        [self getDataFromAPI];
+       
     }
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.view bringSubviewToFront:self.topView];
+    [self.table registerNib:[UINib nibWithNibName:@"ExploreCardiffTableViewCell" bundle:nil] forCellReuseIdentifier:@"ExploreCardiffCell"];
+
 }
 
 -(void)setAnnotations
@@ -46,22 +54,24 @@
 #pragma mark - MAPView Delegate
 
 - (void)loadView {
+    
+     [super loadView];
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
                                                             longitude:151.20
-                                                                 zoom:6];
-    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) camera:camera];
-    mapView.delegate = self;
-    mapView.myLocationEnabled = YES;
-    self.view = mapView;
+                                                                 zoom:14];
     
-    // Creates a marker in the center of the map.
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-    marker.icon = [UIImage imageNamed:@"annotationImage"];
-    marker.map = mapView;
-    marker.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
+    marker.title = @"Sydney";
+    marker.snippet = @"Australia";
+    marker.map = self.mapContainerView;
+    
+    //set the camera for the map
+    self.mapContainerView.camera = camera;
+    
+    self.mapContainerView.myLocationEnabled = YES;
     
 }
 
@@ -119,10 +129,12 @@
         isMapSelected = false;
         [self.rightBarButton setImage:[UIImage imageNamed:@"listIcon"] forState:UIControlStateNormal];
         self.table.hidden = true;
+        self.mapContainerView.hidden = false;
     }else {
         isMapSelected = true;
         [self.rightBarButton setImage:[UIImage imageNamed:@"mapIcon"] forState:UIControlStateNormal];
         self.table.hidden = false;
+        self.mapContainerView.hidden = true;
     }
 }
 
@@ -131,6 +143,45 @@
 - (void)callMe:(UIButton *)sender {
     
 }
+    
+#pragma mark - Web API
+    
+- (void)getDataFromAPI {
+    
+    WebServices *service = [[WebServices alloc] init];
+    service.delegate = self;
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    [service SendRequestForData:params andServiceURL:@"https://www.projectabeona.com/wp-json/wp/v2/pages/?parent=6" andServiceReturnType:@""];
+    
+}
+
+
+
+-(void) webServiceStart
+{
+    progressBar=[MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] delegate] window] animated:NO];
+    progressBar.labelText=@"Please Wait...";
+    [progressBar show:YES];
+}
+
+
+/////// in case error occured in web service
+
+-(void) webServiceError:(NSString *)errorType
+{
+    [HelperClass showAlertView:@"Alert" andMessage:errorType andView:self];
+    [progressBar hide:YES];
+}
+
+
+// successful web service call end //////////
+
+-(void) webServiceEnd
+{
+    
+    [progressBar hide:YES];
+}
+
 
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -141,6 +192,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+    
+
+    
+    //
 
 /*
 #pragma mark - Navigation

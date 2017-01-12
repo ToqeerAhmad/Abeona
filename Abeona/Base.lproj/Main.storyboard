@@ -458,7 +458,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8i2-EW-33l">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8i2-EW-33l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -490,7 +490,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fC1-Ed-mVe" customClass="UIButtonExtension">
-                                <rect key="frame" x="68" y="158" width="239" height="40"/>
+                                <rect key="frame" x="68" y="158.5" width="239" height="40"/>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.1019607843" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fC1-Ed-mVe" secondAttribute="height" multiplier="239:40" id="Lmo-pe-kK6"/>
@@ -504,7 +504,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esw-0a-MPp" customClass="UIButtonExtension">
-                                <rect key="frame" x="68" y="218" width="239" height="40"/>
+                                <rect key="frame" x="68" y="218.5" width="239" height="40"/>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.1019607843" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Esw-0a-MPp" secondAttribute="height" multiplier="239:40" id="U3C-gq-GoP"/>
@@ -518,7 +518,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Si4-8A-B65" customClass="UIButtonExtension">
-                                <rect key="frame" x="68" y="278" width="239" height="40"/>
+                                <rect key="frame" x="68" y="278.5" width="239" height="40"/>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.1019607843" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Si4-8A-B65" secondAttribute="height" multiplier="239:40" id="G2W-8M-71P"/>
@@ -532,7 +532,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqO-Yq-mST" customClass="UIButtonExtension">
-                                <rect key="frame" x="68" y="338" width="239" height="40"/>
+                                <rect key="frame" x="68" y="338.5" width="239" height="40"/>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.1019607843" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rqO-Yq-mST" secondAttribute="height" multiplier="239:40" id="p5N-zs-6r8"/>
@@ -546,7 +546,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECENT JOURNEYS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fv-o2-KZN" customClass="UILabelClass">
-                                <rect key="frame" x="30" y="413" width="176" height="21"/>
+                                <rect key="frame" x="30" y="413.5" width="176" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="uZY-sV-6cD"/>
                                     <constraint firstAttribute="width" constant="176" id="v5J-d4-CRw"/>
@@ -556,13 +556,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Woodward Street to Cardiff Coach Station" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGl-BS-bQA" customClass="UILabelClass">
-                                <rect key="frame" x="30" y="442" width="315" height="17"/>
+                                <rect key="frame" x="30" y="442.5" width="315" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cardiff Central Railway Station  to Principality Stadium" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBv-gc-53N" customClass="UILabelClass">
-                                <rect key="frame" x="30" y="467" width="315" height="34"/>
+                                <rect key="frame" x="30" y="467.5" width="315" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1047,12 +1047,6 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RJp-8p-Fla">
-                                <rect key="frame" x="0.0" y="44" width="375" height="510"/>
-                                <connections>
-                                    <outlet property="delegate" destination="n1T-dn-jau" id="zVM-Ug-12D"/>
-                                </connections>
-                            </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLp-3D-Jbg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <subviews>
@@ -1140,6 +1134,11 @@
                                     <outlet property="delegate" destination="n1T-dn-jau" id="j3N-Ys-ooW"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iDB-kx-yYm" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="44" width="375" height="510"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1147,12 +1146,8 @@
                             <constraint firstAttribute="trailing" secondItem="cLp-3D-Jbg" secondAttribute="trailing" id="1Ol-LC-1re"/>
                             <constraint firstItem="GtJ-Tl-VWU" firstAttribute="top" secondItem="cLp-3D-Jbg" secondAttribute="bottom" id="4ta-U3-KET"/>
                             <constraint firstItem="cLp-3D-Jbg" firstAttribute="leading" secondItem="R66-Vm-KWg" secondAttribute="leading" id="KGf-pG-8ap"/>
-                            <constraint firstItem="NQj-0s-uhA" firstAttribute="top" secondItem="RJp-8p-Fla" secondAttribute="bottom" id="Nxs-Ei-pDN"/>
-                            <constraint firstItem="RJp-8p-Fla" firstAttribute="leading" secondItem="R66-Vm-KWg" secondAttribute="leading" id="OTd-h6-0Kr"/>
                             <constraint firstItem="cLp-3D-Jbg" firstAttribute="top" secondItem="EKH-mE-EZZ" secondAttribute="bottom" id="XT8-uL-s5l"/>
                             <constraint firstItem="NQj-0s-uhA" firstAttribute="top" secondItem="GtJ-Tl-VWU" secondAttribute="bottom" id="bG0-VK-KED"/>
-                            <constraint firstItem="RJp-8p-Fla" firstAttribute="top" secondItem="cLp-3D-Jbg" secondAttribute="bottom" id="nxJ-nW-HVm"/>
-                            <constraint firstAttribute="trailing" secondItem="RJp-8p-Fla" secondAttribute="trailing" id="sMF-hK-Y6I"/>
                             <constraint firstItem="GtJ-Tl-VWU" firstAttribute="leading" secondItem="R66-Vm-KWg" secondAttribute="leading" id="zjJ-3Y-o3b"/>
                         </constraints>
                     </view>
@@ -1178,9 +1173,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="map" destination="RJp-8p-Fla" id="hyd-eO-o9J"/>
+                        <outlet property="mapContainerView" destination="iDB-kx-yYm" id="GNX-bA-JSN"/>
                         <outlet property="rightBarButton" destination="y3k-9Y-99q" id="hxP-sT-JmZ"/>
                         <outlet property="table" destination="GtJ-Tl-VWU" id="pEg-se-FwL"/>
+                        <outlet property="topView" destination="cLp-3D-Jbg" id="RVw-j2-faC"/>
                         <segue destination="TWR-r0-Xrm" kind="show" id="dqk-LH-vxG"/>
                     </connections>
                 </viewController>
@@ -1242,7 +1238,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kui-Df-DVQ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Get Help" image="question" id="1tj-EV-fFS"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="YOn-Rw-FkT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="YOn-Rw-FkT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.070588235289999995" green="0.1019607843" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
@@ -1262,7 +1258,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Er2-VD-6nM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore Cardiff" image="location_Pin" id="4Ho-U2-wer"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="WXK-8w-zr6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="WXK-8w-zr6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.070588235289999995" green="0.1019607843" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
@@ -1282,7 +1278,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xp6-qC-pre" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Plan Journey" image="train_Icon" id="sUc-RL-lQV"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="nJf-QL-IFy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="nJf-QL-IFy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.070588235294117646" green="0.10196078431372549" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
