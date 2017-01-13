@@ -18,7 +18,8 @@
 - (void)setUpCell {
     
     [self.placeImage setImageWithURL:[NSURL URLWithString:_placeObject.image] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.lblTitle.text = _placeObject.title;
+
+    self.lblTitle.text = [_placeObject.title stringByReplacingOccurrencesOfString:@"#038;" withString:@""];
     self.lblTypeMarket.text = _placeObject.type;
     self.lblAddress.text = _placeObject.address;
     self.lblHours.text = _placeObject.hours;

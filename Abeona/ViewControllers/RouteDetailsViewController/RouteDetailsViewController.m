@@ -172,7 +172,7 @@
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
                                                             longitude:151.20
                                                                  zoom:6];
-    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, cell.mapView.frame.size.width,cell.mapView.frame.size.height ) camera:camera];
+    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-100, [HelperClass getCellHeight:235 OriginalWidth:375].height) camera:camera];
     mapView.myLocationEnabled = YES;
     [cell.mapView addSubview:mapView];
     

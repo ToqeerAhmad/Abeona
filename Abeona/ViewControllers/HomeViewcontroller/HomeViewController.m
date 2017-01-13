@@ -61,7 +61,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    model.index = indexPath.row;
+    model.index = (int)indexPath.row;
     [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"isCardiff"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     UITabBarController *homeVc = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
@@ -107,7 +107,16 @@
 
 -(void) webServiceError:(NSString *)errorType
 {
-    [HelperClass showAlertView:@"Alert" andMessage:errorType andView:self];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:errorType preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    UIAlertAction *retry = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self getDataFromAPI];
+    }];
+    [alertController addAction:cancel];
+    [alertController addAction:retry];
     [progressBar hide:YES];
 }
 

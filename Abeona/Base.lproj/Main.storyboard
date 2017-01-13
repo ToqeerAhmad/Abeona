@@ -643,7 +643,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m3J-Km-Zd9" customClass="UIViewExtension">
                                 <rect key="frame" x="46" y="71" width="283" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oW-RT-cOb" customClass="UILabelClass">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oW-RT-cOb">
                                         <rect key="frame" x="15" y="15" width="45" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="czo-DJ-s7C"/>
@@ -693,7 +693,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmA-z2-Ivh" customClass="UIViewExtension">
                                 <rect key="frame" x="46" y="143" width="283" height="154"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxp-0C-YNQ" customClass="UILabelClass">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxp-0C-YNQ">
                                         <rect key="frame" x="15" y="19" width="21" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="21" id="Qvz-kQ-ORN"/>
@@ -732,7 +732,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pib-NJ-GP1" customClass="UIViewExtension">
                                 <rect key="frame" x="46" y="319" width="283" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPB-7u-doZ" customClass="UILabelClass">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPB-7u-doZ">
                                         <rect key="frame" x="15" y="15" width="52" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="52" id="YnD-0t-1ut"/>
@@ -1151,9 +1151,8 @@
                                     <outlet property="delegate" destination="n1T-dn-jau" id="j3N-Ys-ooW"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iDB-kx-yYm" customClass="GMSMapView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDB-kx-yYm" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="44" width="375" height="510"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -1161,17 +1160,21 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="GtJ-Tl-VWU" secondAttribute="trailing" id="12h-lz-dPj"/>
                             <constraint firstAttribute="trailing" secondItem="cLp-3D-Jbg" secondAttribute="trailing" id="1Ol-LC-1re"/>
+                            <constraint firstItem="iDB-kx-yYm" firstAttribute="leading" secondItem="R66-Vm-KWg" secondAttribute="leading" id="3Gv-7e-2lw"/>
+                            <constraint firstItem="NQj-0s-uhA" firstAttribute="top" secondItem="iDB-kx-yYm" secondAttribute="bottom" id="43v-EY-qwy"/>
                             <constraint firstItem="GtJ-Tl-VWU" firstAttribute="top" secondItem="cLp-3D-Jbg" secondAttribute="bottom" id="4ta-U3-KET"/>
                             <constraint firstItem="cLp-3D-Jbg" firstAttribute="leading" secondItem="R66-Vm-KWg" secondAttribute="leading" id="KGf-pG-8ap"/>
+                            <constraint firstItem="iDB-kx-yYm" firstAttribute="top" secondItem="cLp-3D-Jbg" secondAttribute="bottom" id="Sgg-mP-BuL"/>
                             <constraint firstItem="cLp-3D-Jbg" firstAttribute="top" secondItem="EKH-mE-EZZ" secondAttribute="bottom" id="XT8-uL-s5l"/>
                             <constraint firstItem="NQj-0s-uhA" firstAttribute="top" secondItem="GtJ-Tl-VWU" secondAttribute="bottom" id="bG0-VK-KED"/>
+                            <constraint firstAttribute="trailing" secondItem="iDB-kx-yYm" secondAttribute="trailing" id="tuX-pn-S6g"/>
                             <constraint firstItem="GtJ-Tl-VWU" firstAttribute="leading" secondItem="R66-Vm-KWg" secondAttribute="leading" id="zjJ-3Y-o3b"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JPB-3g-ssi">
                         <nil key="title"/>
                         <button key="titleView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="byA-8R-QKc">
-                            <rect key="frame" x="113" y="7" width="150" height="30"/>
+                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                             <state key="normal" title="Explore Cardiff">

@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.ticketBtn.layer.cornerRadius = 3;
+    self.ticketBtn.layer.masksToBounds = true;
     // Initialization code
 }
 

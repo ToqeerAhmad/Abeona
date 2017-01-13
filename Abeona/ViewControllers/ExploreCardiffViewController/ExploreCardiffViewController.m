@@ -12,6 +12,7 @@
 {
     BOOL isMapSelected;
     NSMutableArray *placesArray;
+    BOOL isMapLoaded;
 }
 @end
 
@@ -36,7 +37,10 @@
         ResponseModel *selectedObject = [model.resposeArray objectAtIndex:model.index];
         [self sendToDetailVC:selectedObject];
     }else {
-         [self loadView];       
+        if (!isMapLoaded) {
+            isMapLoaded = true;
+            [self loadView];
+        }
     }
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [self.view bringSubviewToFront:self.topView];
@@ -54,6 +58,7 @@
 
 - (void)loadView {
     
+    
      [super loadView];
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
@@ -66,7 +71,7 @@
         marker.icon = [UIImage imageNamed:@"annotationImage"];
         
     }
-    ResponseModel *placeObject = [placesArray objectAtIndex:1];
+    ResponseModel *placeObject = [placesArray objectAtIndex:0];
    CLLocationCoordinate2D coordinates =  CLLocationCoordinate2DMake(placeObject.lattitude.doubleValue, placeObject.longitude.doubleValue);
 
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:coordinates.latitude
@@ -76,9 +81,21 @@
     
     //set the camera for the map
     self.mapContainerView.camera = camera;
-    
     self.mapContainerView.myLocationEnabled = YES;
     
+}
+
+- (void)chnageMapMarkers {
+    
+    for(ResponseModel *placeObject in placesArray)
+    {
+        CLLocationCoordinate2D position = { [placeObject.lattitude doubleValue], [placeObject.longitude    doubleValue] };
+        GMSMarker *marker = [GMSMarker markerWithPosition:position];
+        marker.map = self.mapContainerView;
+        marker.icon = [UIImage imageNamed:@"annotationImage"];
+        
+    }
+
 }
 
 - (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
@@ -86,7 +103,7 @@
     for (ResponseModel *object in placesArray) {
         if (marker.position.longitude == object.longitude.doubleValue && marker.position.latitude == object.lattitude.doubleValue ) {
             MapCallOutView *customView =  [[[NSBundle mainBundle] loadNibNamed:@"MapCallOutView" owner:self options:nil] objectAtIndex:0];
-            customView.lblTitle.text = object.title;
+            customView.lblTitle.text = [object.title stringByReplacingOccurrencesOfString:@"#038;" withString:@""];
             [customView.placeImage setImageWithURL:[NSURL URLWithString:object.image] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             return customView;
         }else {
@@ -140,7 +157,7 @@
     ResponseModel *placeObject = [placesArray objectAtIndex:indexPath.row];
     ExploreCardiffTableViewCell *cell = (ExploreCardiffTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ExploreCardiffCell" forIndexPath:indexPath];
     [cell.placeImage setImageWithURL:[NSURL URLWithString:placeObject.image] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    cell.lblTitle.text = placeObject.title;
+    cell.lblTitle.text = [placeObject.title stringByReplacingOccurrencesOfString:@"#038;" withString:@""];
     cell.lblAttraction_type.text = placeObject.type;
     cell.lblAddress.text = placeObject.address;
     cell.lblHours.text = placeObject.hours;
@@ -150,6 +167,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    [self sendToDetailVC:[placesArray objectAtIndex:indexPath.row]];
 }
 
 
@@ -192,7 +210,10 @@
             }
         }
     }
+    
     [self.table reloadData];
+    [self.mapContainerView clear];
+    [self chnageMapMarkers];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

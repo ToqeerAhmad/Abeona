@@ -60,7 +60,10 @@
     }else if (indexPath.row == 1) {
         
         DetailDescriptionTableViewCell *cell = (DetailDescriptionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DetailDescriptionCell" forIndexPath:indexPath];
+        
         NSString *refinedDescription = [placeObject.content stringByReplacingOccurrencesOfString:@"<p>" withString:@""];
+        refinedDescription = [refinedDescription stringByReplacingOccurrencesOfString:@"#8217;s" withString:@""];
+        refinedDescription = [refinedDescription stringByReplacingOccurrencesOfString:@"#038;" withString:@""];
         refinedDescription = [refinedDescription stringByReplacingOccurrencesOfString:@"</p>" withString:@""];
         cell.txtcontent.text = refinedDescription;
         return cell;
@@ -85,7 +88,7 @@
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:coordinates.latitude
                                                             longitude:coordinates.longitude
                                                                  zoom:15];
-    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, cell.customView.frame.size.width,cell.customView.frame.size.height ) camera:camera];
+    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-34, [HelperClass getCellHeight:315 OriginalWidth:375].height) camera:camera];
     mapView.myLocationEnabled = YES;
     mapView.userInteractionEnabled = false;
     mapView.myLocationEnabled = YES;

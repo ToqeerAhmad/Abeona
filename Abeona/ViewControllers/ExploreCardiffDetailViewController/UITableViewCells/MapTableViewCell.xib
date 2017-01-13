@@ -34,12 +34,12 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="2H6-a2-lEi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="KFI-SZ-Sms"/>
+                    <constraint firstItem="2H6-a2-lEi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="E29-Ox-FAT"/>
                     <constraint firstItem="u5d-ep-K9n" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="KLc-lh-8Cx"/>
-                    <constraint firstItem="2H6-a2-lEi" firstAttribute="top" secondItem="u5d-ep-K9n" secondAttribute="bottom" constant="15" id="R24-8p-iu8"/>
-                    <constraint firstAttribute="bottom" secondItem="2H6-a2-lEi" secondAttribute="bottom" constant="17" id="UbL-VC-bWL"/>
                     <constraint firstItem="u5d-ep-K9n" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Y08-eW-4Eq"/>
-                    <constraint firstAttribute="trailing" secondItem="2H6-a2-lEi" secondAttribute="trailing" constant="17" id="wvc-Zt-RGE"/>
+                    <constraint firstItem="2H6-a2-lEi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="48" id="YGd-Qa-1YA"/>
+                    <constraint firstAttribute="bottom" secondItem="2H6-a2-lEi" secondAttribute="bottom" constant="17" id="czU-Ct-ivC"/>
+                    <constraint firstAttribute="trailing" secondItem="2H6-a2-lEi" secondAttribute="trailing" constant="17" id="rIc-wk-7k9"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

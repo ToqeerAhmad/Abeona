@@ -102,17 +102,22 @@
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cK-g1-Y7b">
                         <rect key="frame" x="82" y="329" width="275" height="34"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="!  Only 7 seats left." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2x-Yz-sgB">
-                                <rect key="frame" x="15" y="7" width="109" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="!  Only 7 seats left." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2x-Yz-sgB">
+                                <rect key="frame" x="15" y="7" width="106" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="aIX-D1-8xZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJv-7K-5lf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJv-7K-5lf">
                                 <rect key="frame" x="184" y="5" width="86" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="skh-b1-OWb"/>
+                                    <constraint firstAttribute="width" constant="86" id="vq7-Op-rah"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                 <state key="normal" title="Buy Tickets">
                                     <color key="titleColor" red="0.66666666669999997" green="0.43921568630000002" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -121,7 +126,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.66666666669999997" green="0.43921568630000002" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="B2x-Yz-sgB" firstAttribute="centerY" secondItem="4cK-g1-Y7b" secondAttribute="centerY" id="6nw-2r-Fru"/>
+                            <constraint firstItem="B2x-Yz-sgB" firstAttribute="leading" secondItem="4cK-g1-Y7b" secondAttribute="leading" constant="15" id="RRT-FF-6CO"/>
                             <constraint firstAttribute="width" secondItem="4cK-g1-Y7b" secondAttribute="height" multiplier="275:34" id="VCl-5t-nB8"/>
+                            <constraint firstItem="QJv-7K-5lf" firstAttribute="centerY" secondItem="4cK-g1-Y7b" secondAttribute="centerY" id="gMm-sn-yZA"/>
+                            <constraint firstAttribute="trailing" secondItem="QJv-7K-5lf" secondAttribute="trailing" constant="5" id="z9a-qp-agB"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" fixedFrame="YES" text="StockPort[SPT]" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CST-ni-brp">
@@ -357,6 +366,7 @@
                 <outlet property="labelTopConstraint" destination="fhv-ME-tc8" id="foW-OK-gSl"/>
                 <outlet property="leaveImageHeightConstraint" destination="2T8-bW-E9e" id="W6L-JR-vcE"/>
                 <outlet property="leaveImageView" destination="dUD-30-Z5q" id="s0f-b6-t3b"/>
+                <outlet property="ticketBtn" destination="QJv-7K-5lf" id="ng4-on-Vrw"/>
             </connections>
             <point key="canvasLocation" x="0.5" y="67.5"/>
         </tableViewCell>

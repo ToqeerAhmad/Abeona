@@ -21,6 +21,7 @@
 @property (nonatomic, strong) IBOutlet UIView *alertView;
 
 @property (nonatomic, strong) IBOutlet UIButton *detailBtn;
+@property (nonatomic, strong) IBOutlet UIButton *ticketBtn;
 
 
 @end
