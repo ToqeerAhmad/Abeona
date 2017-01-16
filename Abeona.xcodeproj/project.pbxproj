@@ -90,6 +90,8 @@
 		46D090171E201F6800C323F1 /* UILabelClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D090151E201F6800C323F1 /* UILabelClass.m */; };
 		46D0901B1E202E4B00C323F1 /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D0901A1E202E4B00C323F1 /* HelperClass.m */; };
 		46D564851E2427F500A94CD3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D564841E2427F500A94CD3 /* HomeViewController.m */; };
+		46FBA8481E2D2D8600545345 /* MDDirectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FBA8471E2D2D8600545345 /* MDDirectionService.m */; };
+		46FBA84C1E2D305E00545345 /* MapPolyLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FBA84B1E2D305D00545345 /* MapPolyLine.m */; };
 		ABFFDA20318610632C1C0E19 /* libPods-AbeonaUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFB14E8E1C6B6E14DD35F3C /* libPods-AbeonaUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -267,6 +269,10 @@
 		46D0901A1E202E4B00C323F1 /* HelperClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperClass.m; sourceTree = "<group>"; };
 		46D564831E2427F500A94CD3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		46D564841E2427F500A94CD3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		46FBA8461E2D2D8600545345 /* MDDirectionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDDirectionService.h; sourceTree = "<group>"; };
+		46FBA8471E2D2D8600545345 /* MDDirectionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDirectionService.m; sourceTree = "<group>"; };
+		46FBA84A1E2D305D00545345 /* MapPolyLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPolyLine.h; sourceTree = "<group>"; };
+		46FBA84B1E2D305D00545345 /* MapPolyLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPolyLine.m; sourceTree = "<group>"; };
 		47FF8870D75F862480A98531 /* Pods-AbeonaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AbeonaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AbeonaUITests/Pods-AbeonaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4F30F46C6D009CD0657DFFF2 /* Pods-Abeona.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abeona.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Abeona/Pods-Abeona.debug.xcconfig"; sourceTree = "<group>"; };
 		4FFB14E8E1C6B6E14DD35F3C /* libPods-AbeonaUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AbeonaUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -371,6 +377,9 @@
 		464B2BC81E22933800535E99 /* Annotation Classes */ = {
 			isa = PBXGroup;
 			children = (
+				46FBA8491E2D305D00545345 /* PolyLine */,
+				46FBA8461E2D2D8600545345 /* MDDirectionService.h */,
+				46FBA8471E2D2D8600545345 /* MDDirectionService.m */,
 				464B2BC91E22933800535E99 /* DXAnnotation.h */,
 				464B2BCA1E22933800535E99 /* DXAnnotation.m */,
 				464B2BCB1E22933800535E99 /* DXAnnotationSettings.h */,
@@ -715,6 +724,15 @@
 			path = HomeViewcontroller;
 			sourceTree = "<group>";
 		};
+		46FBA8491E2D305D00545345 /* PolyLine */ = {
+			isa = PBXGroup;
+			children = (
+				46FBA84A1E2D305D00545345 /* MapPolyLine.h */,
+				46FBA84B1E2D305D00545345 /* MapPolyLine.m */,
+			);
+			path = PolyLine;
+			sourceTree = "<group>";
+		};
 		B95ECEB38B5FC3027FF9F92F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -804,7 +822,7 @@
 				TargetAttributes = {
 					46CF8ECD1E1EB38400657F55 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 424KH5M7AY;
+						DevelopmentTeam = EWE93C7WLT;
 						ProvisioningStyle = Automatic;
 					};
 					46CF8EE61E1EB38500657F55 = {
@@ -1040,6 +1058,7 @@
 				46B4C8971E27F00E009407CA /* ModelLocator.m in Sources */,
 				464B2BDB1E22957700535E99 /* MapCallOutView.m in Sources */,
 				464B2BF51E22C43F00535E99 /* DetailDescriptionTableViewCell.m in Sources */,
+				46FBA84C1E2D305E00545345 /* MapPolyLine.m in Sources */,
 				46B4C8C91E28042A009407CA /* UIImageView+HighlightedWebCache.m in Sources */,
 				464A89461E27EB7B00396751 /* AFSecurityPolicy.m in Sources */,
 				46D564851E2427F500A94CD3 /* HomeViewController.m in Sources */,
@@ -1050,6 +1069,7 @@
 				464A89491E27EB7B00396751 /* AFURLResponseSerialization.m in Sources */,
 				464A894E1E27EBCC00396751 /* WebServices.m in Sources */,
 				464B2BD11E22933800535E99 /* DXAnnotation.m in Sources */,
+				46FBA8481E2D2D8600545345 /* MDDirectionService.m in Sources */,
 				46D090171E201F6800C323F1 /* UILabelClass.m in Sources */,
 				464A89441E27EB7B00396751 /* AFHTTPSessionManager.m in Sources */,
 				46CF8F101E1ECA4B00657F55 /* WalkthroughViewController.m in Sources */,
@@ -1231,13 +1251,16 @@
 			baseConfigurationReference = 4F30F46C6D009CD0657DFFF2 /* Pods-Abeona.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 424KH5M7AY;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = EWE93C7WLT;
 				GCC_PREFIX_HEADER = Abeona/Resources/AbeonaPrefixHeader.pch;
 				INFOPLIST_FILE = Abeona/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TeraByteLogics.Abeona;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "16dec7e5-c4b4-472e-b0df-4963ff3fb6a8";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1247,13 +1270,16 @@
 			baseConfigurationReference = 63985BBD86ED7F53EE587ED5 /* Pods-Abeona.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 424KH5M7AY;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = EWE93C7WLT;
 				GCC_PREFIX_HEADER = Abeona/Resources/AbeonaPrefixHeader.pch;
 				INFOPLIST_FILE = Abeona/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TeraByteLogics.Abeona;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "16dec7e5-c4b4-472e-b0df-4963ff3fb6a8";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

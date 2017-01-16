@@ -62,7 +62,9 @@
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    
     [self.locationManager stopUpdatingLocation];
+    [ModelLocator getInstance].userCoordinates = manager.location.coordinate;
 }
 
 - (void)locationManager:(CLLocationManager *)manager

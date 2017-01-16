@@ -11,6 +11,7 @@
 @interface ModelLocator : NSObject
 
 @property (nonatomic, strong)NSMutableArray *resposeArray;
+@property (nonatomic) CLLocationCoordinate2D userCoordinates;
 @property (nonatomic) int index;
 
 +(ModelLocator*) getInstance;
