@@ -12,5 +12,6 @@
 @interface RouteDetailsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableview;
+@property (nonatomic) BOOL isDriving;
 
 @end

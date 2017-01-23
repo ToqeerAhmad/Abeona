@@ -85,21 +85,21 @@
                             <color key="titleColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
-                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2D1-15-rN0">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2D1-15-rN0">
                         <rect key="frame" x="59" y="0.0" width="3" height="265.5"/>
                         <color key="backgroundColor" red="0.15294117647058825" green="0.61960784313725492" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="3" id="MYE-mY-DYG"/>
                         </constraints>
                     </view>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_circle" translatesAutoresizingMaskIntoConstraints="NO" id="imr-JV-U2l">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_circle" translatesAutoresizingMaskIntoConstraints="NO" id="imr-JV-U2l">
                         <rect key="frame" x="55" y="17" width="11" height="11"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="11" id="MHP-Fx-c7a"/>
                             <constraint firstAttribute="height" constant="11" id="brj-EH-Ojr"/>
                         </constraints>
                     </imageView>
-                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zpx-vH-lse">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zpx-vH-lse">
                         <rect key="frame" x="82" y="162" width="275" height="34"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="!  Only 7 seats left." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFb-uw-A8G">
@@ -179,7 +179,7 @@
                 <outlet property="leaveImageView" destination="Eda-bH-bBj" id="OcV-De-sGc"/>
                 <outlet property="ticketBtn" destination="mAo-1h-zFW" id="iCG-ZY-0oa"/>
             </connections>
-            <point key="canvasLocation" x="33.5" y="199"/>
+            <point key="canvasLocation" x="56" y="15"/>
         </tableViewCell>
     </objects>
     <resources>

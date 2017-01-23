@@ -902,6 +902,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="goBack:" destination="t7w-un-LEr" eventType="touchUpInside" id="umo-N5-3Pf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.1019607843" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
@@ -950,6 +953,8 @@
                         </button>
                     </navigationItem>
                     <connections>
+                        <outlet property="editJourney" destination="DNt-Na-16c" id="AKr-je-u4S"/>
+                        <outlet property="lblCurrentAddress" destination="pHj-w9-gjM" id="d41-Y0-upX"/>
                         <outlet property="routesOptionstableView" destination="2kh-HV-XUv" id="bzb-VG-7Q5"/>
                         <segue destination="ouw-ZI-xmS" kind="show" id="dj3-XW-KQh"/>
                     </connections>
@@ -1296,7 +1301,7 @@
         <scene sceneID="5EU-bp-z1L">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xp6-qC-pre" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Plan Journey" image="train_Icon" id="sUc-RL-lQV"/>
+                    <tabBarItem key="tabBarItem" title="Plan Journey" image="train_icon" id="sUc-RL-lQV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="nJf-QL-IFy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1322,7 +1327,7 @@
         <image name="location_Pin" width="93" height="102"/>
         <image name="question" width="93" height="102"/>
         <image name="right_disclosure-icon" width="5" height="9"/>
-        <image name="train_Icon" width="16" height="16"/>
+        <image name="train_icon" width="31" height="32"/>
         <image name="trophyImage" width="125" height="100"/>
     </resources>
 </document>

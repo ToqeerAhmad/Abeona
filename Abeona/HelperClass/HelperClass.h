@@ -21,5 +21,6 @@
 +(void)returnImageFromUrlWithCache:(NSString *)imageURL andImagePlacement:(UIImageView *)imagePlacement;
 +(BOOL)isValidNumericString:(NSString*)string;
 +(BOOL)internationalPhoneNumberVaidation:(NSString*)string;
++(NSString *) checkforNullvalue:(id) stringVal;
 
 @end

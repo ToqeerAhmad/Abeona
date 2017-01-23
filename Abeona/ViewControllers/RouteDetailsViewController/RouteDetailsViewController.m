@@ -11,7 +11,7 @@
 
 @interface RouteDetailsViewController ()
 {
-    NSMutableArray *stopsArray;
+    NSMutableArray *stepsArray;
     int lblY;
     BOOL isShowDetail;
     BOOL isSHowMapCell;
@@ -22,6 +22,7 @@
     NSArray *_polys;
     double _pos, _step;
     GMSCameraPosition *camera;
+    ModelLocator *model;
 
 }
 @end
@@ -39,8 +40,17 @@
      [tableview registerNib:[UINib nibWithNibName:@"RouteMapTableViewCell" bundle:nil] forCellReuseIdentifier:@"RouteMapTableViewCell"];
 
     
-    stopsArray = [[NSMutableArray alloc] initWithObjects:@"StockPort[SPT]",@"Wilmslow[WML]",@"Crewe[CRE]",@"Nantwich[NAN]",@"Wem[WEM]",@"Ludlow[LUD]", nil];
     
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    model = [ModelLocator getInstance];
+
+    stepsArray = [NSMutableArray new];
+  
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -48,14 +58,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    
+    if (_isDriving) {
+        return model.drivingSteps.count;
+    }else {
+        return model.transitSteps.count;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0 && isSHowMapCell) {
-        return 418;
-    }else if (indexPath.row != 0 && isShowDetail) {
-        return 379;
+    if (indexPath.row != 0) {
+        return 165;
     }else {
         return 175;
     }
@@ -63,88 +76,52 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == 0) {
-        if (isSHowMapCell) {
-            RouteMapTableViewCell *cell = (RouteMapTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"RouteMapTableViewCell" forIndexPath:indexPath];
-            [cell.detailBtn addTarget:self action:@selector(showMapCell:) forControlEvents:UIControlEventTouchUpInside];
-            cell.detailBtn.tag = indexPath.row;
-            if (indexPath.row != 0) {
-                cell.circleImageView.hidden = false;
-                cell.fullLine.hidden = false;
-                cell.halfLine.hidden = true;
-                cell.leaveImageView.hidden = true;
-                cell.leaveImageHeightConstraint.constant = 0;
-                cell.labelTopConstraint.constant = -2;
-                cell.mapView.hidden = false;
-            }
-            [self loadView:cell];
-            return cell;
 
-        }else {
+        if (indexPath.row == 0) {
+            
             RouteTableViewCell *cell = (RouteTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"routeDetailCell" forIndexPath:indexPath];
             [cell.detailBtn addTarget:self action:@selector(showMapCell:) forControlEvents:UIControlEventTouchUpInside];
             cell.detailBtn.tag = indexPath.row;
-            if (indexPath.row != 0) {
-                cell.circleImageView.hidden = false;
-                cell.fullLine.hidden = false;
-                cell.halfLine.hidden = true;
-                cell.leaveImageView.hidden = true;
-                cell.leaveImageHeightConstraint.constant = 0;
-                cell.labelTopConstraint.constant = -2;
-                cell.alertView.hidden = false;
-            }
-            return cell;
 
-        }
-
-    }else {
-        
-        if (isShowDetail) {
-            RouteStopsTableViewCell * cell = (RouteStopsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
-            [cell.detailBtn addTarget:self action:@selector(showDetail:) forControlEvents:UIControlEventTouchUpInside];
-            cell.detailBtn.tag = indexPath.row;
-            if (indexPath.row != 0) {
-                cell.circleImageView.hidden = false;
-                cell.fullLine.hidden = false;
-                cell.halfLine.hidden = true;
-                cell.leaveImageView.hidden = true;
-                cell.leaveImageHeightConstraint.constant = 0;
-                cell.labelTopConstraint.constant = -2;
-                cell.alertView.hidden = false;
-            }
-            return cell;
-
+            cell.circleImageView.hidden = true;
+            cell.fullLine.hidden = true;
+            cell.halfLine.hidden = false;
+            cell.leaveImageView.hidden = false;
+            cell.alertView.hidden = true;
+             return cell;
+            
         }else {
+            
             RouteTableViewCell *cell = (RouteTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"routeDetailCell" forIndexPath:indexPath];
-            [cell.detailBtn addTarget:self action:@selector(showDetail:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.detailBtn addTarget:self action:@selector(showMapCell:) forControlEvents:UIControlEventTouchUpInside];
             cell.detailBtn.tag = indexPath.row;
-            if (indexPath.row != 0) {
-                cell.circleImageView.hidden = false;
-                cell.fullLine.hidden = false;
-                cell.halfLine.hidden = true;
-                cell.leaveImageView.hidden = true;
-                cell.leaveImageHeightConstraint.constant = 0;
-                cell.labelTopConstraint.constant = -2;
-                cell.alertView.hidden = false;
-            }
-            return cell;
 
+            cell.leaveImageHeightConstraint.constant = 0;
+            cell.labelTopConstraint.constant = -2;
+            cell.circleImageView.hidden = false;
+            cell.fullLine.hidden = false;
+            cell.halfLine.hidden = true;
+            cell.leaveImageView.hidden = true;
+            cell.alertView.hidden = false;
+            return cell;
+            
         }
-    }
+    
+    
 }
 
 - (void)addlabels:(RouteTableViewCell *)clickedCell {
    
-    lblY = clickedCell.detailBtn.frame.origin.y + clickedCell.detailBtn.frame.size.height + 5;
-    int lblX = clickedCell.detailBtn.frame.origin.x;
-    for (int index = 0; index < stopsArray.count; index++) {
-        
-        UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(lblX,lblY, 200, 17)];
-        lbl.text = [NSString stringWithFormat:@"%@",[stopsArray objectAtIndex:index]];
-        lbl.font = [UIFont systemFontOfSize:12];
-        [clickedCell addSubview:lbl];
-        lblY = lblY+19;
-    }
+//    lblY = clickedCell.detailBtn.frame.origin.y + clickedCell.detailBtn.frame.size.height + 5;
+//    int lblX = clickedCell.detailBtn.frame.origin.x;
+//    for (int index = 0; index < stopsArray.count; index++) {
+//        
+//        UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(lblX,lblY, 200, 17)];
+//        lbl.text = [NSString stringWithFormat:@"%@",[stopsArray objectAtIndex:index]];
+//        lbl.font = [UIFont systemFontOfSize:12];
+//        [clickedCell addSubview:lbl];
+//        lblY = lblY+19;
+//    }
 //    lblY = lblY + cell.alertView.frame.size.height;
 }
 
@@ -176,10 +153,9 @@
 
 - (void)loadView:(RouteMapTableViewCell *)cell {
     
-    ModelLocator *model = [ModelLocator getInstance];
     
-    CLLocation *loction = [[CLLocation alloc] initWithLatitude:model.userCoordinates.latitude longitude:model.userCoordinates.longitude];
-    CLLocation *loction1 = [[CLLocation alloc] initWithLatitude:51.4794846  longitude:-3.1829101];
+    CLLocation *loction = [[CLLocation alloc] initWithLatitude:51.5033 longitude:-0.1195];
+    CLLocation *loction1 = [[CLLocation alloc] initWithLatitude:51.4782  longitude:-3.1826];
     
     mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-100, [HelperClass getCellHeight:235 OriginalWidth:375].height) camera:camera];
     
@@ -189,14 +165,11 @@
     [mapView moveCamera:[GMSCameraUpdate fitBounds:bounds]];
     
     
-    mapView.userInteractionEnabled = false;
+    mapView.userInteractionEnabled = true;
     [cell.mapView addSubview:mapView];
     
     // Creates a marker in the center of the map.
     
-    
-    
-    [self drawPathFrom:loction toDestination:loction1];
     
     GMSMarker *marker=[[GMSMarker alloc]init];
     marker.position=loction.coordinate;
@@ -210,27 +183,6 @@
     
 }
 
-
--(void)drawPathFrom:(CLLocation*)source toDestination:(CLLocation*)destination{
-    
-    NSString *baseUrl = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&sensor=true", source.coordinate.latitude,  source.coordinate.longitude, destination.coordinate.latitude,  destination.coordinate.longitude];
-    
-    NSURL *url = [NSURL URLWithString:[baseUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSLog(@"Url: %@", url);
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        if(!connectionError){
-            NSDictionary *result        = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            NSArray *routes             = [result objectForKey:@"routes"];
-            NSDictionary *firstRoute    = [routes objectAtIndex:0];
-            NSString *encodedPath       = [firstRoute[@"overview_polyline"] objectForKey:@"points"];
-            UIColor *color = [UIColor colorWithRed:30.0/255.0 green:179.0/255.0 blue:252.0/255.0 alpha:1.0];
-            [self createDashedLine:source.coordinate andNext:destination.coordinate andColor:color andEncodedPath:encodedPath];
-        }
-    }];
-    
-}
 
 - (void) createDashedLine:(CLLocationCoordinate2D )thisPoint andNext:(CLLocationCoordinate2D )nextPoint andColor:(UIColor *)colour andEncodedPath:(NSString *)encodedPath
 {

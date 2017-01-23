@@ -14,6 +14,7 @@
 -(void)SendRequestForData:(NSMutableDictionary *)paramsDict andServiceURL:(NSString *)serviceURL andServiceReturnType:(NSString *)returnType
 {
     
+    ModelLocator *model = [ModelLocator getInstance];
     NSLog(@"%@",paramsDict);
     NSLog(@"%@",serviceURL);
     
@@ -33,13 +34,37 @@
         
             NSString *aStr;
             aStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-            NSLog(@"%@",aStr);
+//            NSLog(@"%@",aStr);
             if(responseObject != nil) {
                 if (self.delegate) {
-                    JsonParser *jsonObject = [[JsonParser alloc] init];
-                    [jsonObject parseResponseData:responseObject];
-                    [self.delegate webServiceEnd:@"" andResponseType:returnType];
+                    if ([returnType isEqualToString:@"DRIVING"]) {
+                       
+                        NSArray *routes = [responseObject objectForKey:@"routes"];
+                        if (routes.count > 0) {
+                            model.legsDrivingDict = [[routes objectAtIndex:0] objectForKey:@"legs"];
+                            model.drivingSteps = [[[[routes objectAtIndex:0] objectForKey:@"legs"] objectAtIndex:0] objectForKey:@"steps"];
+                            
+                        }else {
+                            model.optionsArray = [responseObject objectForKey:@"available_travel_modes"];
+                        }
+                        
+                    }else  if ([returnType isEqualToString:@"TRANSIT"]) {
+                        
+                        NSArray *routes = [responseObject objectForKey:@"routes"];
+                        if (routes.count > 0) {
+                            model.legsTransitDict = [[routes objectAtIndex:0] objectForKey:@"legs"];
+                            model.transitSteps = [[[[routes objectAtIndex:0] objectForKey:@"legs"] objectAtIndex:0] objectForKey:@"steps"];
+                        }else {
+                            model.optionsArray = [responseObject objectForKey:@"available_travel_modes"];
+                        }
+                        
+                    }else {
+                        JsonParser *jsonObject = [[JsonParser alloc] init];
+                        [jsonObject parseResponseData:responseObject];
+                    }
                 }
+                [self.delegate webServiceEnd:@"" andResponseType:returnType];
+
             }else {
                 if(self.delegate){
                     NSString *webserviceError = [responseObject objectForKey:@"errors"];

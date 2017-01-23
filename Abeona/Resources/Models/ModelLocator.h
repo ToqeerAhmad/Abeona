@@ -11,6 +11,13 @@
 @interface ModelLocator : NSObject
 
 @property (nonatomic, strong)NSMutableArray *resposeArray;
+@property (nonatomic, strong)NSDictionary *legsTransitDict;
+@property (nonatomic, strong)NSDictionary *legsDrivingDict;
+
+@property (nonatomic, strong)NSMutableArray *transitSteps;
+@property (nonatomic, strong)NSMutableArray *drivingSteps;
+
+@property (nonatomic, strong)NSMutableArray *optionsArray;
 @property (nonatomic) CLLocationCoordinate2D userCoordinates;
 @property (nonatomic) int index;
 

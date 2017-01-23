@@ -10,4 +10,11 @@
 
 @interface OptionsTableViewCell : UITableViewCell
 
+@property (nonatomic, weak) IBOutlet UILabel *lblRouteType;
+@property (nonatomic, weak) IBOutlet UILabel *lblTime;
+@property (nonatomic, weak) IBOutlet UILabel *lblArrive_DepartTime;
+@property (nonatomic, weak) IBOutlet UILabel *lblBottomNOte;
+@property (nonatomic, weak) IBOutlet UILabel *lblAmount;
+@property (nonatomic, weak) IBOutlet UIImageView *transportTypeImage;
+
 @end

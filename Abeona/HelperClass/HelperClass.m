@@ -10,6 +10,19 @@
 
 @implementation HelperClass
 
+/** Check Null Value as String ***/
++(NSString *) checkforNullvalue:(id) stringVal
+{
+    
+    NSString *string = [NSString stringWithFormat:@"%@",stringVal];
+    
+    if ([string isEqualToString:@"<null>"]||[string  isEqualToString:@"(null)"] ||[string  isEqualToString:@"0000-00-00"] || [string  isEqualToString:@""] || string.length==0 ||
+        string==nil ||[string isKindOfClass:[NSNull class]]) {
+        string =@"";
+    }
+    return string ;
+}
+
 
 +(CGSize)getCellHeight:(int)originalHeight OriginalWidth:(int)originalWidth
 {

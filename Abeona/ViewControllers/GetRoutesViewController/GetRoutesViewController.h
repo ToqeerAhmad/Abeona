@@ -11,5 +11,7 @@
 @interface GetRoutesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UITableView *routesOptionstableView;
+@property (nonatomic, weak) IBOutlet UILabel *lblCurrentAddress;
+@property (nonatomic, weak) IBOutlet UIButton *editJourney;
 
 @end

@@ -9,6 +9,10 @@
 #import "SelectLocationViewController.h"
 
 @interface SelectLocationViewController ()
+{
+    MBProgressHUD *progressBar;
+    ModelLocator *model;
+}
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraintofGetRoutesBtn;
 
 @end
@@ -17,15 +21,71 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    model = [ModelLocator getInstance];
     // Do any additional setup after loading the view.
     _bottomConstraintofGetRoutesBtn.constant = 30;
+   
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
 }
 
 - (IBAction)GetRoutes:(id)sender {
-    GetRoutesViewController *routesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GetRoutesViewController"];
-    [self.navigationController pushViewController:routesVC animated:true];
+    [self drawPathFrom:@"DRIVING"];
+}
+
+
+-(void)drawPathFrom:(NSString *)mode {
+    
+    NSMutableDictionary *dict;
+    WebServices *service = [[WebServices alloc] init];
+    service.delegate = self;
+    
+    NSString *baseUrl = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&mode=%@&sensor=true", 51.5033,  -0.1195, model.userCoordinates.latitude, model.userCoordinates.longitude, mode];
+    
+    [service SendRequestForData:dict andServiceURL:baseUrl andServiceReturnType:mode];
     
 }
+
+-(void) webServiceStart {
+    progressBar=[MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] delegate] window] animated:NO];
+    progressBar.labelText=@"Please Wait...";
+    [progressBar show:YES];
+}
+
+
+/////// in case error occured in web service
+
+-(void) webServiceError:(NSString *)errorType {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:errorType preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+//    UIAlertAction *retry = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        
+//    }];
+    [alertController addAction:cancel];
+//    [alertController addAction:retry];
+    [progressBar hide:YES];
+}
+
+
+// successful web service call end //////////
+-(void) webServiceEnd:(id)returnObject andResponseType:(id)responseType {
+      [progressBar hide:YES];
+    if ([responseType isEqualToString:@"DRIVING"]) {
+        [self drawPathFrom:@"TRANSIT"];
+    }else if ([responseType isEqualToString:@"TRANSIT"]) {
+        GetRoutesViewController *routesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GetRoutesViewController"];
+        [self.navigationController pushViewController:routesVC animated:true];
+    }
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
