@@ -82,12 +82,12 @@
             RouteTableViewCell *cell = (RouteTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"routeDetailCell" forIndexPath:indexPath];
             [cell.detailBtn addTarget:self action:@selector(showMapCell:) forControlEvents:UIControlEventTouchUpInside];
             cell.detailBtn.tag = indexPath.row;
-
             cell.circleImageView.hidden = true;
             cell.fullLine.hidden = true;
             cell.halfLine.hidden = false;
             cell.leaveImageView.hidden = false;
             cell.alertView.hidden = true;
+            [self setValueForSteps:indexPath andCell:cell];
              return cell;
             
         }else {
@@ -95,7 +95,6 @@
             RouteTableViewCell *cell = (RouteTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"routeDetailCell" forIndexPath:indexPath];
             [cell.detailBtn addTarget:self action:@selector(showMapCell:) forControlEvents:UIControlEventTouchUpInside];
             cell.detailBtn.tag = indexPath.row;
-
             cell.leaveImageHeightConstraint.constant = 0;
             cell.labelTopConstraint.constant = -2;
             cell.circleImageView.hidden = false;
@@ -106,8 +105,23 @@
             return cell;
             
         }
+}
+
+
+
+- (void)setValueForSteps:(NSIndexPath *)indexPath andCell:(RouteTableViewCell *)cell {
     
+
+    cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] objectForKey:@"html_instructions"]];
+    cell.lblStepTime.text = [self ]
     
+}
+
+-(NSString *)stringByStrippingHTML:(NSString *)str {
+    NSRange r;
+    while ((r = [str rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        str = [str stringByReplacingCharactersInRange:r withString:@""];
+    return str;
 }
 
 - (void)addlabels:(RouteTableViewCell *)clickedCell {

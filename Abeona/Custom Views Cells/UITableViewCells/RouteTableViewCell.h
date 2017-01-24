@@ -23,4 +23,9 @@
 @property (nonatomic, strong) IBOutlet UIButton *detailBtn;
 @property (nonatomic, strong) IBOutlet UIButton *ticketBtn;
 
+@property (nonatomic, strong) IBOutlet UILabel *lblTotalTime;
+@property (nonatomic, strong) IBOutlet UILabel *lblStepTime;
+@property (nonatomic, strong) IBOutlet UILabel *lblHtmlText;
+@property (nonatomic, strong) IBOutlet UILabel *lblAddress;
+
 @end

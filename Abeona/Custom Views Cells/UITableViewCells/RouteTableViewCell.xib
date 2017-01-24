@@ -175,6 +175,10 @@
                 <outlet property="fullLine" destination="2D1-15-rN0" id="Tsw-xp-zz4"/>
                 <outlet property="halfLine" destination="PHd-YS-sev" id="J90-dj-WSS"/>
                 <outlet property="labelTopConstraint" destination="cVK-va-N7l" id="9vG-uk-dBG"/>
+                <outlet property="lblAddress" destination="hBP-ao-hpV" id="GpF-C2-FbI"/>
+                <outlet property="lblHtmlText" destination="D5I-YV-0Fn" id="XCV-h8-gFi"/>
+                <outlet property="lblStepTime" destination="gZj-6P-CAL" id="lwP-UE-rgc"/>
+                <outlet property="lblTotalTime" destination="MIh-pF-gEW" id="3dM-Ua-YEo"/>
                 <outlet property="leaveImageHeightConstraint" destination="nDa-yJ-2qc" id="hs7-fR-TSQ"/>
                 <outlet property="leaveImageView" destination="Eda-bH-bBj" id="OcV-De-sGc"/>
                 <outlet property="ticketBtn" destination="mAo-1h-zFW" id="iCG-ZY-0oa"/>
