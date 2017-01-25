@@ -48,7 +48,7 @@
                             model.optionsArray = [responseObject objectForKey:@"available_travel_modes"];
                         }
                         
-                    }else  if ([returnType isEqualToString:@"TRANSIT"]) {
+                    }else  if ([returnType isEqualToString:@"transit"]) {
                         
                         NSArray *routes = [responseObject objectForKey:@"routes"];
                         if (routes.count > 0) {

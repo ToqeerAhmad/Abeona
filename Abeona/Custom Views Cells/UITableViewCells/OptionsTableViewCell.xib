@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="176"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="175.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VRH-eO-0lj" customClass="UIViewExtension">
@@ -71,21 +71,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walking_icon" translatesAutoresizingMaskIntoConstraints="NO" id="uDM-ks-hSH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walking_icon" translatesAutoresizingMaskIntoConstraints="NO" id="uDM-ks-hSH">
                                 <rect key="frame" x="8" y="61" width="27" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="27" id="XEh-4O-dBa"/>
                                     <constraint firstAttribute="height" constant="34" id="tDq-uy-9hg"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walking_icon" translatesAutoresizingMaskIntoConstraints="NO" id="EZB-9R-j0S">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walking_icon" translatesAutoresizingMaskIntoConstraints="NO" id="EZB-9R-j0S">
                                 <rect key="frame" x="85" y="61" width="27" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="IRW-GB-qH4"/>
                                     <constraint firstAttribute="width" constant="27" id="dH8-Pq-QGl"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="train_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Vua-z7-OGQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="train_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Vua-z7-OGQ">
                                 <rect key="frame" x="45" y="61" width="30" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="FXH-eO-mjE"/>

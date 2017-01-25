@@ -42,10 +42,6 @@
 		464B2BF61E22C43F00535E99 /* DetailDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464B2BF41E22C43F00535E99 /* DetailDescriptionTableViewCell.xib */; };
 		464B2BFA1E22C75100535E99 /* MapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BF81E22C75100535E99 /* MapTableViewCell.m */; };
 		464B2BFB1E22C75100535E99 /* MapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464B2BF91E22C75100535E99 /* MapTableViewCell.xib */; };
-		4656CAA01E26D3EE00D0FE4D /* RouteStopsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656CA9E1E26D3EE00D0FE4D /* RouteStopsTableViewCell.m */; };
-		4656CAA11E26D3EE00D0FE4D /* RouteStopsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4656CA9F1E26D3EE00D0FE4D /* RouteStopsTableViewCell.xib */; };
-		4656CAAD1E26D95500D0FE4D /* RouteMapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4656CAAB1E26D95500D0FE4D /* RouteMapTableViewCell.m */; };
-		4656CAAE1E26D95500D0FE4D /* RouteMapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4656CAAC1E26D95500D0FE4D /* RouteMapTableViewCell.xib */; };
 		46B4C8971E27F00E009407CA /* ModelLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B4C8951E27F00E009407CA /* ModelLocator.m */; };
 		46B4C8BC1E28042A009407CA /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B4C89A1E28042A009407CA /* MKAnnotationView+WebCache.m */; };
 		46B4C8BD1E28042A009407CA /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B4C89C1E28042A009407CA /* NSData+ImageContentType.m */; };
@@ -176,12 +172,6 @@
 		464B2BF71E22C75100535E99 /* MapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTableViewCell.h; sourceTree = "<group>"; };
 		464B2BF81E22C75100535E99 /* MapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTableViewCell.m; sourceTree = "<group>"; };
 		464B2BF91E22C75100535E99 /* MapTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapTableViewCell.xib; sourceTree = "<group>"; };
-		4656CA9D1E26D3EE00D0FE4D /* RouteStopsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteStopsTableViewCell.h; sourceTree = "<group>"; };
-		4656CA9E1E26D3EE00D0FE4D /* RouteStopsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteStopsTableViewCell.m; sourceTree = "<group>"; };
-		4656CA9F1E26D3EE00D0FE4D /* RouteStopsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteStopsTableViewCell.xib; sourceTree = "<group>"; };
-		4656CAAA1E26D95500D0FE4D /* RouteMapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteMapTableViewCell.h; sourceTree = "<group>"; };
-		4656CAAB1E26D95500D0FE4D /* RouteMapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteMapTableViewCell.m; sourceTree = "<group>"; };
-		4656CAAC1E26D95500D0FE4D /* RouteMapTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteMapTableViewCell.xib; sourceTree = "<group>"; };
 		46B4C8951E27F00E009407CA /* ModelLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelLocator.m; sourceTree = "<group>"; };
 		46B4C8961E27F00E009407CA /* ModelLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelLocator.h; sourceTree = "<group>"; };
 		46B4C8991E28042A009407CA /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -524,12 +514,6 @@
 				464B2BDE1E22B08200535E99 /* ExploreCardiffTableViewCell.h */,
 				464B2BDF1E22B08200535E99 /* ExploreCardiffTableViewCell.m */,
 				464B2BE01E22B08200535E99 /* ExploreCardiffTableViewCell.xib */,
-				4656CA9D1E26D3EE00D0FE4D /* RouteStopsTableViewCell.h */,
-				4656CA9E1E26D3EE00D0FE4D /* RouteStopsTableViewCell.m */,
-				4656CA9F1E26D3EE00D0FE4D /* RouteStopsTableViewCell.xib */,
-				4656CAAA1E26D95500D0FE4D /* RouteMapTableViewCell.h */,
-				4656CAAB1E26D95500D0FE4D /* RouteMapTableViewCell.m */,
-				4656CAAC1E26D95500D0FE4D /* RouteMapTableViewCell.xib */,
 			);
 			path = UITableViewCells;
 			sourceTree = "<group>";
@@ -869,12 +853,10 @@
 				46CF8EDE1E1EB38400657F55 /* Assets.xcassets in Resources */,
 				46CD37261E20466C00F83128 /* OptionsTableViewCell.xib in Resources */,
 				46CF8EDC1E1EB38400657F55 /* Main.storyboard in Resources */,
-				4656CAA11E26D3EE00D0FE4D /* RouteStopsTableViewCell.xib in Resources */,
 				464B2BEC1E22B99B00535E99 /* PicturesTableViewCell.xib in Resources */,
 				464A892D1E27DE4800396751 /* CustomGoogleMapView.xib in Resources */,
 				464B2BF61E22C43F00535E99 /* DetailDescriptionTableViewCell.xib in Resources */,
 				46CD371E1E20464300F83128 /* WalkthroughView.xib in Resources */,
-				4656CAAE1E26D95500D0FE4D /* RouteMapTableViewCell.xib in Resources */,
 				464B2BC71E217D3A00535E99 /* RouteTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1041,7 +1023,6 @@
 				46B4C8CF1E28049F009407CA /* PlaceCollectionViewCell.m in Sources */,
 				464B2BE61E22B8AF00535E99 /* ExploreCardiffDetailViewController.m in Sources */,
 				464A892B1E27DE4200396751 /* CustomGoogleMapView.m in Sources */,
-				4656CAAD1E26D95500D0FE4D /* RouteMapTableViewCell.m in Sources */,
 				46CF8F1B1E1ECADD00657F55 /* ExploreCardiffViewController.m in Sources */,
 				464A89471E27EB7B00396751 /* AFURLConnectionOperation.m in Sources */,
 				46CF8F151E1ECA9B00657F55 /* SignInViewController.m in Sources */,
@@ -1078,7 +1059,6 @@
 				46B4C8C21E28042A009407CA /* SDWebImageDownloaderOperation.m in Sources */,
 				464B2BD71E2293AC00535E99 /* AnnotationModel.m in Sources */,
 				46CD370A1E203E8100F83128 /* UIViewExtension.m in Sources */,
-				4656CAA01E26D3EE00D0FE4D /* RouteStopsTableViewCell.m in Sources */,
 				464A89561E27ECC100396751 /* JsonParser.m in Sources */,
 				46CF8F181E1ECAC200657F55 /* PlanJourneyViewController.m in Sources */,
 				46CF8F241E1EDACA00657F55 /* SelectLocationViewController.m in Sources */,

@@ -43,7 +43,7 @@
     WebServices *service = [[WebServices alloc] init];
     service.delegate = self;
     
-    NSString *baseUrl = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&mode=%@&sensor=true", 51.5033,  -0.1195, model.userCoordinates.latitude, model.userCoordinates.longitude, mode];
+    NSString *baseUrl = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&mode=%@&sensor=true",model.userCoordinates.latitude , model.userCoordinates.longitude , 51.5033, -0.1195, mode];
     
     [service SendRequestForData:dict andServiceURL:baseUrl andServiceReturnType:mode];
     
@@ -78,8 +78,8 @@
 -(void) webServiceEnd:(id)returnObject andResponseType:(id)responseType {
       [progressBar hide:YES];
     if ([responseType isEqualToString:@"DRIVING"]) {
-        [self drawPathFrom:@"TRANSIT"];
-    }else if ([responseType isEqualToString:@"TRANSIT"]) {
+        [self drawPathFrom:@"transit"];
+    }else if ([responseType isEqualToString:@"transit"]) {
         GetRoutesViewController *routesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GetRoutesViewController"];
         [self.navigationController pushViewController:routesVC animated:true];
     }

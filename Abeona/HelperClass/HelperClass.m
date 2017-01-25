@@ -10,6 +10,15 @@
 
 @implementation HelperClass
 
+
++(NSString *)stringByStrippingHTML:(NSString *)str {
+    str = [NSString stringWithFormat:@"%@",str];
+    NSRange r;
+    while ((r = [str rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        str = [str stringByReplacingCharactersInRange:r withString:@""];
+    return str;
+}
+
 /** Check Null Value as String ***/
 +(NSString *) checkforNullvalue:(id) stringVal
 {
@@ -100,15 +109,13 @@
 }
 
 
-+(NSString *)getDate:(NSString *) date withFormat :(NSString *)dateFormat{
++(NSString *)getDate:(NSDate *)date withFormat:(NSString *)dateFormat{
 
     NSDateFormatter* format = [[NSDateFormatter alloc] init];
-    [format setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
-    [format setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
-    NSDate* dateObj = [format dateFromString:date];
+    [format setLocale:[NSLocale currentLocale]];
     [format setDateFormat:dateFormat];
     
-    return [format stringFromDate:dateObj];
+    return [format stringFromDate:date];
 }
 
 +(NSString *)getDate:(NSString *) date withColonFormat :(NSString *)dateFormat{
