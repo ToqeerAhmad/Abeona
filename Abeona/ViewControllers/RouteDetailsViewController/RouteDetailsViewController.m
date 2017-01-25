@@ -50,6 +50,35 @@
   
 }
 
+- (IBAction)showStopsView:(id)sender {
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[sender tag] inSection:0];
+    RouteTableViewCell *stopsCell = (RouteTableViewCell *)[tableview cellForRowAtIndexPath:indexPath];
+    if (isShowDetail) {
+        isShowDetail = false;
+    }else {
+        isShowDetail = true;
+    }
+    isSHowMapCell = false;
+    selectedIndex = indexPath;
+    [self showHideViewsForTransitCell:stopsCell andIndexPath:indexPath];
+    [tableview reloadData];
+}
+
+- (IBAction)showMapView:(id)sender {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[sender tag] inSection:0];
+    RouteTableViewCell *routeCell = (RouteTableViewCell *)[tableview cellForRowAtIndexPath:indexPath];
+    if (isSHowMapCell) {
+        isSHowMapCell = false;
+    }else {
+        isSHowMapCell = true;
+    }
+    isShowDetail = false;
+    selectedIndex = indexPath;
+    [self showHideViewsForTransitCell:routeCell andIndexPath:indexPath];
+    [tableview reloadData];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -161,18 +190,7 @@
         [cell.detailBtn addTarget:self action:@selector(showMapView:) forControlEvents:UIControlEventTouchUpInside];
     }
 
-    if (isSHowMapCell) {
-        cell.stopsViewHeightConstraint.constant = 0;
-        cell.stopsView.hidden = true;
-    }else if (isShowDetail) {
-        cell.mapHeightConstraint.constant = 0;
-        cell.mapView.hidden = true;
-    }else {
-        cell.mapHeightConstraint.constant = 0;
-        cell.stopsViewHeightConstraint.constant = 0;
-        cell.stopsView.hidden = true;
-        cell.mapView.hidden = true;
-    }
+    [self showHideViewsForTransitCell:cell andIndexPath:indexPath];
     if (indexPath.row == 0) {
         
         cell.halfLine.hidden = false;
@@ -187,6 +205,27 @@
     }
     [self setValueForSteps:indexPath andCell:cell];
     return cell;
+}
+
+- (void)showHideViewsForTransitCell:(RouteTableViewCell *)cell andIndexPath:(NSIndexPath *)indexPath {
+   
+    if (isSHowMapCell && selectedIndex == indexPath) {
+        cell.stopsViewHeightConstraint.constant = 0;
+        cell.stopsView.hidden = true;
+        cell.mapHeightConstraint.constant = 235;
+        cell.mapView.hidden = false;
+
+    }else if (isShowDetail && selectedIndex == indexPath) {
+        cell.stopsViewHeightConstraint.constant = 45;
+        cell.stopsView.hidden = false;
+        cell.mapHeightConstraint.constant = 0;
+        cell.mapView.hidden = true;
+    }else {
+        cell.mapHeightConstraint.constant = 0;
+        cell.stopsViewHeightConstraint.constant = 0;
+        cell.stopsView.hidden = true;
+        cell.mapView.hidden = true;
+    }
 }
 
 - (NSDate *)setTime:(NSString *)time {
@@ -230,12 +269,11 @@
             }else {
                 
                 startDate = self.departDate;
-                NSDate *date;
-                for (int index = 1; index == indexPath.row; index++) {
+                for (int index = 0; index < indexPath.row; index++) {
                     NSString *time = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:index] objectForKey:@"duration"] objectForKey:@"text"]];
-                    date = [self setTime:time];
+                    startDate = [self setTime:time];
                 }
-                cell.lblTotalTime.text = [HelperClass getDate:date withFormat:@"HH:mm"];
+                cell.lblTotalTime.text = [HelperClass getDate:startDate withFormat:@"HH:mm"];
             }
         }
         else
@@ -244,12 +282,11 @@
             NSString *time = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"duration"] objectForKey:@"text"]];
             cell.lblStepTime.text = time;
             startDate = self.departDate;
-            NSDate *date;
-            for (int index = 1; index == indexPath.row; index++) {
+            for (int index = 0; index < indexPath.row; index++) {
                 NSString *time = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:index] objectForKey:@"duration"] objectForKey:@"text"]];
-                date = [self setTime:time];
+                startDate = [self setTime:time];
             }
-            cell.lblTotalTime.text = [HelperClass getDate:date withFormat:@"HH:mm"];
+            cell.lblTotalTime.text = [HelperClass getDate:startDate withFormat:@"HH:mm"];
         }
     }
     
@@ -268,12 +305,12 @@
                 cell.lblTotalTime.text = [HelperClass getDate:self.departDate withFormat:@"HH:mm"];
             }else {
                 startDate = self.departDate;
-                NSDate *date;
-                for (int index = 1; index == indexPath.row; index++) {
-                    NSString *time = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:index] objectForKey:@"duration"] objectForKey:@"text"]];
-                    date = [self setTime:time];
+
+                for (int index = 0; index < indexPath.row; index++) {
+                    NSString *time = [self stringByStrippingHTML:[[[model.transitSteps objectAtIndex:index] objectForKey:@"duration"] objectForKey:@"text"]];
+                    startDate = [self setTime:time];
                 }
-                cell.lblTotalTime.text = [HelperClass getDate:date withFormat:@"HH:mm"];
+                cell.lblTotalTime.text = [HelperClass getDate:startDate withFormat:@"HH:mm"];
             }
         }
         else
@@ -282,13 +319,14 @@
             
             NSString *time = [self stringByStrippingHTML:[[[model.transitSteps objectAtIndex:indexPath.row] objectForKey:@"duration"] objectForKey:@"text"]];
             cell.lblStepTime.text = time;
+           
             startDate = self.departDate;
-            NSDate *date;
-            for (int index = 1; index == indexPath.row; index++) {
-                NSString *time = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:index] objectForKey:@"duration"] objectForKey:@"text"]];
-                date = [self setTime:time];
+            
+            for (int index = 0; index < indexPath.row; index++) {
+                NSString *time = [self stringByStrippingHTML:[[[model.transitSteps objectAtIndex:index] objectForKey:@"duration"] objectForKey:@"text"]];
+                startDate = [self setTime:time];
             }
-            cell.lblTotalTime.text = [HelperClass getDate:date withFormat:@"HH:mm"];
+            cell.lblTotalTime.text = [HelperClass getDate:startDate withFormat:@"HH:mm"];
         }
     }
 }
@@ -305,38 +343,7 @@
 
 }
 
-- (IBAction)showStopsView:(id)sender {
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[sender tag] inSection:0];
-    RouteTableViewCell *stopsCell = (RouteTableViewCell *)[tableview cellForRowAtIndexPath:indexPath];
-    isShowDetail =! isShowDetail;
-    isSHowMapCell = false;
-    selectedIndex = indexPath;
-    if (isShowDetail) {
-        stopsCell.stopsView.hidden = false;
-        stopsCell.stopsViewHeightConstraint.constant = 45;
-    }else {
-        stopsCell.stopsView.hidden = true;
-        stopsCell.stopsViewHeightConstraint.constant = 0;
-    }
-    [tableview reloadData];
-}
 
-- (IBAction)showMapView:(id)sender {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[sender tag] inSection:0];
-    RouteTableViewCell *routeCell = (RouteTableViewCell *)[tableview cellForRowAtIndexPath:indexPath];
-    isSHowMapCell =! isSHowMapCell;
-    isShowDetail = false;
-    selectedIndex = indexPath;
-    if (isSHowMapCell) {
-        routeCell.mapHeightConstraint.constant = 235;
-        routeCell.mapView.hidden = false;
-    }else {
-        routeCell.mapHeightConstraint.constant = 0;
-        routeCell.mapView.hidden = true;
-    }
-    [tableview reloadData];
-}
 
 
 - (void)loadView:(RouteTableViewCell *)cell andLocation:(CLLocation *)startLocation andLocation:(CLLocation *)endLocation {

@@ -77,6 +77,7 @@
 // successful web service call end //////////
 -(void) webServiceEnd:(id)returnObject andResponseType:(id)responseType {
       [progressBar hide:YES];
+   
     if ([responseType isEqualToString:@"DRIVING"]) {
         [self drawPathFrom:@"transit"];
     }else if ([responseType isEqualToString:@"transit"]) {
