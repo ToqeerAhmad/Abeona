@@ -152,23 +152,29 @@
 - (RouteTableViewCell *)setUpCellForTransit:(NSIndexPath *)indexPath {
     
     RouteTableViewCell *cell = (RouteTableViewCell *)[tableview dequeueReusableCellWithIdentifier:@"routeDetailCell" forIndexPath:indexPath];
+   
     cell.detailBtn.tag = indexPath.row;
     
     NSString *mode_type = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"travel_mode"]];
     
     if ([mode_type isEqualToString:@"TRANSIT"]) {
        
-        cell.mode_Image.image = [UIImage imageNamed:@"train_icon"];
-        cell.mode_type.text = [HelperClass stringByStrippingHTML:[[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"line"] valueForKey:@"vehicle"] valueForKey:@"name"]];
         [cell.detailBtn addTarget:self action:@selector(showStopsView:) forControlEvents:UIControlEventTouchUpInside];
+        cell.mode_Image.image = [UIImage imageNamed:@"train_icon"];
+        
+        cell.mode_type.text = [HelperClass stringByStrippingHTML:[[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"line"] valueForKey:@"vehicle"] valueForKey:@"name"]];
         NSString *noOfStops = [HelperClass stringByStrippingHTML:[NSString stringWithFormat:@"%@",[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"num_stops"]]];
         [cell.detailBtn setTitle:[NSString stringWithFormat:@"%@ stops",noOfStops] forState:UIControlStateNormal];
         cell.lblArrivalTime.text = [HelperClass stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"arrival_time"] valueForKey:@"text"]];
         cell.lblArrivalPlace.text = [HelperClass stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"arrival_stop"] valueForKey:@"name"]];
         cell.lblDepartTime.text = [HelperClass stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"departure_time"] valueForKey:@"text"]];
         cell.lblDepartPlace.text = [HelperClass stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"departure_stop"] valueForKey:@"name"]];
+        cell.alertView.hidden = false;
+
     }else {
         
+        [cell.detailBtn setTitle:[NSString stringWithFormat:@"Detail"] forState:UIControlStateNormal];
+        [cell.detailBtn addTarget:self action:@selector(showMapView:) forControlEvents:UIControlEventTouchUpInside];
         cell.mode_Image.image = [UIImage imageNamed:@"walking_icon"];
         cell.mode_type.text = @"Walking";
 
@@ -182,12 +188,9 @@
         CLLocation *loction1 = [[CLLocation alloc] initWithLatitude:[endLatitude doubleValue]  longitude:[endLongitude doubleValue]];
 
         NSString *polyline = [[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"polyline"] valueForKey:@"points"];
-        UIColor *color = [UIColor colorWithRed:30.0/255.0 green:179.0/255.0 blue:252.0/255.0 alpha:1.0];
+    
+        [self loadView:cell andLocation:loction andLocation:loction1 andPolyline:polyline];
         
-        [self loadView:cell andLocation:loction andLocation:loction1];
-        [self createDashedLine:loction.coordinate andNext:loction1.coordinate andColor:color andEncodedPath:polyline];
-        
-        [cell.detailBtn addTarget:self action:@selector(showMapView:) forControlEvents:UIControlEventTouchUpInside];
     }
 
     [self showHideViewsForTransitCell:cell andIndexPath:indexPath];
@@ -199,7 +202,6 @@
     }else {
         cell.fullLine.hidden = false;
         cell.circleImageView.hidden = false;
-        cell.alertView.hidden = false;
         cell.leaveImageHeightConstraint.constant = 0;
         cell.labelTopConstraint.constant = -2;
     }
@@ -346,7 +348,7 @@
 
 
 
-- (void)loadView:(RouteTableViewCell *)cell andLocation:(CLLocation *)startLocation andLocation:(CLLocation *)endLocation {
+- (void)loadView:(RouteTableViewCell *)cell andLocation:(CLLocation *)startLocation andLocation:(CLLocation *)endLocation andPolyline:(NSString *)polyline {
     
     mapView = [GMSMapView mapWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-100, [HelperClass getCellHeight:235 OriginalWidth:375].height) camera:camera];
     
@@ -368,6 +370,10 @@
     GMSMarker *marker1 = [[GMSMarker alloc]init];
     marker1.position = endLocation.coordinate;
     marker1.map = mapView;
+    
+    UIColor *color = [UIColor colorWithRed:30.0/255.0 green:179.0/255.0 blue:252.0/255.0 alpha:1.0];
+    [self createDashedLine:startLocation.coordinate andNext:endLocation.coordinate andColor:color andEncodedPath:polyline];
+
     
 }
 

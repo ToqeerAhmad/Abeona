@@ -72,10 +72,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqo-Rz-BtL">
-                        <rect key="frame" x="85" y="130" width="74" height="22"/>
+                        <rect key="frame" x="85" y="130" width="101" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="5U4-nX-AhY"/>
-                            <constraint firstAttribute="width" constant="74" id="U9U-Fo-7rV"/>
+                            <constraint firstAttribute="width" constant="101" id="U9U-Fo-7rV"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <inset key="imageEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
