@@ -24,6 +24,7 @@
     double _pos, _step;
     GMSCameraPosition *camera;
     ModelLocator *model;
+    NSDate *startDate;
 
 }
 @end
@@ -38,18 +39,13 @@
     
     [tableview registerNib:[UINib nibWithNibName:@"RouteTableViewCell" bundle:nil] forCellReuseIdentifier:@"routeDetailCell"];
     [tableview registerNib:[UINib nibWithNibName:@"RouteStopsTableViewCell" bundle:nil] forCellReuseIdentifier:@"DetailCell"];
-     [tableview registerNib:[UINib nibWithNibName:@"RouteMapTableViewCell" bundle:nil] forCellReuseIdentifier:@"RouteMapTableViewCell"];
-
-    
-    
-    
+     [tableview registerNib:[UINib nibWithNibName:@"RouteMapTableViewCell" bundle:nil] forCellReuseIdentifier:@"RouteMapTableViewCell"];    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     model = [ModelLocator getInstance];
-
     stepsArray = [NSMutableArray new];
   
 }
@@ -193,6 +189,28 @@
     return cell;
 }
 
+- (NSDate *)setTime:(NSString *)time {
+    
+    time = [time stringByReplacingOccurrencesOfString:@" mins" withString:@""];
+    time = [time stringByReplacingOccurrencesOfString:@" min" withString:@""];
+    time = [time stringByReplacingOccurrencesOfString:@" hours" withString:@""];
+    time = [time stringByReplacingOccurrencesOfString:@" hour" withString:@""];
+    
+    NSArray *array = [time componentsSeparatedByString:@" "];
+
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
+    
+    if (array.count > 1) {
+        [offsetComponents setHour:[[array objectAtIndex:0] intValue]];
+        [offsetComponents setMinute:[[array objectAtIndex:1] intValue]];
+
+    }else {
+        [offsetComponents setMinute:[[array objectAtIndex:0] intValue]];
+    }
+    return [gregorian dateByAddingComponents:offsetComponents toDate:startDate options:0];
+}
+
 - (void)setValueForSteps:(NSIndexPath *)indexPath andCell:(RouteTableViewCell *)cell
 {
     if(self.isDriving)
@@ -204,13 +222,34 @@
             
             cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.drivingSteps objectAtIndex:indexPath.row+1] objectForKey:@"html_instructions"]];
             
-            cell.lblStepTime.text = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"duration"] objectForKey:@"text"]];
-            
+            NSString *time = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"duration"] objectForKey:@"text"]];
+            cell.lblStepTime.text = time;
+           
+            if (indexPath.row == 0) {
+                cell.lblTotalTime.text = [HelperClass getDate:self.departDate withFormat:@"HH:mm"];
+            }else {
+                
+                startDate = self.departDate;
+                NSDate *date;
+                for (int index = 1; index == indexPath.row; index++) {
+                    NSString *time = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:index] objectForKey:@"duration"] objectForKey:@"text"]];
+                    date = [self setTime:time];
+                }
+                cell.lblTotalTime.text = [HelperClass getDate:date withFormat:@"HH:mm"];
+            }
         }
         else
         {
             cell.lblAddress.text = [self stringByStrippingHTML:[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"html_instructions"]];
-            cell.lblStepTime.text = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"duration"] objectForKey:@"text"]];
+            NSString *time = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"duration"] objectForKey:@"text"]];
+            cell.lblStepTime.text = time;
+            startDate = self.departDate;
+            NSDate *date;
+            for (int index = 1; index == indexPath.row; index++) {
+                NSString *time = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:index] objectForKey:@"duration"] objectForKey:@"text"]];
+                date = [self setTime:time];
+            }
+            cell.lblTotalTime.text = [HelperClass getDate:date withFormat:@"HH:mm"];
         }
     }
     
@@ -222,14 +261,34 @@
             cell.lblAddress.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] objectForKey:@"html_instructions"]];
             cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row+1] objectForKey:@"html_instructions"]];
             
-            cell.lblStepTime.text = [self stringByStrippingHTML:[[[model.transitSteps objectAtIndex:indexPath.row] objectForKey:@"duration"] objectForKey:@"text"]];
-            
+            NSString *time = [self stringByStrippingHTML:[[[model.transitSteps objectAtIndex:indexPath.row] objectForKey:@"duration"] objectForKey:@"text"]];
+            cell.lblStepTime.text = time;
+           
+            if (indexPath.row == 0) {
+                cell.lblTotalTime.text = [HelperClass getDate:self.departDate withFormat:@"HH:mm"];
+            }else {
+                startDate = self.departDate;
+                NSDate *date;
+                for (int index = 1; index == indexPath.row; index++) {
+                    NSString *time = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:index] objectForKey:@"duration"] objectForKey:@"text"]];
+                    date = [self setTime:time];
+                }
+                cell.lblTotalTime.text = [HelperClass getDate:date withFormat:@"HH:mm"];
+            }
         }
         else
         {
             cell.lblAddress.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] objectForKey:@"html_instructions"]];
             
-            cell.lblStepTime.text = [self stringByStrippingHTML:[[[model.transitSteps objectAtIndex:indexPath.row] objectForKey:@"duration"] objectForKey:@"text"]];
+            NSString *time = [self stringByStrippingHTML:[[[model.transitSteps objectAtIndex:indexPath.row] objectForKey:@"duration"] objectForKey:@"text"]];
+            cell.lblStepTime.text = time;
+            startDate = self.departDate;
+            NSDate *date;
+            for (int index = 1; index == indexPath.row; index++) {
+                NSString *time = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:index] objectForKey:@"duration"] objectForKey:@"text"]];
+                date = [self setTime:time];
+            }
+            cell.lblTotalTime.text = [HelperClass getDate:date withFormat:@"HH:mm"];
         }
     }
 }

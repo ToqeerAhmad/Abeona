@@ -20,6 +20,12 @@
     NSString *driving_duration;
     NSString *driving_arrival_time;
     NSString *driving_departure_time;
+    
+    NSDate *drivingDepartureDate;
+    NSDate *drivingArrivalDate;
+    
+    NSDate *transitDepartureDate;
+    NSDate *transitArrivalDate;
 }
 @end
 
@@ -63,16 +69,16 @@
     removedhmTime = [removedhmTime stringByReplacingOccurrencesOfString:@"m" withString:@""];
     NSArray *array = [removedhmTime componentsSeparatedByString:@" "];
     
-    NSDate *date = [self parseDate:@"2017-03-06 13:00" format:@"yyyy-dd-mm HH:mm"];
+    transitArrivalDate = [self parseDate:@"2017-03-06 13:00" format:@"yyyy-dd-mm HH:mm"];
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
     [offsetComponents setHour:-[[array objectAtIndex:0] intValue]];
     [offsetComponents setMinute:-[[array objectAtIndex:1] intValue]];
-    NSDate *departDate = [gregorian dateByAddingComponents:offsetComponents toDate:date options:0];
+    transitDepartureDate = [gregorian dateByAddingComponents:offsetComponents toDate:transitArrivalDate options:0];
     
-    transit_departure_time = [HelperClass getDate:departDate withFormat:@"HH:mm"];
-    transit_arrival_time = [HelperClass getDate:date withFormat:@"HH:mm"];
+    transit_departure_time = [HelperClass getDate:transitDepartureDate withFormat:@"HH:mm"];
+    transit_arrival_time = [HelperClass getDate:transitArrivalDate withFormat:@"HH:mm"];
     
     for (NSDictionary *step in model.transitSteps) {
         NSString *travel_mode = [step valueForKey:@"travel_mode"];
@@ -108,16 +114,16 @@
     removedhmTime = [removedhmTime stringByReplacingOccurrencesOfString:@"m" withString:@""];
     NSArray *array = [removedhmTime componentsSeparatedByString:@" "];
     
-    NSDate *date = [self parseDate:@"2017-03-06 13:00" format:@"yyyy-dd-mm HH:mm"];
+    drivingArrivalDate = [self parseDate:@"2017-03-06 13:00" format:@"yyyy-dd-mm HH:mm"];
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
     [offsetComponents setHour:-[[array objectAtIndex:0] intValue]];
     [offsetComponents setMinute:-[[array objectAtIndex:1] intValue]];
-    NSDate *departDate = [gregorian dateByAddingComponents:offsetComponents toDate:date options:0];
+    drivingDepartureDate = [gregorian dateByAddingComponents:offsetComponents toDate:drivingArrivalDate options:0];
     
-    driving_departure_time = [HelperClass getDate:departDate withFormat:@"HH:mm"];
-    driving_arrival_time = [HelperClass getDate:date withFormat:@"HH:mm"];
+    driving_departure_time = [HelperClass getDate:drivingDepartureDate withFormat:@"HH:mm"];
+    driving_arrival_time = [HelperClass getDate:drivingArrivalDate withFormat:@"HH:mm"];
 
     
     
@@ -180,8 +186,12 @@
     RouteDetailsViewController *detailVC = [self. storyboard instantiateViewControllerWithIdentifier:@"RouteDetailsViewController"];
     if (indexPath.row == 0) {
         detailVC.isDriving = false;
+        detailVC.departDate = transitDepartureDate;
+        detailVC.arrivalDate = transitArrivalDate;
     }else {
         detailVC.isDriving = true;
+        detailVC.departDate = drivingDepartureDate;
+        detailVC.arrivalDate = drivingArrivalDate;
     }
     [self.navigationController pushViewController:detailVC animated:true];
 }

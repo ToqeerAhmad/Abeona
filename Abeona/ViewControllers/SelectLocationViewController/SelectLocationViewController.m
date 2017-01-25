@@ -43,7 +43,7 @@
     WebServices *service = [[WebServices alloc] init];
     service.delegate = self;
     
-    NSString *baseUrl = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&mode=%@&sensor=true",model.userCoordinates.latitude , model.userCoordinates.longitude , 51.5033, -0.1195, mode];
+    NSString *baseUrl = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&mode=%@&sensor=true",51.48226 , -3.184455 , 51.5033, -0.1195, mode];
     
     [service SendRequestForData:dict andServiceURL:baseUrl andServiceReturnType:mode];
     
