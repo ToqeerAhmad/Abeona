@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="gTV-IL-0wX" customClass="ModeTypeCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="37" height="34"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="37" height="34"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="train_icon" translatesAutoresizingMaskIntoConstraints="NO" id="evn-u8-DRO">
+                        <rect key="frame" x="0.0" y="0.0" width="37" height="34"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="evn-u8-DRO" secondAttribute="bottom" id="OMo-7c-oAC"/>
+                <constraint firstItem="evn-u8-DRO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="e1j-LW-YDf"/>
+                <constraint firstItem="evn-u8-DRO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lAb-hU-YFN"/>
+                <constraint firstAttribute="trailing" secondItem="evn-u8-DRO" secondAttribute="trailing" id="oG2-xY-EW9"/>
+            </constraints>
+            <connections>
+                <outlet property="modeTypeImageView" destination="evn-u8-DRO" id="VGv-LS-AzX"/>
+            </connections>
+            <point key="canvasLocation" x="15.5" y="-58"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="train_icon" width="31" height="32"/>
+    </resources>
+</document>

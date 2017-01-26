@@ -88,6 +88,8 @@
 		46D564851E2427F500A94CD3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D564841E2427F500A94CD3 /* HomeViewController.m */; };
 		46FBA8481E2D2D8600545345 /* MDDirectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FBA8471E2D2D8600545345 /* MDDirectionService.m */; };
 		46FBA84C1E2D305E00545345 /* MapPolyLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FBA84B1E2D305D00545345 /* MapPolyLine.m */; };
+		46FBDD061E3A86AF00B3100F /* ModeTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FBDD041E3A86AF00B3100F /* ModeTypeCollectionViewCell.m */; };
+		46FBDD071E3A86AF00B3100F /* ModeTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46FBDD051E3A86AF00B3100F /* ModeTypeCollectionViewCell.xib */; };
 		ABFFDA20318610632C1C0E19 /* libPods-AbeonaUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFB14E8E1C6B6E14DD35F3C /* libPods-AbeonaUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -263,6 +265,9 @@
 		46FBA8471E2D2D8600545345 /* MDDirectionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDirectionService.m; sourceTree = "<group>"; };
 		46FBA84A1E2D305D00545345 /* MapPolyLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPolyLine.h; sourceTree = "<group>"; };
 		46FBA84B1E2D305D00545345 /* MapPolyLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPolyLine.m; sourceTree = "<group>"; };
+		46FBDD031E3A86AF00B3100F /* ModeTypeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeTypeCollectionViewCell.h; sourceTree = "<group>"; };
+		46FBDD041E3A86AF00B3100F /* ModeTypeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeTypeCollectionViewCell.m; sourceTree = "<group>"; };
+		46FBDD051E3A86AF00B3100F /* ModeTypeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModeTypeCollectionViewCell.xib; sourceTree = "<group>"; };
 		47FF8870D75F862480A98531 /* Pods-AbeonaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AbeonaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AbeonaUITests/Pods-AbeonaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4F30F46C6D009CD0657DFFF2 /* Pods-Abeona.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abeona.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Abeona/Pods-Abeona.debug.xcconfig"; sourceTree = "<group>"; };
 		4FFB14E8E1C6B6E14DD35F3C /* libPods-AbeonaUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AbeonaUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -514,6 +519,9 @@
 				464B2BDE1E22B08200535E99 /* ExploreCardiffTableViewCell.h */,
 				464B2BDF1E22B08200535E99 /* ExploreCardiffTableViewCell.m */,
 				464B2BE01E22B08200535E99 /* ExploreCardiffTableViewCell.xib */,
+				46FBDD031E3A86AF00B3100F /* ModeTypeCollectionViewCell.h */,
+				46FBDD041E3A86AF00B3100F /* ModeTypeCollectionViewCell.m */,
+				46FBDD051E3A86AF00B3100F /* ModeTypeCollectionViewCell.xib */,
 			);
 			path = UITableViewCells;
 			sourceTree = "<group>";
@@ -858,6 +866,7 @@
 				464B2BF61E22C43F00535E99 /* DetailDescriptionTableViewCell.xib in Resources */,
 				46CD371E1E20464300F83128 /* WalkthroughView.xib in Resources */,
 				464B2BC71E217D3A00535E99 /* RouteTableViewCell.xib in Resources */,
+				46FBDD071E3A86AF00B3100F /* ModeTypeCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1022,6 +1031,7 @@
 			files = (
 				46B4C8CF1E28049F009407CA /* PlaceCollectionViewCell.m in Sources */,
 				464B2BE61E22B8AF00535E99 /* ExploreCardiffDetailViewController.m in Sources */,
+				46FBDD061E3A86AF00B3100F /* ModeTypeCollectionViewCell.m in Sources */,
 				464A892B1E27DE4200396751 /* CustomGoogleMapView.m in Sources */,
 				46CF8F1B1E1ECADD00657F55 /* ExploreCardiffViewController.m in Sources */,
 				464A89471E27EB7B00396751 /* AFURLConnectionOperation.m in Sources */,

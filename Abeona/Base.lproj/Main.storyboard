@@ -643,13 +643,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m3J-Km-Zd9" customClass="UIViewExtension">
                                 <rect key="frame" x="46" y="71" width="283" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oW-RT-cOb">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oW-RT-cOb" customClass="UILabelClass">
                                         <rect key="frame" x="15" y="15" width="45" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="czo-DJ-s7C"/>
                                             <constraint firstAttribute="width" constant="45" id="pby-vI-IJH"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -693,40 +693,49 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmA-z2-Ivh" customClass="UIViewExtension">
                                 <rect key="frame" x="46" y="143" width="283" height="154"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxp-0C-YNQ">
-                                        <rect key="frame" x="15" y="19" width="21" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qxp-0C-YNQ" customClass="UILabelClass">
+                                        <rect key="frame" x="15" y="19" width="25" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="21" id="Qvz-kQ-ORN"/>
+                                            <constraint firstAttribute="width" constant="25" id="Qvz-kQ-ORN"/>
                                             <constraint firstAttribute="height" constant="21" id="bHe-ig-Oga"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Principality Stadium Gate 1" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGj-ex-IXR" customClass="UILabelClass">
-                                        <rect key="frame" x="50" y="19" width="210" height="43"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UEFA Champions League Final " lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGj-ex-IXR" customClass="UILabelClass">
+                                        <rect key="frame" x="50" y="19" width="225" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UEFA Champions League Final Saturday 3 June 2017 Kick off at 15:00" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHg-3J-CD0" customClass="UILabelClass">
-                                        <rect key="frame" x="50" y="81" width="210" height="54"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday 3 June 2017" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7j5-x5-X70" customClass="UILabelClass">
+                                        <rect key="frame" x="50" y="38.5" width="225" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kick off at 15:00" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whW-Qy-3tQ" customClass="UILabelClass">
+                                        <rect key="frame" x="50" y="58" width="225" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="MGj-ex-IXR" firstAttribute="leading" secondItem="Qxp-0C-YNQ" secondAttribute="trailing" constant="14" id="3QI-2J-Kdm"/>
-                                    <constraint firstAttribute="trailing" secondItem="aHg-3J-CD0" secondAttribute="trailing" constant="23" id="5rT-ni-bOk"/>
-                                    <constraint firstAttribute="trailing" secondItem="MGj-ex-IXR" secondAttribute="trailing" constant="23" id="9wc-QT-LTL"/>
-                                    <constraint firstAttribute="bottom" secondItem="aHg-3J-CD0" secondAttribute="bottom" constant="19" id="ZK1-07-m3X"/>
+                                    <constraint firstItem="MGj-ex-IXR" firstAttribute="leading" secondItem="Qxp-0C-YNQ" secondAttribute="trailing" constant="10" id="3QI-2J-Kdm"/>
+                                    <constraint firstAttribute="trailing" secondItem="whW-Qy-3tQ" secondAttribute="trailing" constant="8" id="7cE-18-Rtn"/>
+                                    <constraint firstAttribute="trailing" secondItem="MGj-ex-IXR" secondAttribute="trailing" constant="8" id="9wc-QT-LTL"/>
+                                    <constraint firstAttribute="trailing" secondItem="7j5-x5-X70" secondAttribute="trailing" constant="8" id="KWJ-KU-aWg"/>
+                                    <constraint firstItem="whW-Qy-3tQ" firstAttribute="leading" secondItem="qmA-z2-Ivh" secondAttribute="leading" constant="50" id="ONM-Ze-Fay"/>
+                                    <constraint firstItem="7j5-x5-X70" firstAttribute="leading" secondItem="qmA-z2-Ivh" secondAttribute="leading" constant="50" id="UOB-hS-PeE"/>
                                     <constraint firstItem="Qxp-0C-YNQ" firstAttribute="leading" secondItem="qmA-z2-Ivh" secondAttribute="leading" constant="15" id="fpr-SA-JJh"/>
                                     <constraint firstItem="MGj-ex-IXR" firstAttribute="top" secondItem="qmA-z2-Ivh" secondAttribute="top" constant="19" id="gjP-PI-btr"/>
                                     <constraint firstItem="Qxp-0C-YNQ" firstAttribute="top" secondItem="qmA-z2-Ivh" secondAttribute="top" constant="19" id="h3b-dX-HSo"/>
-                                    <constraint firstItem="aHg-3J-CD0" firstAttribute="leading" secondItem="qmA-z2-Ivh" secondAttribute="leading" constant="50" id="ieZ-O0-nN4"/>
+                                    <constraint firstItem="whW-Qy-3tQ" firstAttribute="top" secondItem="7j5-x5-X70" secondAttribute="bottom" id="lGA-ox-856"/>
                                     <constraint firstAttribute="width" secondItem="qmA-z2-Ivh" secondAttribute="height" multiplier="283:154" id="m37-ve-Rig"/>
+                                    <constraint firstItem="7j5-x5-X70" firstAttribute="top" secondItem="MGj-ex-IXR" secondAttribute="bottom" id="pMb-7A-Ddz"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pib-NJ-GP1" customClass="UIViewExtension">
@@ -738,7 +747,7 @@
                                             <constraint firstAttribute="width" constant="52" id="YnD-0t-1ut"/>
                                             <constraint firstAttribute="height" constant="20" id="Z04-ou-zr6"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -751,7 +760,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="2 hours before kick off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Pb-V0-ErE" customClass="UILabelClass">
                                         <rect key="frame" x="69" y="15" width="176" height="20"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -844,7 +853,7 @@
                     <navigationItem key="navigationItem" id="JeO-8q-1OY">
                         <nil key="title"/>
                         <button key="titleView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5Yb-Tu-ANb">
-                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
+                            <rect key="frame" x="113" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                             <state key="normal" title="Journey Details">
@@ -1038,6 +1047,7 @@
                         </button>
                     </navigationItem>
                     <connections>
+                        <outlet property="lblTopSuggestion" destination="JEo-df-Oji" id="qOH-7X-pQx"/>
                         <outlet property="tableview" destination="acX-2v-WLR" id="k9n-6X-Vum"/>
                     </connections>
                 </viewController>

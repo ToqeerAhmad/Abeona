@@ -14,7 +14,7 @@
 + (UIColor *)colorwithHexString:(NSString *)hexStr alpha:(CGFloat)alpha;
 +(BOOL)isValidEmail:(NSString *)email;
 +(NSString *)getDate:(NSDate *)date withFormat:(NSString *)dateFormat;
-+(NSString *)getDate:(NSString *) date withColonFormat :(NSString *)dateFormat;
++(NSDate *)getDate:(NSString *) date withColonFormat :(NSString *)dateFormat;
 +(NSString *)getUserToken;
 +(NSString *)getUserId;
 + (void)showAlertView:(NSString*)heading andMessage:(NSString *)message andView:(UIViewController *)view;

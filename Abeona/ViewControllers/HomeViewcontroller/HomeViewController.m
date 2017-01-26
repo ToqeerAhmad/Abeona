@@ -33,6 +33,7 @@
 - (IBAction)pushToTabBarView:(id)sender {
     UITabBarController *homeVc = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     [self.navigationController pushViewController:homeVc animated:true];
+    [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"isCardiffDetail"];
     [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"isCardiff"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 

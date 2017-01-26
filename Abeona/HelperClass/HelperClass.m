@@ -118,15 +118,15 @@
     return [format stringFromDate:date];
 }
 
-+(NSString *)getDate:(NSString *) date withColonFormat :(NSString *)dateFormat{
++(NSDate *)getDate:(NSString *) date withColonFormat :(NSString *)dateFormat{
     
     NSDateFormatter* format = [[NSDateFormatter alloc] init];
     [format setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
-    [format setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
-    NSDate* dateObj = [format dateFromString:date];
     [format setDateFormat:dateFormat];
+    NSDate* dateObj = [format dateFromString:date];
+//    [format setDateFormat:dateFormat];
     
-    return [format stringFromDate:dateObj];
+    return dateObj;
 }
 
 +(NSString *)getUserToken{

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GetRoutesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface GetRoutesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *routesOptionstableView;
 @property (nonatomic, weak) IBOutlet UILabel *lblCurrentAddress;

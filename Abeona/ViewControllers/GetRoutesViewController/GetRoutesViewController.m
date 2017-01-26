@@ -26,10 +26,12 @@
     
     NSDate *transitDepartureDate;
     NSDate *transitArrivalDate;
+    
+    
 }
 @end
 
-@implementation GetRoutesViewController
+@implementation GetRoutesViewController 
 
 @synthesize routesOptionstableView;
 
@@ -69,7 +71,7 @@
     removedhmTime = [removedhmTime stringByReplacingOccurrencesOfString:@"m" withString:@""];
     NSArray *array = [removedhmTime componentsSeparatedByString:@" "];
     
-    transitArrivalDate = [self parseDate:@"2017-03-06 13:00" format:@"yyyy-dd-mm HH:mm"];
+    transitArrivalDate = [HelperClass getDate:@"2017-03-06 13:00" withColonFormat:@"YYYY-dd-MM HH:mm"];
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
@@ -94,7 +96,6 @@
     
     NSDateFormatter* dtFormatter = [[NSDateFormatter alloc] init];
     [dtFormatter setDateFormat:inFormat];
-    [dtFormatter setLocale:[NSLocale currentLocale]];
     NSDate* dateOutput = [dtFormatter dateFromString:inStrDate];
     return dateOutput;
 }
@@ -114,7 +115,7 @@
     removedhmTime = [removedhmTime stringByReplacingOccurrencesOfString:@"m" withString:@""];
     NSArray *array = [removedhmTime componentsSeparatedByString:@" "];
     
-    drivingArrivalDate = [self parseDate:@"2017-03-06 13:00" format:@"yyyy-dd-mm HH:mm"];
+    drivingArrivalDate = [HelperClass getDate:@"2017-03-06 13:00" withColonFormat:@"YYYY-dd-MM HH:mm"];
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
@@ -157,7 +158,8 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 175;
+    
+    return 135;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -169,15 +171,19 @@
         if (![transit_departure_time isEqualToString:@"<null>"]) {
             cell.lblArrive_DepartTime.text = [NSString stringWithFormat:@"(leave %@, arrive %@)",transit_departure_time, transit_arrival_time];
         }
-        cell.transportTypeImage.image = [UIImage imageNamed:@"train_icon"];
     }else {
-        cell.transportTypeImage.image = [UIImage imageNamed:@"bus_Icon"];
         cell.lblRouteType.text = @"Driving";
         cell.lblTime.text = [NSString stringWithFormat:@"%@",driving_duration];
         if (![driving_departure_time isEqualToString:@"<null>"]) {
             cell.lblArrive_DepartTime.text = [NSString stringWithFormat:@"(leave %@, arrive %@)",driving_departure_time, driving_arrival_time];
         }
     }
+    [cell.imagesCollectionView registerNib:[UINib nibWithNibName:@"ModeTypeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ImageCell"];
+    cell.imagesCollectionView.tag = indexPath.row;
+    cell.imagesCollectionView.delegate = self;
+    cell.imagesCollectionView.dataSource = (id)self;
+    
+
     return cell;
 }
 
@@ -224,6 +230,40 @@
                    }];
     
 }
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if (collectionView.tag == 0) {
+        return model.transitSteps.count;
+    }else {
+        return 1;
+    }
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    return CGSizeMake(37, 34);
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    ModeTypeCollectionViewCell *imageCell = (ModeTypeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
+    if (collectionView.tag == 0) {
+        NSString *mode_type = [HelperClass stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"travel_mode"]];
+        if ([mode_type isEqualToString:@"TRANSIT"]) {
+            imageCell.modeTypeImageView.image = [UIImage imageNamed:@"train_icon"];
+        }else {
+            imageCell.modeTypeImageView.image = [UIImage imageNamed:@"walking_icon"];
+        }
+    }else {
+        imageCell.modeTypeImageView.image = [UIImage imageNamed:@"bus_Icon"];
+    }
+    return imageCell;
+    
+}
+
+
+
 
 
 - (void)didReceiveMemoryWarning {

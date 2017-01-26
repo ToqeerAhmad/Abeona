@@ -12,8 +12,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.ticketBtn.layer.cornerRadius = 3;
-    self.ticketBtn.layer.masksToBounds = true;
     
     self.mapView.layer.cornerRadius = 3.0;
     self.mapView.layer.borderColor = [HelperClass colorwithHexString:@"2C2C2C" alpha:1.0].CGColor;

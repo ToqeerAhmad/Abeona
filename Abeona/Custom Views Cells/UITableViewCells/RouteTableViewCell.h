@@ -31,10 +31,8 @@
 
 @property (nonatomic, strong) IBOutlet UIView *halfLine;
 @property (nonatomic, strong) IBOutlet UIView *fullLine;
-@property (nonatomic, strong) IBOutlet UIView *alertView;
 
 @property (nonatomic, strong) IBOutlet UIButton *detailBtn;
-@property (nonatomic, strong) IBOutlet UIButton *ticketBtn;
 
 @property (nonatomic, strong) IBOutlet UILabel *lblTotalTime;
 @property (nonatomic, strong) IBOutlet UILabel *lblStepTime;

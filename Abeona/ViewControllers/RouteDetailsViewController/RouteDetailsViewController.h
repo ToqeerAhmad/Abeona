@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NSDate *departDate;
 @property (nonatomic, strong) NSDate *arrivalDate;
 
+@property (nonatomic, strong) IBOutlet UILabel *lblTopSuggestion;
+
 @end

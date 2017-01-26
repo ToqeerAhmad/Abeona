@@ -39,8 +39,13 @@
     
     [tableview registerNib:[UINib nibWithNibName:@"RouteTableViewCell" bundle:nil] forCellReuseIdentifier:@"routeDetailCell"];
     [tableview registerNib:[UINib nibWithNibName:@"RouteStopsTableViewCell" bundle:nil] forCellReuseIdentifier:@"DetailCell"];
-     [tableview registerNib:[UINib nibWithNibName:@"RouteMapTableViewCell" bundle:nil] forCellReuseIdentifier:@"RouteMapTableViewCell"];    
+     [tableview registerNib:[UINib nibWithNibName:@"RouteMapTableViewCell" bundle:nil] forCellReuseIdentifier:@"RouteMapTableViewCell"];
+    
+    self.lblTopSuggestion.text = [HelperClass getDate:self.departDate withFormat:@"HH:mm EEEE dd MMMM"];
+    
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -54,12 +59,28 @@
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[sender tag] inSection:0];
     RouteTableViewCell *stopsCell = (RouteTableViewCell *)[tableview cellForRowAtIndexPath:indexPath];
-    if (isShowDetail) {
-        isShowDetail = false;
+    
+    NSString *mode_type = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"travel_mode"]];
+    
+    if ([mode_type isEqualToString:@"TRANSIT"]) {
+        isSHowMapCell = false;
+        [self showHideViewsForTransitCell:stopsCell andIndexPath:indexPath];
+        if (isShowDetail) {
+            isShowDetail = false;
+        }else {
+            isShowDetail = true;
+        }
+        [tableview reloadData];
     }else {
-        isShowDetail = true;
+        isShowDetail = false;
+        [self showHideViewsForTransitCell:stopsCell andIndexPath:indexPath];
+        if (isSHowMapCell) {
+            isSHowMapCell = false;
+        }else {
+            isSHowMapCell = true;
+        }
+        [tableview reloadData];
     }
-    isSHowMapCell = false;
     selectedIndex = indexPath;
     [self showHideViewsForTransitCell:stopsCell andIndexPath:indexPath];
     [tableview reloadData];
@@ -73,7 +94,6 @@
     }else {
         isSHowMapCell = true;
     }
-    isShowDetail = false;
     selectedIndex = indexPath;
     [self showHideViewsForTransitCell:routeCell andIndexPath:indexPath];
     [tableview reloadData];
@@ -98,11 +118,11 @@
         return 165;
     }else {
         if (isShowDetail && indexPath == selectedIndex) {
-            return 240;
+            return 210;
         }else if (isSHowMapCell && indexPath == selectedIndex) {
-            return 430;
+            return 400;
         }else {
-            return 180;
+            return 160;
         }
     }
 }
@@ -137,7 +157,6 @@
     }else {
         cell.fullLine.hidden = false;
         cell.circleImageView.hidden = false;
-        cell.alertView.hidden = false;
         cell.leaveImageHeightConstraint.constant = 0;
         cell.labelTopConstraint.constant = -2;
     }
@@ -159,6 +178,7 @@
     
     if ([mode_type isEqualToString:@"TRANSIT"]) {
        
+        
         [cell.detailBtn addTarget:self action:@selector(showStopsView:) forControlEvents:UIControlEventTouchUpInside];
         cell.mode_Image.image = [UIImage imageNamed:@"train_icon"];
         
@@ -169,12 +189,11 @@
         cell.lblArrivalPlace.text = [HelperClass stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"arrival_stop"] valueForKey:@"name"]];
         cell.lblDepartTime.text = [HelperClass stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"departure_time"] valueForKey:@"text"]];
         cell.lblDepartPlace.text = [HelperClass stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"departure_stop"] valueForKey:@"name"]];
-        cell.alertView.hidden = false;
 
     }else {
         
         [cell.detailBtn setTitle:[NSString stringWithFormat:@"Detail"] forState:UIControlStateNormal];
-        [cell.detailBtn addTarget:self action:@selector(showMapView:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.detailBtn addTarget:self action:@selector(showStopsView:) forControlEvents:UIControlEventTouchUpInside];
         cell.mode_Image.image = [UIImage imageNamed:@"walking_icon"];
         cell.mode_type.text = @"Walking";
 
