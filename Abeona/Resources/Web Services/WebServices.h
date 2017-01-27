@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, ServiceParser)
 @property (nonatomic, assign) id delegate;
 @property(nonatomic) ServiceParser serviceParserType;
 
-
+- (void)getDataFromQPX:(NSMutableDictionary *)paramsDict andServiceURL:(NSString *)serviceURL andServiceReturnType:(NSString *)returnType;
 -(void)SendRequestForData:(NSMutableDictionary *)paramsDict andServiceURL:(NSString *)serviceURL andServiceReturnType:(NSString *)returnType;
 
 @end

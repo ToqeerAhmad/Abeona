@@ -11,6 +11,66 @@
 
 @implementation WebServices
 
+
+- (void)getDataFromQPX:(NSMutableDictionary *)paramsDict andServiceURL:(NSString *)serviceURL andServiceReturnType:(NSString *)returnType {
+    
+    [self.delegate webServiceStart];
+    AFHTTPRequestOperationManager *operation = [[AFHTTPRequestOperationManager alloc] init];
+    operation.securityPolicy.validatesDomainName = NO;
+    operation.securityPolicy.allowInvalidCertificates = YES;
+
+    [operation POST:serviceURL parameters:paramsDict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        
+        NSError *error;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject
+                            
+                                                           options:NSJSONWritingPrettyPrinted
+                            
+                                                             error:&error];
+        
+        NSString *aStr;
+        aStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",aStr);
+        
+        if(responseObject != nil) {
+            if (self.delegate) {
+                [self.delegate webServiceEnd:@"" andResponseType:returnType];
+            }
+        }else {
+            if(self.delegate){
+                NSString *webserviceError = [responseObject objectForKey:@"errors"];
+                @try {
+                    [self.delegate webServiceError:webserviceError];
+                }
+                @catch (NSException *exception) {
+                    
+                }
+                @finally {
+                    NSLog(@"%@",webserviceError);
+                }
+            }
+        }
+
+        
+    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+        
+        if(self.delegate){
+            @try {
+                [self.delegate webServiceError:error.localizedDescription];
+            }
+            @catch (NSException *exception) {
+                
+            }
+            @finally {
+                NSLog(@"%@",error);
+            }
+            
+        }
+        
+    }];
+    
+}
+
 -(void)SendRequestForData:(NSMutableDictionary *)paramsDict andServiceURL:(NSString *)serviceURL andServiceReturnType:(NSString *)returnType
 {
     

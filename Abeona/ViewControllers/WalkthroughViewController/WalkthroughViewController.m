@@ -54,19 +54,15 @@
         
         
         if (i == 0) {
-            
             // [self setSingleLabelInScroll:@"Your Favorite stores delivered anytime, anywhere."];
             // [self setLogoImageOnScrollView];
             
         }else if(i == 1) {
             
-            
         }else if (i == 2){
             
-            
         }else{
-            
-            
+
         }
         
         [scrollView addSubview:imgView];
