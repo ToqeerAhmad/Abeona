@@ -39,24 +39,29 @@
 
 - (void)getdataFromQPX {
     
-    NSMutableDictionary *params = [NSMutableDictionary new];
-
-    [params setValue:@"LCY" forKey:@"request[slice][0][origin]"];
-    [params setValue:@"NYC" forKey:@"request[slice][0][destination]"];
-    [params setValue:@"2017-01-02" forKey:@"request[slice][0][date]"];
-    [params setValue:@"1" forKey:@"request[solutions]"];
-    [params setValue:@"0" forKey:@"request[refundable]"];
-    [params setValue:@"1" forKey:@"request[passengers][adultCount]"];
-    [params setValue:@"0" forKey:@"request[passengers][infantInLapCount]"];
-    [params setValue:@"0" forKey:@"request[passengers][infantInSeatCount]"];
-    [params setValue:@"0" forKey:@"request[passengers][childCount]"];
-    [params setValue:@"0" forKey:@"request[passengers][seniorCount]"];
-    [params setValue:@"0" forKey:@"request[passengers][seniorCount]"];
+    NSDictionary *paramDict = [[NSDictionary alloc]initWithObjectsAndKeys:@"LCY",@"origin",
+                               @"NYC",@"destination",
+                               @"2017-11-20",@"date",
+                               nil];
+    NSMutableArray *sliceArray = [NSMutableArray array];
+    [sliceArray addObject:paramDict];
+    
+    NSDictionary *adultCountDict = [[NSDictionary alloc]initWithObjectsAndKeys:@"1",@"adultCount",nil];
+    
+    NSDictionary *dictparm = [[NSDictionary alloc]initWithObjectsAndKeys:sliceArray,@"slice",
+                              adultCountDict,@"passengers",
+                              @"20",@"solutions",nil];
+    
+    NSDictionary *actuallParmeeters = [[NSDictionary alloc]initWithObjectsAndKeys:dictparm,@"request", nil];
+    
+    
+    
+    
     WebServices *service = [[WebServices alloc] init];
     service.delegate = self;
 
     NSString *url = [NSString stringWithFormat:@"https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyDY6suhoKhvv9C6ibXBtCuVQTfluSL38AI"];
-    [service getDataFromQPX:params andServiceURL:url andServiceReturnType:@"QPX"];
+    [service getDataFromQPX:actuallParmeeters andServiceURL:url andServiceReturnType:@"QPX"];
 }
 
 

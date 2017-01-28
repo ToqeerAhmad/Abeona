@@ -12,14 +12,32 @@
 @implementation WebServices
 
 
-- (void)getDataFromQPX:(NSMutableDictionary *)paramsDict andServiceURL:(NSString *)serviceURL andServiceReturnType:(NSString *)returnType {
+- (void)getDataFromQPX:(NSDictionary *)paramsDict andServiceURL:(NSString *)serviceURL andServiceReturnType:(NSString *)returnType {
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:paramsDict // Here you can pass array or dictionary
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    NSString *jsonString;
+    if (jsonData) {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        
+    } else {
+        NSLog(@"Got an error: %@", error);
+        jsonString = @"";
+    }
+    NSLog(@"Your JSON String is %@", jsonString);
+
+    
     
     [self.delegate webServiceStart];
     AFHTTPRequestOperationManager *operation = [[AFHTTPRequestOperationManager alloc] init];
     operation.securityPolicy.validatesDomainName = NO;
     operation.securityPolicy.allowInvalidCertificates = YES;
 
-    [operation POST:serviceURL parameters:paramsDict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    NSLog(@"%@",paramsDict);
+    
+    [operation POST:serviceURL parameters:jsonString success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject

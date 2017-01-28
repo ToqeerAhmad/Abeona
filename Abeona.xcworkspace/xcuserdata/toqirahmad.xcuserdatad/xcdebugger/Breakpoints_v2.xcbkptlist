@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Abeona/Resources/Web Services/WebServices.m"
-            timestampString = "507237605.114539"
+            filePath = "Abeona/ViewControllers/SelectLocationViewController/SelectLocationViewController.m"
+            timestampString = "507326266.430267"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "-getDataFromQPX:andServiceURL:andServiceReturnType:"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-getdataFromQPX"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Abeona/Resources/Web Services/WebServices.m"
-            timestampString = "507241371.12694"
+            timestampString = "507326118.453673"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "-getDataFromQPX:andServiceURL:andServiceReturnType:"
             landmarkType = "7">
          </BreakpointContent>
