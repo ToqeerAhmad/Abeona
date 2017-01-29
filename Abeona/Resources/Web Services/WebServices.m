@@ -14,30 +14,18 @@
 
 - (void)getDataFromQPX:(NSDictionary *)paramsDict andServiceURL:(NSString *)serviceURL andServiceReturnType:(NSString *)returnType {
     
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:paramsDict // Here you can pass array or dictionary
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                         error:&error];
-    NSString *jsonString;
-    if (jsonData) {
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        
-    } else {
-        NSLog(@"Got an error: %@", error);
-        jsonString = @"";
-    }
-    NSLog(@"Your JSON String is %@", jsonString);
-
-    
+    ModelLocator *model = [ModelLocator getInstance];
     
     [self.delegate webServiceStart];
     AFHTTPRequestOperationManager *operation = [[AFHTTPRequestOperationManager alloc] init];
     operation.securityPolicy.validatesDomainName = NO;
     operation.securityPolicy.allowInvalidCertificates = YES;
-
+    
     NSLog(@"%@",paramsDict);
     
-    [operation POST:serviceURL parameters:jsonString success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+    operation.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    [operation POST:serviceURL parameters:paramsDict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:responseObject
@@ -52,6 +40,13 @@
         
         if(responseObject != nil) {
             if (self.delegate) {
+                
+                NSMutableArray *triptripOptions = [[responseObject objectForKey:@"trips"] valueForKey:@"tripOption"];
+                if (triptripOptions.count > 0) {
+                    model.tripOptions = triptripOptions;
+                }
+                
+                
                 [self.delegate webServiceEnd:@"" andResponseType:returnType];
             }
         }else {
@@ -68,9 +63,9 @@
                 }
             }
         }
-
         
-    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+        
+    } failure:^(AFHTTPRequestOperation*  _Nonnull operation, NSError*  _Nonnull error) {
         
         if(self.delegate){
             @try {
@@ -85,8 +80,7 @@
             
         }
         
-    }];
-    
+    }];    
 }
 
 -(void)SendRequestForData:(NSMutableDictionary *)paramsDict andServiceURL:(NSString *)serviceURL andServiceReturnType:(NSString *)returnType
@@ -115,7 +109,10 @@
 //            NSLog(@"%@",aStr);
             if(responseObject != nil) {
                 if (self.delegate) {
-                    if ([returnType isEqualToString:@"DRIVING"]) {
+                    
+                    if ([returnType isEqualToString:@"AirportCode"]) {
+                        model.code = [responseObject valueForKey:@"code"];
+                    }else if ([returnType isEqualToString:@"DRIVING"]) {
                        
                         NSArray *routes = [responseObject objectForKey:@"routes"];
                         if (routes.count > 0) {

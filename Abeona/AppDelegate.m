@@ -22,7 +22,7 @@
 
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = (id)self;
-    [GMSServices provideAPIKey:@"AIzaSyDY6suhoKhvv9C6ibXBtCuVQTfluSL38AI"];
+    [GMSServices provideAPIKey:@"AIzaSyBqEj7yKo2i9af_Sye87iEV36bsXOUt8a8"];
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
     {
         [self.locationManager requestWhenInUseAuthorization];
@@ -65,6 +65,36 @@
     
     [self.locationManager stopUpdatingLocation];
     [ModelLocator getInstance].userCoordinates = manager.location.coordinate;
+    [self updateLocation];
+}
+
+- (void)updateLocation {
+    
+    ModelLocator *model = [ModelLocator getInstance];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    CLLocation *newLocation ;
+    
+    newLocation= [[CLLocation alloc]initWithLatitude:model.userCoordinates.latitude
+                                           longitude:model.userCoordinates.longitude];
+    
+    [geocoder reverseGeocodeLocation:newLocation
+                   completionHandler:^(NSArray *placemarks, NSError *error) {
+                       
+                       if (error) {
+                           NSLog(@"Geocode failed with error: %@", error.localizedDescription);
+                           return;
+                       }
+                       if (placemarks && placemarks.count > 0)
+                       {
+                           CLPlacemark *placemark = placemarks[0];
+                           NSDictionary *addressDictionary =
+                           placemark.addressDictionary;
+                           
+                           NSLog(@"%@ ", addressDictionary);
+                           model.country = [addressDictionary valueForKey:@"Country"];
+                       }
+                   }];
+    
 }
 
 - (void)locationManager:(CLLocationManager *)manager

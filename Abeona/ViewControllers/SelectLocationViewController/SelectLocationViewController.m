@@ -33,36 +33,51 @@
 }
 
 - (IBAction)GetRoutes:(id)sender {
-//    [self drawPathFrom:@"DRIVING"];
-    [self getdataFromQPX];
+    
+    if ([model.country isEqualToString:@"United Kingdom"]) {
+        [self drawPathFrom:@"DRIVING"];
+    }else {
+        [self getAirportCodeFromLatLong];
+    }
+}
+
+- (void)getAirportCodeFromLatLong {
+    
+    NSMutableDictionary *dict;
+    WebServices *service = [[WebServices alloc] init];
+    service.delegate = self;
+    
+    NSString *baseUrl = [NSString stringWithFormat:@"http://iatageo.com/getCode/%f/%f",model.userCoordinates.latitude , model.userCoordinates.longitude];
+    
+    [service SendRequestForData:dict andServiceURL:baseUrl andServiceReturnType:@"AirportCode"];
+
 }
 
 - (void)getdataFromQPX {
     
-    NSDictionary *paramDict = [[NSDictionary alloc]initWithObjectsAndKeys:@"LCY",@"origin",
-                               @"NYC",@"destination",
-                               @"2017-11-20",@"date",
-                               nil];
+    
+    NSDictionary *paramDict = [[NSDictionary alloc]initWithObjectsAndKeys:model.code,@"origin",
+                               @"CWL",@"destination",
+                               @"2017-06-03",@"date",nil];
     NSMutableArray *sliceArray = [NSMutableArray array];
     [sliceArray addObject:paramDict];
     
     NSDictionary *adultCountDict = [[NSDictionary alloc]initWithObjectsAndKeys:@"1",@"adultCount",nil];
-    
     NSDictionary *dictparm = [[NSDictionary alloc]initWithObjectsAndKeys:sliceArray,@"slice",
                               adultCountDict,@"passengers",
-                              @"20",@"solutions",nil];
-    
+                              @"1",@"solutions",nil];
     NSDictionary *actuallParmeeters = [[NSDictionary alloc]initWithObjectsAndKeys:dictparm,@"request", nil];
-    
-    
+    NSLog(@"%@", actuallParmeeters);
     
     
     WebServices *service = [[WebServices alloc] init];
     service.delegate = self;
-
-    NSString *url = [NSString stringWithFormat:@"https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyDY6suhoKhvv9C6ibXBtCuVQTfluSL38AI"];
+    
+    NSString *url = [NSString stringWithFormat:@"https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBqEj7yKo2i9af_Sye87iEV36bsXOUt8a8"];
     [service getDataFromQPX:actuallParmeeters andServiceURL:url andServiceReturnType:@"QPX"];
 }
+
+
 
 
 -(void)drawPathFrom:(NSString *)mode {
@@ -71,7 +86,7 @@
     WebServices *service = [[WebServices alloc] init];
     service.delegate = self;
     
-    NSString *baseUrl = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&mode=%@&sensor=true",51.48226 , -3.184455 , 51.5033, -0.1195, mode];
+    NSString *baseUrl = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&mode=%@&sensor=true",model.userCoordinates.latitude , model.userCoordinates.longitude , 51.478209, -3.182634, mode];
     
     [service SendRequestForData:dict andServiceURL:baseUrl andServiceReturnType:mode];
     
@@ -101,14 +116,35 @@
     [progressBar hide:YES];
 }
 
+-(void)drawPathFromAirportCardiff:(NSString *)mode {
+    
+    NSMutableDictionary *dict;
+    WebServices *service = [[WebServices alloc] init];
+    service.delegate = self;
+    
+    NSString *baseUrl = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&mode=%@&sensor=true",51.3985 , -3.3395 , 51.478209, -3.182634, mode];
+    
+    [service SendRequestForData:dict andServiceURL:baseUrl andServiceReturnType:mode];
+    
+}
+
 
 // successful web service call end //////////
 -(void) webServiceEnd:(id)returnObject andResponseType:(id)responseType {
-      [progressBar hide:YES];
-   
-    if ([responseType isEqualToString:@"DRIVING"]) {
+    
+    [progressBar hide:YES];
+    if ([responseType isEqualToString:@"AirportCode"]) {
+        [self getdataFromQPX];
+    }else if ([responseType isEqualToString:@"QPX"]) {
+        
+        [self drawPathFromAirportCardiff:@"transit"];
+        
+    }else if ([responseType isEqualToString:@"DRIVING"]) {
+        
         [self drawPathFrom:@"transit"];
+        
     }else if ([responseType isEqualToString:@"transit"]) {
+        
         GetRoutesViewController *routesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"GetRoutesViewController"];
         [self.navigationController pushViewController:routesVC animated:true];
     }

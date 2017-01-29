@@ -48,9 +48,13 @@
     
     model = [ModelLocator getInstance];
     [self updateLocation];
-    [self getTransitObjects];
-    [self getDrivingObjects];
     [routesOptionstableView registerNib:[UINib nibWithNibName:@"OptionsTableViewCell" bundle:nil] forCellReuseIdentifier:@"RoutesOptionsCell"];
+    if (model.legsTransitDict) {
+        [self getTransitObjects];
+       
+    }if (model.legsDrivingDict) {
+         [self getDrivingObjects];
+    }
 }
 
 - (IBAction)goBack:(id)sender {
@@ -75,8 +79,12 @@
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
-    [offsetComponents setHour:-[[array objectAtIndex:0] intValue]];
-    [offsetComponents setMinute:-[[array objectAtIndex:1] intValue]];
+    if (array.count == 1) {
+        [offsetComponents setMinute:-[[array objectAtIndex:0] intValue]];
+    }else {
+        [offsetComponents setHour:-[[array objectAtIndex:0] intValue]];
+        [offsetComponents setMinute:-[[array objectAtIndex:1] intValue]];
+    }
     transitDepartureDate = [gregorian dateByAddingComponents:offsetComponents toDate:transitArrivalDate options:0];
     
     transit_departure_time = [HelperClass getDate:transitDepartureDate withFormat:@"HH:mm"];
@@ -103,8 +111,8 @@
 - (void)getDrivingObjects {
     
     driving_duration = [HelperClass stringByStrippingHTML:[[model.legsDrivingDict valueForKey:@"duration"] valueForKey:@"text"]];
-    driving_arrival_time = [HelperClass stringByStrippingHTML:[[model.legsTransitDict valueForKey:@"arrival_time"] valueForKey:@"text"]];
-    driving_departure_time = [HelperClass stringByStrippingHTML:[[model.legsTransitDict valueForKey:@"departure_time"] valueForKey:@"text"]];
+    driving_arrival_time = [HelperClass stringByStrippingHTML:[[model.legsDrivingDict valueForKey:@"arrival_time"] valueForKey:@"text"]];
+    driving_departure_time = [HelperClass stringByStrippingHTML:[[model.legsDrivingDict valueForKey:@"departure_time"] valueForKey:@"text"]];
     
     driving_departure_time = [self removeHourMinsString:driving_departure_time];
     driving_arrival_time =  [self removeHourMinsString:driving_arrival_time];
@@ -119,8 +127,12 @@
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
-    [offsetComponents setHour:-[[array objectAtIndex:0] intValue]];
-    [offsetComponents setMinute:-[[array objectAtIndex:1] intValue]];
+    if (array.count == 1) {
+        [offsetComponents setMinute:-[[array objectAtIndex:0] intValue]];
+    }else {
+        [offsetComponents setHour:-[[array objectAtIndex:0] intValue]];
+        [offsetComponents setMinute:-[[array objectAtIndex:1] intValue]];
+    }
     drivingDepartureDate = [gregorian dateByAddingComponents:offsetComponents toDate:drivingArrivalDate options:0];
     
     driving_departure_time = [HelperClass getDate:drivingDepartureDate withFormat:@"HH:mm"];
@@ -149,11 +161,15 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    
+//    if (model.tripOptions.count > 0)
+//        return 2;
+//    else
+        return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+     return 2;
 }
 
 
@@ -164,40 +180,97 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    OptionsTableViewCell *cell = (OptionsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"RoutesOptionsCell" forIndexPath:indexPath];
-    if (indexPath.row == 0) {
+    if (model.tripOptions.count > 0) {
+        if (indexPath.row == 0) {
+            return  [self configureCellForQPX:indexPath];
+        }else {
+            return  [self configureCellForDrivingAndTransit:indexPath];
+        }
+    }else {
+        return  [self configureCellForDrivingAndTransit:indexPath];
+    }
+}
+
+- (OptionsTableViewCell *)configureCellForQPX:(NSIndexPath *)indexPath {
+   
+    OptionsTableViewCell *cell = (OptionsTableViewCell *)[self.routesOptionstableView dequeueReusableCellWithIdentifier:@"RoutesOptionsCell" forIndexPath:indexPath];
+
+    cell.lblRouteType.text = @"Flight";
+    
+    //NSArray *pricingArray = [[model.tripOptions objectAtIndex:indexPath.row] valueForKey:@"pricing"];
+   
+    NSArray *sliceArray = [[model.tripOptions objectAtIndex:indexPath.row] valueForKey:@"slice"];
+    NSDictionary *legObject = [[[[[sliceArray objectAtIndex:0] valueForKey:@"segment"] objectAtIndex:0] valueForKey:@"leg"] objectAtIndex:0];
+    
+    
+    
+    NSDate *flightDepartDate = [self stripDateFromQPXDate:[legObject valueForKey:@"departureTime"]];
+    NSDate *flightArrivalDate = [self stripDateFromQPXDate:[legObject valueForKey:@"arrivalTime"]];
+    
+    NSMutableString *time = [self timeLeftSinceDate:flightDepartDate andArrivalDate:flightArrivalDate];
+    cell.lblTime.text = [NSMutableString stringWithString:time];
+
+    NSString *departTime = [HelperClass getDate:flightDepartDate withFormat:@"HH:mm"];
+    NSString *arrivalTime = [HelperClass getDate:flightArrivalDate withFormat:@"HH:mm"];
+    
+    cell.lblArrive_DepartTime.text = [NSString stringWithFormat:@"(leave %@, arrive %@)",departTime,arrivalTime];
+    
+    return cell;
+}
+
+
+- (OptionsTableViewCell *)configureCellForDrivingAndTransit:(NSIndexPath *)indexPath {
+    
+    OptionsTableViewCell *cell = (OptionsTableViewCell *)[self.routesOptionstableView dequeueReusableCellWithIdentifier:@"RoutesOptionsCell" forIndexPath:indexPath];
+    
+    if (model.legsDrivingDict) {
+        if (indexPath.row == 0) {
+            cell.lblRouteType.text = [NSString stringWithFormat:@"Supporter %@",model.transit_type];
+            cell.lblTime.text = [NSString stringWithFormat:@"%@",transit_duration];
+            if (![transit_departure_time isEqualToString:@"<null>"]) {
+                cell.lblArrive_DepartTime.text = [NSString stringWithFormat:@"(leave %@, arrive %@)",transit_departure_time, transit_arrival_time];
+            }
+        }else {
+            cell.lblRouteType.text = @"Driving";
+            cell.lblTime.text = [NSString stringWithFormat:@"%@",driving_duration];
+            if (![driving_departure_time isEqualToString:@"<null>"]) {
+                cell.lblArrive_DepartTime.text = [NSString stringWithFormat:@"(leave %@, arrive %@)",driving_departure_time, driving_arrival_time];
+            }
+        }
+    }else {
         cell.lblRouteType.text = [NSString stringWithFormat:@"Supporter %@",model.transit_type];
         cell.lblTime.text = [NSString stringWithFormat:@"%@",transit_duration];
         if (![transit_departure_time isEqualToString:@"<null>"]) {
             cell.lblArrive_DepartTime.text = [NSString stringWithFormat:@"(leave %@, arrive %@)",transit_departure_time, transit_arrival_time];
         }
-    }else {
-        cell.lblRouteType.text = @"Driving";
-        cell.lblTime.text = [NSString stringWithFormat:@"%@",driving_duration];
-        if (![driving_departure_time isEqualToString:@"<null>"]) {
-            cell.lblArrive_DepartTime.text = [NSString stringWithFormat:@"(leave %@, arrive %@)",driving_departure_time, driving_arrival_time];
-        }
     }
+    
     [cell.imagesCollectionView registerNib:[UINib nibWithNibName:@"ModeTypeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ImageCell"];
     cell.imagesCollectionView.tag = indexPath.row;
     cell.imagesCollectionView.delegate = self;
     cell.imagesCollectionView.dataSource = (id)self;
     
-
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     RouteDetailsViewController *detailVC = [self. storyboard instantiateViewControllerWithIdentifier:@"RouteDetailsViewController"];
-    if (indexPath.row == 0) {
+    if (model.legsDrivingDict) {
+        if (indexPath.row == 0) {
+            detailVC.isDriving = false;
+            detailVC.departDate = transitDepartureDate;
+            detailVC.arrivalDate = transitArrivalDate;
+        }else {
+            detailVC.isDriving = true;
+            detailVC.departDate = drivingDepartureDate;
+            detailVC.arrivalDate = drivingArrivalDate;
+        }
+    }else {
         detailVC.isDriving = false;
         detailVC.departDate = transitDepartureDate;
         detailVC.arrivalDate = transitArrivalDate;
-    }else {
-        detailVC.isDriving = true;
-        detailVC.departDate = drivingDepartureDate;
-        detailVC.arrivalDate = drivingArrivalDate;
+
     }
     [self.navigationController pushViewController:detailVC animated:true];
 }
@@ -263,7 +336,55 @@
 }
 
 
+// Helper Functions
 
+
+- (NSDate *)stripDateFromQPXDate:(NSString *)dateStr {
+    
+    dateStr = [dateStr stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+    dateStr = [dateStr stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+    
+    
+    NSArray *dateArray = [dateStr componentsSeparatedByString:@" "];
+    
+    dateStr = [NSString stringWithFormat:@"%@ %@",[dateArray objectAtIndex:0],[dateArray objectAtIndex:1]];
+    
+    NSDate *date = [self parseDate:dateStr  format:@"yyyy-MM-dd HH:mm"];
+    
+    return date;
+}
+
+- (NSMutableString *)timeLeftSinceDate:(NSDate *)departDate andArrivalDate:(NSDate *)arrivalDate{
+    
+    NSMutableString *timeLeft = [[NSMutableString alloc]init];
+    
+    
+    NSInteger seconds = [arrivalDate timeIntervalSinceDate:departDate];
+    
+    NSInteger days = (int) (floor(seconds / (3600 * 24)));
+    if(days) seconds -= days * 3600 * 24;
+    
+    NSInteger hours = (int) (floor(seconds / 3600));
+    if(hours) seconds -= hours * 3600;
+    
+    NSInteger minutes = (int) (floor(seconds / 60));
+    if(minutes) seconds -= minutes * 60;
+    
+    if(days) {
+        [timeLeft appendString:[NSString stringWithFormat:@"%ld Days ", (long)days]];
+    }
+    
+    if(hours) {
+        [timeLeft appendString:[NSString stringWithFormat: @"%ldh ", (long)hours]];
+    }
+    
+    if(minutes) {
+        [timeLeft appendString: [NSString stringWithFormat: @"%ldm",(long)minutes]];
+    }
+    
+    
+    return timeLeft;
+}
 
 
 - (void)didReceiveMemoryWarning {

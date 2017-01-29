@@ -20,6 +20,12 @@
 @property (nonatomic, strong)NSMutableArray *transitSteps;
 @property (nonatomic, strong)NSMutableArray *drivingSteps;
 
+// QPX
+@property (nonatomic, copy) NSString *code;
+@property (nonatomic, copy) NSString *country;
+
+@property (nonatomic, strong)NSMutableArray *tripOptions;
+
 @property (nonatomic, strong)NSMutableArray *optionsArray;
 @property (nonatomic) CLLocationCoordinate2D userCoordinates;
 

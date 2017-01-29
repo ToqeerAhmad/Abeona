@@ -41,7 +41,7 @@
     [tableview registerNib:[UINib nibWithNibName:@"RouteStopsTableViewCell" bundle:nil] forCellReuseIdentifier:@"DetailCell"];
      [tableview registerNib:[UINib nibWithNibName:@"RouteMapTableViewCell" bundle:nil] forCellReuseIdentifier:@"RouteMapTableViewCell"];
     
-    self.lblTopSuggestion.text = [HelperClass getDate:self.departDate withFormat:@"HH:mm EEEE dd MMMM"];
+    self.lblTopSuggestion.text = [NSString stringWithFormat:@"Leave %@, arrive %@",[HelperClass getDate:self.departDate withFormat:@"HH:mm EEEE dd MMMM"], [HelperClass getDate:self.arrivalDate withFormat:@"HH:mm"]];
     
 }
 
@@ -117,12 +117,27 @@
     if (_isDriving) {
         return 165;
     }else {
-        if (isShowDetail && indexPath == selectedIndex) {
-            return 210;
-        }else if (isSHowMapCell && indexPath == selectedIndex) {
-            return 400;
+        if (model.legsDrivingDict) {
+            if (isShowDetail && indexPath == selectedIndex) {
+                return 210;
+            }else if (isSHowMapCell && indexPath == selectedIndex) {
+                return 400;
+            }else {
+                return 160;
+            }
         }else {
-            return 160;
+            // if from QPX
+            if (isShowDetail && indexPath == selectedIndex) {
+                return 240;
+            }else if (isSHowMapCell && indexPath == selectedIndex) {
+                return 400;
+            }else {
+                if (indexPath.row == 0) {
+                     return 175;
+                }else {
+                    return 145;
+                }
+            }
         }
     }
 }
