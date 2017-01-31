@@ -104,7 +104,7 @@
     [mapView moveCamera:[GMSCameraUpdate fitBounds:bounds]];
 
     
-    mapView.userInteractionEnabled = false;
+    mapView.userInteractionEnabled = true;
     [cell.customView addSubview:mapView];
     
     // Creates a marker in the center of the map.

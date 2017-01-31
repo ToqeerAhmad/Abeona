@@ -10,4 +10,6 @@
 
 @interface SignInViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UITextField *emailTextField;
+
 @end

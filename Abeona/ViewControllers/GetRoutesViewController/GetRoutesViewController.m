@@ -238,6 +238,7 @@
             }
         }
     }else {
+        
         cell.lblRouteType.text = [NSString stringWithFormat:@"Supporter %@",model.transit_type];
         cell.lblTime.text = [NSString stringWithFormat:@"%@",transit_duration];
         if (![transit_departure_time isEqualToString:@"<null>"]) {
@@ -322,14 +323,24 @@
 
     ModeTypeCollectionViewCell *imageCell = (ModeTypeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
     if (collectionView.tag == 0) {
+       
         NSString *mode_type = [HelperClass stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"travel_mode"]];
         if ([mode_type isEqualToString:@"TRANSIT"]) {
             imageCell.modeTypeImageView.image = [UIImage imageNamed:@"train_icon"];
+        }else if ([mode_type isEqualToString:@"Bus"]) {
+            imageCell.modeTypeImageView.image = [UIImage imageNamed:@"bus_Icon"];
         }else {
             imageCell.modeTypeImageView.image = [UIImage imageNamed:@"walking_icon"];
         }
     }else {
-        imageCell.modeTypeImageView.image = [UIImage imageNamed:@"bus_Icon"];
+        
+        NSString *mode_type = [HelperClass stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"travel_mode"]];
+        if ([mode_type isEqualToString:@"Bus"]) {
+            imageCell.modeTypeImageView.image = [UIImage imageNamed:@"bus_Icon"];
+        }else {
+            imageCell.modeTypeImageView.image = [UIImage imageNamed:@"car_icon"];
+        }
+        
     }
     return imageCell;
     

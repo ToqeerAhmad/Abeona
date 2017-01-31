@@ -175,7 +175,7 @@
         cell.leaveImageHeightConstraint.constant = 0;
         cell.labelTopConstraint.constant = -2;
     }
-    cell.mode_Image.image = [UIImage imageNamed:@"bus_Icon"];
+    cell.mode_Image.image = [UIImage imageNamed:@"car_icon"];
     cell.mode_type.text = @"Driving";
 
     [self setValueForSteps:indexPath andCell:cell];
@@ -193,11 +193,18 @@
     
     if ([mode_type isEqualToString:@"TRANSIT"]) {
        
+        NSString *vehiclename = [HelperClass stringByStrippingHTML:[[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"line"] valueForKey:@"vehicle"] valueForKey:@"name"]];
         
+        if ([vehiclename isEqualToString:@"Bus"]) {
+            cell.mode_Image.image = [UIImage imageNamed:@"bus_Icon"];
+
+        }else {
+            cell.mode_Image.image = [UIImage imageNamed:@"train_icon"];
+
+        }
         [cell.detailBtn addTarget:self action:@selector(showStopsView:) forControlEvents:UIControlEventTouchUpInside];
-        cell.mode_Image.image = [UIImage imageNamed:@"train_icon"];
         
-        cell.mode_type.text = [HelperClass stringByStrippingHTML:[[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"line"] valueForKey:@"vehicle"] valueForKey:@"name"]];
+        cell.mode_type.text = vehiclename;
         NSString *noOfStops = [HelperClass stringByStrippingHTML:[NSString stringWithFormat:@"%@",[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"num_stops"]]];
         [cell.detailBtn setTitle:[NSString stringWithFormat:@"%@ stops",noOfStops] forState:UIControlStateNormal];
         cell.lblArrivalTime.text = [HelperClass stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"arrival_time"] valueForKey:@"text"]];

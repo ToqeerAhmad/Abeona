@@ -20,8 +20,22 @@
 }
 
 - (IBAction)pushToHomeScreen:(id)sender {
-    HomeViewController *homeVc = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-    [self.navigationController pushViewController:homeVc animated:true];    
+    
+    
+    if (![_emailTextField.text isEqualToString:@""]) {
+        if ([HelperClass isValidEmail:_emailTextField.text]) {
+            
+            [[NSUserDefaults standardUserDefaults] setValue:_emailTextField.text forKey:@"email"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            HomeViewController *homeVc = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+            [self.navigationController pushViewController:homeVc animated:true];
+        }else {
+            [HelperClass showAlertView:@"Alert" andMessage:@"Please enter a valid email address."];
+        }
+    }else {
+        [HelperClass showAlertView:@"Alert" andMessage:@"Please enter your email."];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

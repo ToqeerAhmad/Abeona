@@ -26,6 +26,15 @@
     [self setUpWalkThroughDesign];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSString *email = [[NSUserDefaults standardUserDefaults] valueForKey:@"email"];
+    if (email != nil) {
+        HomeViewController *homeVc = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+        [self.navigationController pushViewController:homeVc animated:true];
+    }
+}
+
 -(void) viewDidLayoutSubviews
 {
     [scrollView setContentSize:CGSizeMake(SCREEN_WIDTH * images.count, SCREEN_HEIGHT)];

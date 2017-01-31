@@ -17,11 +17,11 @@
 +(NSDate *)getDate:(NSString *) date withColonFormat :(NSString *)dateFormat;
 +(NSString *)getUserToken;
 +(NSString *)getUserId;
-+ (void)showAlertView:(NSString*)heading andMessage:(NSString *)message andView:(UIViewController *)view;
++ (void)showAlertView:(NSString*)heading andMessage:(NSString *)message;
 +(void)returnImageFromUrlWithCache:(NSString *)imageURL andImagePlacement:(UIImageView *)imagePlacement;
 +(BOOL)isValidNumericString:(NSString*)string;
 +(BOOL)internationalPhoneNumberVaidation:(NSString*)string;
 +(NSString *) checkforNullvalue:(id) stringVal;
 +(NSString *)stringByStrippingHTML:(NSString *)str;
-
++(BOOL) NSStringIsValidEmail:(NSString *)checkString;
 @end
