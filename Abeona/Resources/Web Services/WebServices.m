@@ -127,7 +127,7 @@
                         
                         NSArray *routes = [responseObject objectForKey:@"routes"];
                         if (routes.count > 0) {
-                            model.legsTransitDict = [[routes objectAtIndex:0] objectForKey:@"legs"];
+                            model.legsTransitDict = [[[routes objectAtIndex:0] objectForKey:@"legs"] objectAtIndex:0];
                             model.transitSteps = [[[[routes objectAtIndex:0] objectForKey:@"legs"] objectAtIndex:0] objectForKey:@"steps"];
                         }else {
                             model.optionsArray = [responseObject objectForKey:@"available_travel_modes"];

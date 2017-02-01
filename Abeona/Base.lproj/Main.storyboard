@@ -477,7 +477,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8i2-EW-33l">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8i2-EW-33l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -718,19 +718,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UEFA Champions League Final " lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGj-ex-IXR" customClass="UILabelClass">
-                                        <rect key="frame" x="50" y="19" width="225" height="20"/>
+                                        <rect key="frame" x="50" y="38" width="225" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday 3 June 2017" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7j5-x5-X70" customClass="UILabelClass">
-                                        <rect key="frame" x="50" y="39" width="225" height="20"/>
+                                        <rect key="frame" x="50" y="58" width="225" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kick off at 15:00" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whW-Qy-3tQ" customClass="UILabelClass">
-                                        <rect key="frame" x="50" y="59" width="225" height="20"/>
+                                        <rect key="frame" x="50" y="78" width="225" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Principality Stadium Gate 1" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDM-qX-JFp" customClass="UILabelClass">
+                                        <rect key="frame" x="50" y="18" width="225" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -743,10 +749,13 @@
                                     <constraint firstAttribute="trailing" secondItem="MGj-ex-IXR" secondAttribute="trailing" constant="46" id="9wc-QT-LTL"/>
                                     <constraint firstAttribute="trailing" secondItem="7j5-x5-X70" secondAttribute="trailing" constant="46" id="KWJ-KU-aWg"/>
                                     <constraint firstItem="whW-Qy-3tQ" firstAttribute="leading" secondItem="qmA-z2-Ivh" secondAttribute="leading" constant="50" id="ONM-Ze-Fay"/>
+                                    <constraint firstItem="eDM-qX-JFp" firstAttribute="top" secondItem="qmA-z2-Ivh" secondAttribute="top" constant="18" id="TkN-DV-LJS"/>
+                                    <constraint firstItem="eDM-qX-JFp" firstAttribute="leading" secondItem="Qxp-0C-YNQ" secondAttribute="trailing" constant="10" id="Too-mf-HFA"/>
                                     <constraint firstItem="7j5-x5-X70" firstAttribute="leading" secondItem="qmA-z2-Ivh" secondAttribute="leading" constant="50" id="UOB-hS-PeE"/>
+                                    <constraint firstItem="MGj-ex-IXR" firstAttribute="top" secondItem="eDM-qX-JFp" secondAttribute="bottom" id="dpa-83-tx1"/>
                                     <constraint firstItem="Qxp-0C-YNQ" firstAttribute="leading" secondItem="qmA-z2-Ivh" secondAttribute="leading" constant="15" id="fpr-SA-JJh"/>
-                                    <constraint firstItem="MGj-ex-IXR" firstAttribute="top" secondItem="qmA-z2-Ivh" secondAttribute="top" constant="19" id="gjP-PI-btr"/>
                                     <constraint firstItem="Qxp-0C-YNQ" firstAttribute="top" secondItem="qmA-z2-Ivh" secondAttribute="top" constant="19" id="h3b-dX-HSo"/>
+                                    <constraint firstAttribute="trailing" secondItem="eDM-qX-JFp" secondAttribute="trailing" constant="46" id="kj4-D1-ULS"/>
                                     <constraint firstItem="whW-Qy-3tQ" firstAttribute="top" secondItem="7j5-x5-X70" secondAttribute="bottom" id="lGA-ox-856"/>
                                     <constraint firstAttribute="width" secondItem="qmA-z2-Ivh" secondAttribute="height" multiplier="283:154" constant="38" id="m37-ve-Rig"/>
                                     <constraint firstItem="7j5-x5-X70" firstAttribute="top" secondItem="MGj-ex-IXR" secondAttribute="bottom" id="pMb-7A-Ddz"/>
@@ -1289,7 +1298,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="YOn-Rw-FkT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="YOn-Rw-FkT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.070588235289999995" green="0.1019607843" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
@@ -1311,7 +1320,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="WXK-8w-zr6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="WXK-8w-zr6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.070588235289999995" green="0.1019607843" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
@@ -1333,7 +1342,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="nJf-QL-IFy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="nJf-QL-IFy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.070588235294117646" green="0.10196078431372549" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>

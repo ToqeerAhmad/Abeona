@@ -24,7 +24,9 @@
     model = [ModelLocator getInstance];
     // Do any additional setup after loading the view.
     _bottomConstraintofGetRoutesBtn.constant = 30;
-   
+    [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"isCardiffDetail"];
+    [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"isCardiff"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

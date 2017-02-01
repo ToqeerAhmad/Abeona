@@ -59,7 +59,7 @@
                                 </collectionViewFlowLayout>
                                 <connections>
                                     <outlet property="dataSource" destination="-1" id="ACB-do-eFp"/>
-                                    <outlet property="delegate" destination="-1" id="8I3-Zp-iM5"/>
+                                    <outlet property="delegate" destination="-1" id="xwq-4A-AZ4"/>
                                 </connections>
                             </collectionView>
                         </subviews>

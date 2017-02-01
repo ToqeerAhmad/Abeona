@@ -291,46 +291,26 @@
     }
 }
 
-- (void)updateLocation {
-    
-    self.lblCurrentAddress.text = @"";
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    CLLocation *newLocation ;
-    
-    newLocation= [[CLLocation alloc]initWithLatitude:model.userCoordinates.latitude
-                                           longitude:model.userCoordinates.longitude];
-    
-    [geocoder reverseGeocodeLocation:newLocation
-                   completionHandler:^(NSArray *placemarks, NSError *error) {
-                       
-                       if (error) {
-                           NSLog(@"Geocode failed with error: %@", error.localizedDescription);
-                           return;
-                       }
-                       if (placemarks && placemarks.count > 0)
-                       {
-                           CLPlacemark *placemark = placemarks[0];
-                           NSDictionary *addressDictionary =
-                           placemark.addressDictionary;
-                           
-                           self.lblCurrentAddress.text = [[addressDictionary objectForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
-                           
-                       }
-                   }];
-    
-}
+
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (isFlight) {
+        [self collectionviewwidth:collectionView andcount:1];
         return 1;
     }else {
         if (collectionView.tag == 0) {
+            [self collectionviewwidth:collectionView andcount:model.transitSteps.count];
             return model.transitSteps.count;
         }else {
+            [self collectionviewwidth:collectionView andcount:1];
             return 1;
         }
     }
+}
+
+- (void)collectionviewwidth:(UICollectionView *)view andcount:(long)count {
+    view.frame = CGRectMake(8, 63, 37*count, 58);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -367,6 +347,37 @@
     }
     return imageCell;
     
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath  {
+    RouteDetailsViewController *detailVC = [self. storyboard instantiateViewControllerWithIdentifier:@"RouteDetailsViewController"];
+
+    if (!isFlight) {
+        if (model.legsDrivingDict) {
+            if (collectionView.tag == 0) {
+                detailVC.isDriving = false;
+                detailVC.departDate = transitDepartureDate;
+                detailVC.arrivalDate = transitArrivalDate;
+            }else {
+                detailVC.isDriving = true;
+                detailVC.departDate = drivingDepartureDate;
+                detailVC.arrivalDate = drivingArrivalDate;
+            }
+        }else {
+            detailVC.isDriving = false;
+            detailVC.departDate = transitDepartureDate;
+            detailVC.arrivalDate = transitArrivalDate;
+            
+        }
+        [self.navigationController pushViewController:detailVC animated:true];
+    }else {
+        if (collectionView.tag != 0) {
+            detailVC.isDriving = false;
+            detailVC.departDate = transitDepartureDate;
+            detailVC.arrivalDate = transitArrivalDate;
+            [self.navigationController pushViewController:detailVC animated:true];
+        }
+    }
 }
 
 
@@ -418,6 +429,35 @@
     
     
     return timeLeft;
+}
+
+- (void)updateLocation {
+    
+    self.lblCurrentAddress.text = @"";
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    CLLocation *newLocation ;
+    
+    newLocation= [[CLLocation alloc]initWithLatitude:model.userCoordinates.latitude
+                                           longitude:model.userCoordinates.longitude];
+    
+    [geocoder reverseGeocodeLocation:newLocation
+                   completionHandler:^(NSArray *placemarks, NSError *error) {
+                       
+                       if (error) {
+                           NSLog(@"Geocode failed with error: %@", error.localizedDescription);
+                           return;
+                       }
+                       if (placemarks && placemarks.count > 0)
+                       {
+                           CLPlacemark *placemark = placemarks[0];
+                           NSDictionary *addressDictionary =
+                           placemark.addressDictionary;
+                           
+                           self.lblCurrentAddress.text = [[addressDictionary objectForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+                           
+                       }
+                   }];
+    
 }
 
 

@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Abeona/ViewControllers/RouteDetailsViewController/RouteDetailsViewController.m"
-            timestampString = "507586234.906856"
+            timestampString = "507681411.377932"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
-            landmarkName = "-setUpCellForTransit:"
+            startingLineNumber = "342"
+            endingLineNumber = "342"
+            landmarkName = "-setValueForSteps:andCell:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

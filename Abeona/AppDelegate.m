@@ -65,12 +65,14 @@
     
     [self.locationManager stopUpdatingLocation];
     model.userCoordinates = manager.location.coordinate;
+    model.userCoordinates = CLLocationCoordinate2DMake(51.8332, -1.3126) ;
     [self updateLocation];
 }
 
 - (void)updateLocation {
     
     ModelLocator *model = [ModelLocator getInstance];
+
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     CLLocation *newLocation ;
     
