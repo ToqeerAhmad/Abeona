@@ -140,10 +140,13 @@
         if(!connectionError){
             NSDictionary *result        = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             NSArray *routes             = [result objectForKey:@"routes"];
-            NSDictionary *firstRoute    = [routes objectAtIndex:0];
-            NSString *encodedPath       = [firstRoute[@"overview_polyline"] objectForKey:@"points"];
-            UIColor *color = [UIColor colorWithRed:30.0/255.0 green:179.0/255.0 blue:252.0/255.0 alpha:1.0];
-            [self createDashedLine:source.coordinate andNext:destination.coordinate andColor:color andEncodedPath:encodedPath];
+            if (routes.count > 0) {
+                
+                NSDictionary *firstRoute    = [routes objectAtIndex:0];
+                NSString *encodedPath       = [firstRoute[@"overview_polyline"] objectForKey:@"points"];
+                UIColor *color = [UIColor colorWithRed:30.0/255.0 green:179.0/255.0 blue:252.0/255.0 alpha:1.0];
+                [self createDashedLine:source.coordinate andNext:destination.coordinate andColor:color andEncodedPath:encodedPath];
+            }
         }
     }];
     
