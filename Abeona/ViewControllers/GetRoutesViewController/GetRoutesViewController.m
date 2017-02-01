@@ -27,7 +27,7 @@
     NSDate *transitDepartureDate;
     NSDate *transitArrivalDate;
     
-    
+    BOOL isFlight;
 }
 @end
 
@@ -196,7 +196,7 @@
     OptionsTableViewCell *cell = (OptionsTableViewCell *)[self.routesOptionstableView dequeueReusableCellWithIdentifier:@"RoutesOptionsCell" forIndexPath:indexPath];
 
     cell.lblRouteType.text = @"Flight";
-    
+    isFlight = true;
     //NSArray *pricingArray = [[model.tripOptions objectAtIndex:indexPath.row] valueForKey:@"pricing"];
    
     NSArray *sliceArray = [[model.tripOptions objectAtIndex:indexPath.row] valueForKey:@"slice"];
@@ -214,6 +214,12 @@
     NSString *arrivalTime = [HelperClass getDate:flightArrivalDate withFormat:@"HH:mm"];
     
     cell.lblArrive_DepartTime.text = [NSString stringWithFormat:@"(leave %@, arrive %@)",departTime,arrivalTime];
+    
+    [cell.imagesCollectionView registerNib:[UINib nibWithNibName:@"ModeTypeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ImageCell"];
+    cell.imagesCollectionView.tag = indexPath.row;
+    cell.imagesCollectionView.delegate = self;
+    cell.imagesCollectionView.dataSource = (id)self;
+
     
     return cell;
 }
@@ -257,23 +263,32 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     RouteDetailsViewController *detailVC = [self. storyboard instantiateViewControllerWithIdentifier:@"RouteDetailsViewController"];
-    if (model.legsDrivingDict) {
-        if (indexPath.row == 0) {
+    if (!isFlight) {
+        if (model.legsDrivingDict) {
+            if (indexPath.row == 0) {
+                detailVC.isDriving = false;
+                detailVC.departDate = transitDepartureDate;
+                detailVC.arrivalDate = transitArrivalDate;
+            }else {
+                detailVC.isDriving = true;
+                detailVC.departDate = drivingDepartureDate;
+                detailVC.arrivalDate = drivingArrivalDate;
+            }
+        }else {
             detailVC.isDriving = false;
             detailVC.departDate = transitDepartureDate;
             detailVC.arrivalDate = transitArrivalDate;
-        }else {
-            detailVC.isDriving = true;
-            detailVC.departDate = drivingDepartureDate;
-            detailVC.arrivalDate = drivingArrivalDate;
+            
         }
+        [self.navigationController pushViewController:detailVC animated:true];
     }else {
-        detailVC.isDriving = false;
-        detailVC.departDate = transitDepartureDate;
-        detailVC.arrivalDate = transitArrivalDate;
-
+        if (indexPath.row != 0) {
+            detailVC.isDriving = false;
+            detailVC.departDate = transitDepartureDate;
+            detailVC.arrivalDate = transitArrivalDate;
+            [self.navigationController pushViewController:detailVC animated:true];
+        }
     }
-    [self.navigationController pushViewController:detailVC animated:true];
 }
 
 - (void)updateLocation {
@@ -307,10 +322,14 @@
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (collectionView.tag == 0) {
-        return model.transitSteps.count;
-    }else {
+    if (isFlight) {
         return 1;
+    }else {
+        if (collectionView.tag == 0) {
+            return model.transitSteps.count;
+        }else {
+            return 1;
+        }
     }
 }
 
@@ -324,13 +343,17 @@
     ModeTypeCollectionViewCell *imageCell = (ModeTypeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
     if (collectionView.tag == 0) {
        
-        NSString *mode_type = [HelperClass stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"travel_mode"]];
-        if ([mode_type isEqualToString:@"TRANSIT"]) {
-            imageCell.modeTypeImageView.image = [UIImage imageNamed:@"train_icon"];
-        }else if ([mode_type isEqualToString:@"Bus"]) {
-            imageCell.modeTypeImageView.image = [UIImage imageNamed:@"bus_Icon"];
+        if (isFlight) {
+            imageCell.modeTypeImageView.image = [UIImage imageNamed:@"flight_icon"];
         }else {
-            imageCell.modeTypeImageView.image = [UIImage imageNamed:@"walking_icon"];
+            NSString *mode_type = [HelperClass stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"travel_mode"]];
+            if ([mode_type isEqualToString:@"TRANSIT"]) {
+                imageCell.modeTypeImageView.image = [UIImage imageNamed:@"train_icon"];
+            }else if ([mode_type isEqualToString:@"Bus"]) {
+                imageCell.modeTypeImageView.image = [UIImage imageNamed:@"bus_Icon"];
+            }else {
+                imageCell.modeTypeImageView.image = [UIImage imageNamed:@"walking_icon"];
+            }
         }
     }else {
         
@@ -338,7 +361,7 @@
         if ([mode_type isEqualToString:@"Bus"]) {
             imageCell.modeTypeImageView.image = [UIImage imageNamed:@"bus_Icon"];
         }else {
-            imageCell.modeTypeImageView.image = [UIImage imageNamed:@"car_icon"];
+            imageCell.modeTypeImageView.image = [UIImage imageNamed:@"bus_Icon"];
         }
         
     }

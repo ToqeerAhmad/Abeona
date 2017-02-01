@@ -17,12 +17,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    //AIzaSyDY6suhoKhvv9C6ibXBtCuVQTfluSL38AI
     
 
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = (id)self;
-    [GMSServices provideAPIKey:@"AIzaSyBqEj7yKo2i9af_Sye87iEV36bsXOUt8a8"];
+    [GMSServices provideAPIKey:@"AIzaSyDBrEtOB7k5kKT2Vop_kwH69bIeCbLFH34"];
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
     {
         [self.locationManager requestWhenInUseAuthorization];

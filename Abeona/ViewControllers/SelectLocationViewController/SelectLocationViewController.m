@@ -65,7 +65,7 @@
     NSDictionary *adultCountDict = [[NSDictionary alloc]initWithObjectsAndKeys:@"1",@"adultCount",nil];
     NSDictionary *dictparm = [[NSDictionary alloc]initWithObjectsAndKeys:sliceArray,@"slice",
                               adultCountDict,@"passengers",
-                              @"1",@"solutions",nil];
+                              @"20",@"solutions",nil];
     NSDictionary *actuallParmeeters = [[NSDictionary alloc]initWithObjectsAndKeys:dictparm,@"request", nil];
     NSLog(@"%@", actuallParmeeters);
     
@@ -73,7 +73,7 @@
     WebServices *service = [[WebServices alloc] init];
     service.delegate = self;
     
-    NSString *url = [NSString stringWithFormat:@"https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBqEj7yKo2i9af_Sye87iEV36bsXOUt8a8"];
+    NSString *url = [NSString stringWithFormat:@"https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyDBrEtOB7k5kKT2Vop_kwH69bIeCbLFH34"];
     [service getDataFromQPX:actuallParmeeters andServiceURL:url andServiceReturnType:@"QPX"];
 }
 
