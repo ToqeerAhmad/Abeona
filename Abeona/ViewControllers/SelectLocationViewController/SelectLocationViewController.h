@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "IQDropDownTextField.h"
 @interface SelectLocationViewController : UIViewController
+@property (weak, nonatomic) IBOutlet IQDropDownTextField *txt_TimeBefore;
 
 
 

@@ -338,23 +338,34 @@
         
         if(indexPath.row +1 < model.transitSteps.count)
         {
+           
             
-            NSString *mode_type = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"travel_mode"]];
-            
-            if (indexPath.row == 0) {
+            if (indexPath.row == 0)
+            {
                
                 cell.lblAddress.text = [self stringByStrippingHTML:[model.legsTransitDict valueForKey:@"start_address"]];
                 cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
 
-            }else {
+            }
+            else
+            {
                 
-                if ([mode_type isEqualToString:@"TRANSIT"]) {
-                    cell.lblAddress.text = [self stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"departure_stop"] valueForKey:@"name"]];
-                    cell.lblHtmlText.text = [self stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"arrival_stop"] valueForKey:@"name"]];
-                }else {
+                NSString *mode_type = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"travel_mode"]];
+                if ([mode_type isEqualToString:@"TRANSIT"])
+                {
+                    cell.lblAddress.text = [self stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"transit_details"] valueForKey:@"arrival_stop"] valueForKey:@"name"]];
+                   // cell.lblHtmlText.text = [self stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"arrival_stop"] valueForKey:@"name"]];
+                    cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
+                }else
+                {
                     
-                    cell.lblAddress.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
-                    cell.lblHtmlText.text = [self stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row+1] valueForKey:@"transit_details"] valueForKey:@"departure_stop"] valueForKey:@"name"]];
+                    NSString *str = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"html_instructions"]];
+                    str = [str stringByReplacingOccurrencesOfString:@"Walk To"
+                                                         withString:@""];
+                    
+                    
+                    cell.lblAddress.text = str;
+                     cell.lblAddress.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
                     
                 }
             }
@@ -363,9 +374,12 @@
             NSString *time = [self stringByStrippingHTML:[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"duration"] valueForKey:@"text"]];
             cell.lblStepTime.text = time;
            
-            if (indexPath.row == 0) {
+            if (indexPath.row == 0)
+            {
                 cell.lblTotalTime.text = [HelperClass getDate:self.departDate withFormat:@"HH:mm"];
-            }else {
+            }
+            else
+            {
                 startDate = self.departDate;
 
                 for (int index = 0; index < indexPath.row; index++) {
@@ -382,7 +396,9 @@
             if ([mode_type isEqualToString:@"TRANSIT"]) {
                 cell.lblAddress.text = [self stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"departure_stop"] valueForKey:@"name"]];
                 cell.lblHtmlText.text = [self stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"arrival_stop"] valueForKey:@"name"]];
-            }else {
+            }
+            else
+            {
                 /*
                 cell.lblAddress.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
                 if(indexPath.row +1 == model.transitSteps.count) {
@@ -409,6 +425,9 @@
 }
 
 -(NSString *)stringByStrippingHTML:(NSString *)str {
+    
+//    str = [str stringByReplacingOccurrencesOfString:@"Walk To"
+//                                         withString:@""];
     NSRange r;
     while ((r = [str rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
         str = [str stringByReplacingCharactersInRange:r withString:@""];

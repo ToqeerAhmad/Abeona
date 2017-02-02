@@ -23,6 +23,9 @@
     [super viewDidLoad];
     model = [ModelLocator getInstance];
     // Do any additional setup after loading the view.
+    
+    self.txt_TimeBefore.isOptionalDropDown = NO;
+    [self.txt_TimeBefore setItemList:[NSArray arrayWithObjects:@"2 hours before kick",@"4 hours before kick",@"6 hours before kick",@"8 hours before kick", nil]];
     _bottomConstraintofGetRoutesBtn.constant = 30;
     [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"isCardiffDetail"];
     [[NSUserDefaults standardUserDefaults] setBool:false forKey:@"isCardiff"];
