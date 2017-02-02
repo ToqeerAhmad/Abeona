@@ -309,13 +309,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find the best journey to the stadium and buy tickets in advance" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayI-dy-mjb" customClass="UILabelClass">
-                                <rect key="frame" x="44" y="294" width="286" height="34"/>
+                                <rect key="frame" x="44" y="294" width="286" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BW6-Nh-Pgt" customClass="UIButtonExtension">
-                                <rect key="frame" x="79" y="359" width="218" height="42"/>
+                                <rect key="frame" x="79" y="358.5" width="218" height="42"/>
                                 <color key="backgroundColor" red="0.070588235289999995" green="0.1019607843" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="BW6-Nh-Pgt" secondAttribute="height" multiplier="109:21" id="Cck-7H-ZzH"/>
@@ -1301,7 +1301,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="YOn-Rw-FkT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="YOn-Rw-FkT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.070588235289999995" green="0.1019607843" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>

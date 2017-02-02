@@ -43,15 +43,22 @@
     
     self.lblTopSuggestion.text = [NSString stringWithFormat:@"Leave %@, arrive %@",[HelperClass getDate:self.departDate withFormat:@"HH:mm EEEE dd MMMM"], [HelperClass getDate:self.arrivalDate withFormat:@"HH:mm"]];
     
-    //[self.tableview scrollToRowAtIndexPath:0 atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-    
-   // NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[log count]-1 inSection:0];
+//    int yourSection = 0;
+//    int lastRow = (int)[self.tableview numberOfRowsInSection:yourSection] - 1;
+//   
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow-1 inSection:0];
+//   // [self.tableview scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self.view layoutIfNeeded];
     //[self.tableview scrollToRowAtIndexPath:0 atScrollPosition:UITableViewScrollPositionTop animated:NO];
+//    int lastRow = 0;
+//    
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+//    [self.tableview scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
     [self.tableview reloadData];
 }
 
@@ -133,7 +140,7 @@
             }else if (isSHowMapCell && indexPath == selectedIndex) {
                 return 400;
             }else {
-                return 175;
+                return 185;
             }
         }else {
             // if from QPX

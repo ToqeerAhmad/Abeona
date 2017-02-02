@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -49,7 +49,7 @@
                                 <rect key="frame" x="8" y="63" width="321" height="58"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="58" id="8oz-NF-aFH"/>
+                                    <constraint firstAttribute="height" constant="58" id="eCY-9C-Xg0"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OZY-mY-lwY">
                                     <size key="itemSize" width="50" height="50"/>
@@ -67,13 +67,13 @@
                         <constraints>
                             <constraint firstItem="A5A-2D-blJ" firstAttribute="top" secondItem="VRH-eO-0lj" secondAttribute="top" constant="10" id="4mC-Tp-LqT"/>
                             <constraint firstItem="A5A-2D-blJ" firstAttribute="leading" secondItem="VRH-eO-0lj" secondAttribute="leading" constant="8" id="Cdq-Jf-ert"/>
+                            <constraint firstAttribute="trailing" secondItem="coN-hT-BCW" secondAttribute="trailing" constant="8" id="Dua-V6-7kE"/>
                             <constraint firstItem="lhn-7L-lSu" firstAttribute="top" secondItem="A5A-2D-blJ" secondAttribute="bottom" constant="3" id="E0W-SF-gME"/>
+                            <constraint firstAttribute="bottom" secondItem="coN-hT-BCW" secondAttribute="bottom" constant="8" id="bRV-9W-HDh"/>
                             <constraint firstItem="lhn-7L-lSu" firstAttribute="leading" secondItem="VRH-eO-0lj" secondAttribute="leading" constant="8" id="dEg-2T-afp"/>
                             <constraint firstItem="3vH-7u-8Yj" firstAttribute="top" secondItem="A5A-2D-blJ" secondAttribute="bottom" constant="3" id="ewu-tt-ChO"/>
                             <constraint firstItem="3vH-7u-8Yj" firstAttribute="leading" secondItem="lhn-7L-lSu" secondAttribute="trailing" constant="3" id="ixR-bj-5hl"/>
-                            <constraint firstAttribute="trailing" secondItem="coN-hT-BCW" secondAttribute="trailing" constant="8" id="lVj-ZR-bIb"/>
-                            <constraint firstAttribute="bottom" secondItem="coN-hT-BCW" secondAttribute="bottom" constant="8" id="svW-jY-81L"/>
-                            <constraint firstItem="coN-hT-BCW" firstAttribute="leading" secondItem="VRH-eO-0lj" secondAttribute="leading" constant="8" id="xiH-fV-g7U"/>
+                            <constraint firstItem="coN-hT-BCW" firstAttribute="leading" secondItem="VRH-eO-0lj" secondAttribute="leading" constant="8" id="l7g-wI-ECp"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -86,7 +86,6 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
-                <outlet property="heightConstraint" destination="8oz-NF-aFH" id="gqJ-Ao-cXg"/>
                 <outlet property="imagesCollectionView" destination="coN-hT-BCW" id="m6D-R3-IoF"/>
                 <outlet property="lblArrive_DepartTime" destination="3vH-7u-8Yj" id="xu5-Qe-ty2"/>
                 <outlet property="lblRouteType" destination="A5A-2D-blJ" id="9DL-tb-WJa"/>

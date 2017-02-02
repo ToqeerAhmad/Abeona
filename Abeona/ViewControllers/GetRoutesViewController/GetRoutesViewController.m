@@ -42,7 +42,11 @@
     self.editJourney.layer.masksToBounds = true;
     
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.view layoutIfNeeded];
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
