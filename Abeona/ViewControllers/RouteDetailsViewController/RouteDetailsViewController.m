@@ -43,6 +43,15 @@
     
     self.lblTopSuggestion.text = [NSString stringWithFormat:@"Leave %@, arrive %@",[HelperClass getDate:self.departDate withFormat:@"HH:mm EEEE dd MMMM"], [HelperClass getDate:self.arrivalDate withFormat:@"HH:mm"]];
     
+    //[self.tableview scrollToRowAtIndexPath:0 atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    //[self.tableview scrollToRowAtIndexPath:0 atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    [self.tableview reloadData];
 }
 
 
@@ -354,18 +363,16 @@
                 if ([mode_type isEqualToString:@"TRANSIT"])
                 {
                     cell.lblAddress.text = [self stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"transit_details"] valueForKey:@"arrival_stop"] valueForKey:@"name"]];
-                   // cell.lblHtmlText.text = [self stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"transit_details"] valueForKey:@"arrival_stop"] valueForKey:@"name"]];
                     cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
-                }else
+                }
+                else
                 {
                     
                     NSString *str = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"html_instructions"]];
                     str = [str stringByReplacingOccurrencesOfString:@"Walk To"
                                                          withString:@""];
-                    
-                    
                     cell.lblAddress.text = str;
-                     cell.lblAddress.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
+                    cell.lblAddress.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
                     
                 }
             }
