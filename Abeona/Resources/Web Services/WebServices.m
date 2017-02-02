@@ -106,7 +106,7 @@
         
             NSString *aStr;
             aStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//            NSLog(@"%@",aStr);
+            NSLog(@"%@",aStr);
             if(responseObject != nil) {
                 if (self.delegate) {
                     
@@ -128,7 +128,7 @@
                         NSArray *routes = [responseObject objectForKey:@"routes"];
                         if (routes.count > 0) {
                             model.legsTransitDict = [[[routes objectAtIndex:0] objectForKey:@"legs"] objectAtIndex:0];
-                            model.transitSteps = [[[[routes objectAtIndex:0] objectForKey:@"legs"] objectAtIndex:0] objectForKey:@"steps"];
+                            model.transitSteps = [[[[routes objectAtIndex:0] objectForKey:@"legs"] objectAtIndex:0] objectForKey:@"steps" ];
                         }else {
                             model.optionsArray = [responseObject objectForKey:@"available_travel_modes"];
                         }

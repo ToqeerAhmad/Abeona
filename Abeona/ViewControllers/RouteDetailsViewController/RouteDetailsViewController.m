@@ -45,6 +45,7 @@
     
     //[self.tableview scrollToRowAtIndexPath:0 atScrollPosition:UITableViewScrollPositionBottom animated:NO];
     
+   // NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[log count]-1 inSection:0];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -132,7 +133,7 @@
             }else if (isSHowMapCell && indexPath == selectedIndex) {
                 return 400;
             }else {
-                return 160;
+                return 175;
             }
         }else {
             // if from QPX
@@ -359,22 +360,26 @@
             else
             {
                 
-                NSString *mode_type = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"travel_mode"]];
-                if ([mode_type isEqualToString:@"TRANSIT"])
-                {
-                    cell.lblAddress.text = [self stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"transit_details"] valueForKey:@"arrival_stop"] valueForKey:@"name"]];
-                    cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
-                }
-                else
-                {
-                    
+//                NSString *mode_type = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"travel_mode"]];
+//                if ([mode_type isEqualToString:@"TRANSIT"])
+//                {
+//                    cell.lblAddress.text = [self stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"transit_details"] valueForKey:@"arrival_stop"] valueForKey:@"name"]];
                     NSString *str = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"html_instructions"]];
-                    str = [str stringByReplacingOccurrencesOfString:@"Walk To"
+                    str = [str stringByReplacingOccurrencesOfString:@"Walk to"
                                                          withString:@""];
                     cell.lblAddress.text = str;
-                    cell.lblAddress.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
+                    cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
+               // }
+                //else
+               // {
                     
-                }
+//                    NSString *str = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"html_instructions"]];
+//                    str = [str stringByReplacingOccurrencesOfString:@"Walk To"
+//                                                         withString:@""];
+//                    cell.lblAddress.text = str;
+//                    cell.lblAddress.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
+                
+                //}
             }
 
             
