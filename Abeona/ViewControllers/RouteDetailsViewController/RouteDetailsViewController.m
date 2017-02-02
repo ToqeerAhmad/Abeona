@@ -356,37 +356,44 @@
         if(indexPath.row +1 < model.transitSteps.count)
         {
            
-            
+           // NSLog(@"%@", model.transitSteps);
             if (indexPath.row == 0)
             {
-               
+                NSLog(@"%ld",(long)indexPath.row);
+                NSString *mode_type = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"travel_mode"]];
+                NSLog(@"%@",mode_type);
+               //NSString *mode_type = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"travel_mode"]];
                 cell.lblAddress.text = [self stringByStrippingHTML:[model.legsTransitDict valueForKey:@"start_address"]];
                 cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
+                NSLog(@"%@",[self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]]);
 
             }
             else
             {
+                NSLog(@"%ld",(long)indexPath.row);
                 
-//                NSString *mode_type = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"travel_mode"]];
-//                if ([mode_type isEqualToString:@"TRANSIT"])
-//                {
-//                    cell.lblAddress.text = [self stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"transit_details"] valueForKey:@"arrival_stop"] valueForKey:@"name"]];
+               
+                NSString *mode_type = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"travel_mode"]];
+                if ([mode_type isEqualToString:@"TRANSIT"])
+                {
+                    NSLog(@"%@",[self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]]);
+                    NSLog(@"%@",[self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"html_instructions"]]);
+                    NSLog(@"%@",mode_type);
+                    cell.lblAddress.text = [self stringByStrippingHTML:[[[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"transit_details"] valueForKey:@"arrival_stop"] valueForKey:@"name"]];
+                    cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
+                }
+                else
+                {
+               
+                    NSLog(@"%@",[self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"html_instructions"]]);
+                    NSLog(@"%@",[self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]]);
                     NSString *str = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"html_instructions"]];
-                    str = [str stringByReplacingOccurrencesOfString:@"Walk to"
+                    str = [str stringByReplacingOccurrencesOfString:@"Walk To"
                                                          withString:@""];
                     cell.lblAddress.text = str;
                     cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
-               // }
-                //else
-               // {
-                    
-//                    NSString *str = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"html_instructions"]];
-//                    str = [str stringByReplacingOccurrencesOfString:@"Walk To"
-//                                                         withString:@""];
-//                    cell.lblAddress.text = str;
-//                    cell.lblAddress.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
                 
-                //}
+                }
             }
 
             

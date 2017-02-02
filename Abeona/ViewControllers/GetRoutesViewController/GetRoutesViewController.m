@@ -45,7 +45,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.view layoutIfNeeded];
+    [self.routesOptionstableView layoutIfNeeded];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -260,6 +260,8 @@
     cell.imagesCollectionView.tag = indexPath.row;
     cell.imagesCollectionView.delegate = self;
     cell.imagesCollectionView.dataSource = (id)self;
+    [cell.imagesCollectionView layoutIfNeeded];
+   // cell.imagesCollectionView.frame = CGRectMake(10, 10, cell.contentView.frame.size.width-20, cell.imagesCollectionView.frame.size.height);
     
     return cell;
 }
