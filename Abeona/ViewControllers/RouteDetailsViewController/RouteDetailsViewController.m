@@ -388,7 +388,7 @@
                     NSLog(@"%@",[self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"html_instructions"]]);
                     NSLog(@"%@",[self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]]);
                     NSString *str = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row-1] valueForKey:@"html_instructions"]];
-                    str = [str stringByReplacingOccurrencesOfString:@"Walk To"
+                    str = [str stringByReplacingOccurrencesOfString:@"Walk to"
                                                          withString:@""];
                     cell.lblAddress.text = str;
                     cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.transitSteps objectAtIndex:indexPath.row] valueForKey:@"html_instructions"]];
