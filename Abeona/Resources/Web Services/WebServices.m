@@ -106,24 +106,32 @@
         
             NSString *aStr;
             aStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-            NSLog(@"%@",aStr);
+        
             if(responseObject != nil) {
                 if (self.delegate) {
                     
-                    if ([returnType isEqualToString:@"AirportCode"]) {
+                    if ([returnType isEqualToString:@"AirportCode"])
+                    {
                         model.code = [responseObject valueForKey:@"code"];
-                    }else if ([returnType isEqualToString:@"DRIVING"]) {
+                    }
+                    else if ([returnType isEqualToString:@"DRIVING"])
+                    {
                        
                         NSArray *routes = [responseObject objectForKey:@"routes"];
                         if (routes.count > 0) {
-                            model.legsDrivingDict = [[routes objectAtIndex:0] objectForKey:@"legs"];
+                            NSLog(@"%@",aStr);
+                            model.legsDrivingDict = [[[routes objectAtIndex:0] objectForKey:@"legs"]objectAtIndex:0];
                             model.drivingSteps = [[[[routes objectAtIndex:0] objectForKey:@"legs"] objectAtIndex:0] objectForKey:@"steps"];
                             
-                        }else {
+                        }
+                        else
+                        {
                             model.optionsArray = [responseObject objectForKey:@"available_travel_modes"];
                         }
                         
-                    }else  if ([returnType isEqualToString:@"transit"]) {
+                    }
+                    else  if ([returnType isEqualToString:@"transit"])
+                    {
                         
                         NSArray *routes = [responseObject objectForKey:@"routes"];
                         if (routes.count > 0) {

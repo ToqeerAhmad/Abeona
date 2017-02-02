@@ -317,19 +317,66 @@
         
         if(indexPath.row +1 < model.drivingSteps.count)
         {
-            cell.lblAddress.text = [self stringByStrippingHTML:[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"html_instructions"]];
             
-            cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.drivingSteps objectAtIndex:indexPath.row+1] objectForKey:@"html_instructions"]];
+            //            CLLocation* eventLocation = [[CLLocation alloc] initWithLatitude:[[[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"end_location"] objectForKey:@"lat"]doubleValue] longitude:[[[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"end_location"] objectForKey:@"lng"] doubleValue]];
+            //
+            //
+            //            [self getAddressFromLocation:eventLocation complationBlock:^(NSString * address) {
+            //                if(address) {
+            //                    cell.lblAddress.text = address;
+            //                }
+            //            }];
+            
+            if(indexPath.row == 0)
+            {
+                NSString *str = [self stringByStrippingHTML:[self stringByStrippingHTML:[model.legsDrivingDict valueForKey:@"start_address"]]];
+                str = [str stringByReplacingOccurrencesOfString:@"Turn"
+                                                     withString:@""];
+                str = [str stringByReplacingOccurrencesOfString:@"right"
+                                                     withString:@""];
+                str = [str stringByReplacingOccurrencesOfString:@"toward"
+                                                     withString:@""];
+                str = [str stringByReplacingOccurrencesOfString:@"left"
+                                                     withString:@""];
+                str = [str stringByReplacingOccurrencesOfString:@"onto"
+                                                     withString:@""];
+                
+                cell.lblAddress.text = str;//[self stringByStrippingHTML:[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"html_instructions"]];
+                
+                cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"html_instructions"]];
+            }
+            else
+            {
+                NSString *str = [self stringByStrippingHTML:[[model.drivingSteps objectAtIndex:indexPath.row-1] valueForKey:@"html_instructions"]];
+                str = [str stringByReplacingOccurrencesOfString:@"Turn"
+                                                     withString:@""];
+                str = [str stringByReplacingOccurrencesOfString:@"right"
+                                                     withString:@""];
+                str = [str stringByReplacingOccurrencesOfString:@"toward"
+                                                     withString:@""];
+                str = [str stringByReplacingOccurrencesOfString:@"left"
+                                                     withString:@""];
+                str = [str stringByReplacingOccurrencesOfString:@"onto"
+                                                     withString:@""];
+                
+                cell.lblAddress.text = str;//[self stringByStrippingHTML:[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"html_instructions"]];
+                
+                cell.lblHtmlText.text = [self stringByStrippingHTML:[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"html_instructions"]];
+            }
+          
             
             NSString *time = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:indexPath.row] objectForKey:@"duration"] objectForKey:@"text"]];
             cell.lblStepTime.text = time;
            
-            if (indexPath.row == 0) {
+            if (indexPath.row == 0)
+            {
                 cell.lblTotalTime.text = [HelperClass getDate:self.departDate withFormat:@"HH:mm"];
-            }else {
+            }else
+            {
                 
                 startDate = self.departDate;
-                for (int index = 0; index < indexPath.row; index++) {
+                for (int index = 0; index < indexPath.row; index++)
+                {
                     NSString *time = [self stringByStrippingHTML:[[[model.drivingSteps objectAtIndex:index] objectForKey:@"duration"] objectForKey:@"text"]];
                     startDate = [self setTime:time];
                 }
@@ -575,6 +622,26 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
+ 
 */
+
+typedef void(^addressCompletion)(NSString *);
+
+-(void)getAddressFromLocation:(CLLocation *)location complationBlock:(addressCompletion)completionBlock
+{
+    __block CLPlacemark* placemark;
+    __block NSString *address = nil;
+    
+    CLGeocoder* geocoder = [CLGeocoder new];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error)
+     {
+         if (error == nil && [placemarks count] > 0)
+         {
+             placemark = [placemarks lastObject];
+             address = [NSString stringWithFormat:@"%@, %@ %@", placemark.name, placemark.postalCode, placemark.locality];
+             completionBlock(address);
+         }
+     }];
+}
 
 @end
