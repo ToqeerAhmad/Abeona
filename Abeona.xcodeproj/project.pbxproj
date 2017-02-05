@@ -101,6 +101,8 @@
 		46D090141E201EC400C323F1 /* UIButtonExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D090131E201EC400C323F1 /* UIButtonExtension.m */; };
 		46D090171E201F6800C323F1 /* UILabelClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D090151E201F6800C323F1 /* UILabelClass.m */; };
 		46D0901B1E202E4B00C323F1 /* HelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D0901A1E202E4B00C323F1 /* HelperClass.m */; };
+		46D12F641E4789A800BB9D1B /* FlightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D12F621E4789A800BB9D1B /* FlightTableViewCell.m */; };
+		46D12F651E4789A800BB9D1B /* FlightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46D12F631E4789A800BB9D1B /* FlightTableViewCell.xib */; };
 		46D564851E2427F500A94CD3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D564841E2427F500A94CD3 /* HomeViewController.m */; };
 		46FBA8481E2D2D8600545345 /* MDDirectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FBA8471E2D2D8600545345 /* MDDirectionService.m */; };
 		46FBA84C1E2D305E00545345 /* MapPolyLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FBA84B1E2D305D00545345 /* MapPolyLine.m */; };
@@ -308,6 +310,9 @@
 		46D090161E201F6800C323F1 /* UILabelClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelClass.h; sourceTree = "<group>"; };
 		46D090191E202E4B00C323F1 /* HelperClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClass.h; sourceTree = "<group>"; };
 		46D0901A1E202E4B00C323F1 /* HelperClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperClass.m; sourceTree = "<group>"; };
+		46D12F611E4789A800BB9D1B /* FlightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightTableViewCell.h; sourceTree = "<group>"; };
+		46D12F621E4789A800BB9D1B /* FlightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightTableViewCell.m; sourceTree = "<group>"; };
+		46D12F631E4789A800BB9D1B /* FlightTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlightTableViewCell.xib; sourceTree = "<group>"; };
 		46D564831E2427F500A94CD3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		46D564841E2427F500A94CD3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		46FBA8461E2D2D8600545345 /* MDDirectionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDDirectionService.h; sourceTree = "<group>"; };
@@ -658,6 +663,9 @@
 				46FBDD031E3A86AF00B3100F /* ModeTypeCollectionViewCell.h */,
 				46FBDD041E3A86AF00B3100F /* ModeTypeCollectionViewCell.m */,
 				46FBDD051E3A86AF00B3100F /* ModeTypeCollectionViewCell.xib */,
+				46D12F611E4789A800BB9D1B /* FlightTableViewCell.h */,
+				46D12F621E4789A800BB9D1B /* FlightTableViewCell.m */,
+				46D12F631E4789A800BB9D1B /* FlightTableViewCell.xib */,
 			);
 			path = UITableViewCells;
 			sourceTree = "<group>";
@@ -997,6 +1005,7 @@
 				464B2BE21E22B08200535E99 /* ExploreCardiffTableViewCell.xib in Resources */,
 				464B2BDD1E22957E00535E99 /* MapCallOutView.xib in Resources */,
 				180D00921E42E982004ACD7F /* IQKeyboardManager.bundle in Resources */,
+				46D12F651E4789A800BB9D1B /* FlightTableViewCell.xib in Resources */,
 				46CF8EDE1E1EB38400657F55 /* Assets.xcassets in Resources */,
 				46CD37261E20466C00F83128 /* OptionsTableViewCell.xib in Resources */,
 				46CF8EDC1E1EB38400657F55 /* Main.storyboard in Resources */,
@@ -1173,6 +1182,7 @@
 				46FBDD061E3A86AF00B3100F /* ModeTypeCollectionViewCell.m in Sources */,
 				180D00891E42E982004ACD7F /* IQUIWindow+Hierarchy.m in Sources */,
 				464A892B1E27DE4200396751 /* CustomGoogleMapView.m in Sources */,
+				46D12F641E4789A800BB9D1B /* FlightTableViewCell.m in Sources */,
 				46CF8F1B1E1ECADD00657F55 /* ExploreCardiffViewController.m in Sources */,
 				464A89471E27EB7B00396751 /* AFURLConnectionOperation.m in Sources */,
 				46CF8F151E1ECA9B00657F55 /* SignInViewController.m in Sources */,

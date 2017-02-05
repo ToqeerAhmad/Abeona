@@ -92,6 +92,38 @@
     return color;
 }
 
++(NSString *)convertTimeFromMinutes:(NSString *)second {
+    
+    NSMutableString *timeLeft = [[NSMutableString alloc]init];
+    
+    
+    NSInteger seconds = [second integerValue];
+    
+    NSInteger days = (int) (floor(seconds / (60 * 24)));
+    if(days) seconds -= days * 60 * 24;
+    
+    NSInteger hours = (int) (floor(seconds / 60));
+    if(hours) seconds -= hours * 60;
+    
+    NSInteger minutes = (int)seconds;
+    if(minutes)seconds -= minutes;
+    
+    if(days) {
+        [timeLeft appendString:[NSString stringWithFormat:@"%ldd ", (long)days]];
+    }
+    
+    if(hours) {
+        [timeLeft appendString:[NSString stringWithFormat: @"%ldh ", (long)hours]];
+    }
+    
+    if(minutes) {
+        [timeLeft appendString: [NSString stringWithFormat: @"%ldm",(long)minutes]];
+    }
+    
+    
+    return timeLeft;
+    
+}
 
 + (void)showAlertView:(NSString*)heading andMessage:(NSString *)message {
     

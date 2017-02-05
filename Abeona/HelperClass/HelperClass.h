@@ -24,4 +24,5 @@
 +(NSString *) checkforNullvalue:(id) stringVal;
 +(NSString *)stringByStrippingHTML:(NSString *)str;
 +(BOOL) NSStringIsValidEmail:(NSString *)checkString;
++(NSString *)convertTimeFromMinutes:(NSString *)second;
 @end

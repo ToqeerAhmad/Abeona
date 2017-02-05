@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -201,12 +201,29 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connection Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpm-YX-nQR">
+                        <rect key="frame" x="85" y="118" width="135" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="nIE-wD-lh1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h 15m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNb-id-qaI">
+                        <rect key="frame" x="222" y="118" width="54" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="2D1-15-rN0" firstAttribute="leading" secondItem="MIh-pF-gEW" secondAttribute="trailing" constant="5" id="0jX-c4-25h"/>
                     <constraint firstItem="D5I-YV-0Fn" firstAttribute="top" secondItem="hBP-ao-hpV" secondAttribute="bottom" constant="20" id="10d-NJ-5nC"/>
+                    <constraint firstItem="lpm-YX-nQR" firstAttribute="top" secondItem="D5I-YV-0Fn" secondAttribute="bottom" constant="8" id="1be-hz-Ggn"/>
                     <constraint firstItem="mVf-dN-ycd" firstAttribute="top" secondItem="uqo-Rz-BtL" secondAttribute="bottom" constant="15" id="2K1-Sx-jhX"/>
                     <constraint firstItem="Eda-bH-bBj" firstAttribute="leading" secondItem="MIh-pF-gEW" secondAttribute="trailing" constant="5" id="2LT-Ux-oe3"/>
+                    <constraint firstItem="cNb-id-qaI" firstAttribute="top" secondItem="D5I-YV-0Fn" secondAttribute="bottom" constant="8" id="3jq-yf-flK"/>
                     <constraint firstItem="hBP-ao-hpV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="85" id="56O-Op-Q65"/>
                     <constraint firstItem="MIh-pF-gEW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="61N-MP-4dr"/>
                     <constraint firstItem="imr-JV-U2l" firstAttribute="leading" secondItem="MIh-pF-gEW" secondAttribute="trailing" constant="1" id="7SN-zG-coa"/>
@@ -217,9 +234,11 @@
                     <constraint firstAttribute="bottom" secondItem="2D1-15-rN0" secondAttribute="bottom" id="D0r-iI-bTH"/>
                     <constraint firstItem="MIh-pF-gEW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="Dub-T0-SPO"/>
                     <constraint firstItem="mVf-dN-ycd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="85" id="Fea-30-thQ"/>
+                    <constraint firstItem="lpm-YX-nQR" firstAttribute="leading" secondItem="D5I-YV-0Fn" secondAttribute="leading" id="Fr0-xd-w9I"/>
                     <constraint firstAttribute="trailing" secondItem="gZj-6P-CAL" secondAttribute="trailing" id="Fyz-vt-b9R"/>
                     <constraint firstItem="zb9-jC-0Us" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="85" id="Gkp-f0-k3e"/>
                     <constraint firstItem="Ecp-tc-4qu" firstAttribute="top" secondItem="5nz-eI-Kxr" secondAttribute="bottom" constant="5" id="H5h-RZ-tYY"/>
+                    <constraint firstItem="cNb-id-qaI" firstAttribute="leading" secondItem="lpm-YX-nQR" secondAttribute="trailing" constant="2" id="HTR-dy-Oyg"/>
                     <constraint firstItem="zb9-jC-0Us" firstAttribute="top" secondItem="mVf-dN-ycd" secondAttribute="bottom" constant="2" id="HeE-Xz-NGb"/>
                     <constraint firstAttribute="trailing" secondItem="D5I-YV-0Fn" secondAttribute="trailing" constant="46" id="Joa-cg-5Ir"/>
                     <constraint firstItem="gZj-6P-CAL" firstAttribute="top" secondItem="hBP-ao-hpV" secondAttribute="top" id="MF5-08-WbT"/>
@@ -252,6 +271,8 @@
                 <outlet property="lblAddress" destination="hBP-ao-hpV" id="GpF-C2-FbI"/>
                 <outlet property="lblArrivalPlace" destination="JBK-uh-blr" id="ZZj-fR-LaF"/>
                 <outlet property="lblArrivalTime" destination="tjG-P9-WkM" id="wIi-CP-Q2z"/>
+                <outlet property="lblConnection" destination="lpm-YX-nQR" id="sH2-Pe-iUO"/>
+                <outlet property="lblConnectionTime" destination="cNb-id-qaI" id="5a7-YK-BWf"/>
                 <outlet property="lblDepartPlace" destination="Kty-Px-lJa" id="Xp6-aa-Utz"/>
                 <outlet property="lblDepartTime" destination="uUz-R9-IRr" id="NW1-0s-adf"/>
                 <outlet property="lblHtmlText" destination="D5I-YV-0Fn" id="XCV-h8-gFi"/>
