@@ -27,6 +27,9 @@
     NSDate *transitDepartureDate;
     NSDate *transitArrivalDate;
     
+    NSDate *flightDepartureDate;
+    NSDate *flightArrivalDate;
+    
     BOOL isFlight;
 }
 @end
@@ -201,23 +204,37 @@
 
     cell.lblRouteType.text = @"Flight";
     isFlight = true;
-    //NSArray *pricingArray = [[model.tripOptions objectAtIndex:indexPath.row] valueForKey:@"pricing"];
    
     NSArray *sliceArray = [[model.tripOptions objectAtIndex:indexPath.row] valueForKey:@"slice"];
-    NSDictionary *legObject = [[[[[sliceArray objectAtIndex:0] valueForKey:@"segment"] objectAtIndex:0] valueForKey:@"leg"] objectAtIndex:0];
     
+    NSString *duration = [[sliceArray objectAtIndex:0] valueForKey:@"duration"];
     
+    duration = [HelperClass convertTimeFromMinutes:duration];
+    cell.lblTime.text = duration;
     
-    NSDate *flightDepartDate = [self stripDateFromQPXDate:[legObject valueForKey:@"departureTime"]];
-    NSDate *flightArrivalDate = [self stripDateFromQPXDate:[legObject valueForKey:@"arrivalTime"]];
-    
-    NSMutableString *time = [self timeLeftSinceDate:flightDepartDate andArrivalDate:flightArrivalDate];
-    cell.lblTime.text = [NSMutableString stringWithString:time];
+    NSString *removedhmTime = [duration stringByReplacingOccurrencesOfString:@"d" withString:@""];
+    removedhmTime = [removedhmTime stringByReplacingOccurrencesOfString:@"h" withString:@""];
+    removedhmTime = [removedhmTime stringByReplacingOccurrencesOfString:@"m" withString:@""];
+    NSArray *array = [removedhmTime componentsSeparatedByString:@" "];
 
-    NSString *departTime = [HelperClass getDate:flightDepartDate withFormat:@"HH:mm"];
-    NSString *arrivalTime = [HelperClass getDate:flightArrivalDate withFormat:@"HH:mm"];
     
-    cell.lblArrive_DepartTime.text = [NSString stringWithFormat:@"(leave %@, arrive %@)",departTime,arrivalTime];
+    flightArrivalDate = [HelperClass getDate:@"2017-03-06 13:00" withColonFormat:@"YYYY-dd-MM HH:mm"];
+
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
+    if (array.count == 1) {
+        [offsetComponents setMinute:-[[array objectAtIndex:0] intValue]];
+    }else if (array.count == 2) {
+        [offsetComponents setHour:-[[array objectAtIndex:0] intValue]];
+        [offsetComponents setMinute:-[[array objectAtIndex:1] intValue]];
+    }else {
+        [offsetComponents setDay:-[[array objectAtIndex:0] intValue]];
+        [offsetComponents setHour:-[[array objectAtIndex:1] intValue]];
+        [offsetComponents setMinute:-[[array objectAtIndex:2] intValue]];
+    }
+    flightDepartureDate = [gregorian dateByAddingComponents:offsetComponents toDate:flightArrivalDate options:0];
+
+    cell.lblArrive_DepartTime.text = [NSString stringWithFormat:@"(leave %@, arrive %@)",[HelperClass getDate:flightDepartureDate withFormat:@"HH:mm dd MMMM"], [HelperClass getDate:flightArrivalDate withFormat:@"HH:mm dd MMMM"]];
     
     [cell.imagesCollectionView registerNib:[UINib nibWithNibName:@"ModeTypeCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ImageCell"];
     cell.imagesCollectionView.tag = indexPath.row;
@@ -293,6 +310,13 @@
             detailVC.departDate = transitDepartureDate;
             detailVC.arrivalDate = transitArrivalDate;
             [self.navigationController pushViewController:detailVC animated:true];
+        }else {
+            detailVC.isFlight = true;
+            detailVC.isDriving = false;
+            detailVC.departDate = flightDepartureDate;
+            detailVC.arrivalDate = flightArrivalDate;
+            [self.navigationController pushViewController:detailVC animated:true];
+
         }
     }
 }
@@ -301,22 +325,23 @@
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (isFlight) {
-        [self collectionviewwidth:collectionView andcount:1];
-        return 1;
-    }else {
-        if (collectionView.tag == 0) {
+    if (collectionView.tag == 0) {
+        if (isFlight) {
+            [self collectionviewwidth:collectionView andcount:model.flightSegmentsArray.count];
+            return model.flightSegmentsArray.count;
+        }else {
             [self collectionviewwidth:collectionView andcount:model.transitSteps.count];
             return model.transitSteps.count;
-        }else {
-            [self collectionviewwidth:collectionView andcount:1];
-            return 1;
+
         }
+    }else {
+        [self collectionviewwidth:collectionView andcount:1];
+        return 1;
     }
 }
 
 - (void)collectionviewwidth:(UICollectionView *)view andcount:(long)count {
-    view.frame = CGRectMake(8, 63, 37*count, 58);
+    view.frame = CGRectMake(8, 63, 47*count, 58);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -327,6 +352,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
     ModeTypeCollectionViewCell *imageCell = (ModeTypeCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
+   
     if (collectionView.tag == 0) {
        
         if (isFlight) {
@@ -382,6 +408,13 @@
             detailVC.departDate = transitDepartureDate;
             detailVC.arrivalDate = transitArrivalDate;
             [self.navigationController pushViewController:detailVC animated:true];
+        }else {
+            detailVC.isFlight = true;
+            detailVC.isDriving = false;
+            detailVC.departDate = flightDepartureDate;
+            detailVC.arrivalDate = flightArrivalDate;
+            [self.navigationController pushViewController:detailVC animated:true];
+            
         }
     }
 }

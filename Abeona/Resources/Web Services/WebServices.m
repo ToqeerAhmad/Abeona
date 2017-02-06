@@ -44,9 +44,9 @@
                 NSMutableArray *triptripOptions = [[responseObject objectForKey:@"trips"] valueForKey:@"tripOption"];
                 if (triptripOptions.count > 0) {
                     model.tripOptions = triptripOptions;
+                    model.flightSegmentsArray = [[[[model.tripOptions objectAtIndex:0] valueForKey:@"slice"] objectAtIndex:0] valueForKey:@"segment"];
                 }
-                
-                
+
                 [self.delegate webServiceEnd:@"" andResponseType:returnType];
             }
         }else {
@@ -110,7 +110,19 @@
             if(responseObject != nil) {
                 if (self.delegate) {
                     
-                    if ([returnType isEqualToString:@"AirportCode"])
+                    if ([returnType isEqualToString:@"destination"]) {
+                        
+                        NSArray *components = [[[responseObject valueForKey:@"results"] objectAtIndex:0] valueForKey:@"address_components"];
+                        for (NSDictionary *dict in components) {
+                            NSString *type = [[dict valueForKey:@"types"] objectAtIndex:0];
+                            if ([type isEqualToString:@"country"]) {
+                                [model.stepsAdressArray addObject:[dict valueForKey:@"long_name"]];
+                                break;
+                            }
+                        }
+
+                    }
+                    else if ([returnType isEqualToString:@"AirportCode"])
                     {
                         model.code = [responseObject valueForKey:@"code"];
                     }

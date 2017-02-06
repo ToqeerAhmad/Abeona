@@ -9,13 +9,45 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Abeona/ViewControllers/RouteDetailsViewController/RouteDetailsViewController.m"
-            timestampString = "507681411.377932"
+            filePath = "Abeona/HelperClass/HelperClass.m"
+            timestampString = "508009162.501021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "342"
-            endingLineNumber = "342"
-            landmarkName = "-setValueForSteps:andCell:"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "+convertTimeFromMinutes:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Abeona/Resources/Web Services/WebServices.m"
+            timestampString = "508016145.353304"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-SendRequestForData:andServiceURL:andServiceReturnType:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Abeona/ViewControllers/RouteDetailsViewController/RouteDetailsViewController.m"
+            timestampString = "508020215.495694"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "734"
+            endingLineNumber = "734"
+            landmarkName = "-webServiceEnd:andResponseType:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

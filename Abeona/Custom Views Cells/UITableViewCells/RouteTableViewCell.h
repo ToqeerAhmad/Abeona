@@ -41,6 +41,9 @@
 @property (nonatomic, strong) IBOutlet UIImageView *mode_Image;
 @property (nonatomic, strong) IBOutlet UILabel *mode_type;
 
+@property (nonatomic, strong) IBOutlet UILabel *lblConnection;
+@property (nonatomic, strong) IBOutlet UILabel *lblConnectionTime;
+
 - (void)setUpCell ;
 
 @end

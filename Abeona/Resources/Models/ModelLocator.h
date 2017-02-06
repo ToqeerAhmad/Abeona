@@ -25,9 +25,12 @@
 @property (nonatomic, copy) NSString *country;
 
 @property (nonatomic, strong)NSMutableArray *tripOptions;
+@property (nonatomic, strong)NSMutableArray *flightSegmentsArray;
+@property (nonatomic, strong)NSMutableArray *stepsAdressArray;
 
 @property (nonatomic, strong)NSMutableArray *optionsArray;
 @property (nonatomic) CLLocationCoordinate2D userCoordinates;
+
 
 
 +(ModelLocator*) getInstance;

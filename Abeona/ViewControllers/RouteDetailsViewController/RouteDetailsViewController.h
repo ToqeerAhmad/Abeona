@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) IBOutlet UITableView *tableview;
 @property (nonatomic) BOOL isDriving;
+@property (nonatomic) BOOL isFlight;
 
 @property (nonatomic, strong) NSDate *departDate;
 @property (nonatomic, strong) NSDate *arrivalDate;
