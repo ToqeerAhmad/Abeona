@@ -98,6 +98,13 @@
     NSDictionary *dict = [XMLReader dictionaryForXMLData:data
                                                  options:XMLReaderOptionsProcessNamespaces
                                                    error:&error];
+    
+    NSString *s = [[dict objectForKey:@"string"] objectForKey:@"text"];
+    
+    NSRange r1 = [s rangeOfString:@"<Country>"];
+    NSRange r2 = [s rangeOfString:@"</Country>"];
+    NSRange rSub = NSMakeRange(r1.location + r1.length, r2.location - r1.location - r1.length);
+    NSString *sub = [s substringWithRange:rSub];
 
 }
 
