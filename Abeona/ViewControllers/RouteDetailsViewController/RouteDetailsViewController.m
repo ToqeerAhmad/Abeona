@@ -51,6 +51,8 @@
     }else {
         self.lblTopSuggestion.text = [NSString stringWithFormat:@"Leave %@, arrive %@",[HelperClass getDate:self.departDate withFormat:@"HH:mm EEEE dd MMMM"], [HelperClass getDate:self.arrivalDate withFormat:@"HH:mm"]];
     }
+    model = [ModelLocator getInstance];
+   
     
 //    int yourSection = 0;
 //    int lastRow = (int)[self.tableview numberOfRowsInSection:yourSection] - 1;
@@ -73,40 +75,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    model = [ModelLocator getInstance];
-    if (_isFlight) {
-        model.stepsAdressArray = [NSMutableArray new];
-        [self multipleCalls];
-    }
   
 }
 
-- (void)multipleCalls {
-    
-//    NSMutableDictionary *dict;
-    NSString *code = [[[[model.flightSegmentsArray objectAtIndex:apiCallCount] valueForKey:@"leg"] objectAtIndex:0] valueForKey:@"destination"];
-    WebServices *service = [[WebServices alloc] init];
-    service.delegate = (id)self;
-    NSString *strUrl = [NSString stringWithFormat:@"http://www.webservicex.com/airport.asmx/getAirportInformationByAirportCode?airportCode=%@",code];
-//    [service SendRequestForData:dict andServiceURL:url andServiceReturnType:@"destination"];
-    
-    NSURL *url = [NSURL URLWithString:[strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
 
-    NSError *error = nil;
-    NSDictionary *dict = [XMLReader dictionaryForXMLData:data
-                                                 options:XMLReaderOptionsProcessNamespaces
-                                                   error:&error];
-    
-    NSString *s = [[dict objectForKey:@"string"] objectForKey:@"text"];
-    
-    NSRange r1 = [s rangeOfString:@"<Country>"];
-    NSRange r2 = [s rangeOfString:@"</Country>"];
-    NSRange rSub = NSMakeRange(r1.location + r1.length, r2.location - r1.location - r1.length);
-    NSString *sub = [s substringWithRange:rSub];
-
-}
 
 - (IBAction)showStopsView:(id)sender {
     
@@ -235,7 +207,10 @@
     }
     cell.mode_Image.image = [UIImage imageNamed:@"flight_icon"];
     cell.mode_type.text = @"Flight";
-    cell.lblStepTime.text = [HelperClass convertTimeFromMinutes:[[model.flightSegmentsArray objectAtIndex:indexPath.row] valueForKey:@"duration"]];
+    NSString *step_time = [HelperClass convertTimeFromMinutes:[[model.flightSegmentsArray objectAtIndex:indexPath.row] valueForKey:@"duration"]];
+    
+    cell.lblStepTime.text = step_time;
+    
     NSString *connection = [HelperClass convertTimeFromMinutes:[[model.flightSegmentsArray objectAtIndex:indexPath.row] valueForKey:@"connectionDuration"]];
     if (![connection isEqualToString:@""]) {
         cell.lblConnection.hidden = false;
@@ -716,45 +691,7 @@
  
 */
 
--(void) webServiceStart {
-    progressBar=[MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] delegate] window] animated:NO];
-    progressBar.labelText=@"Please Wait...";
-    [progressBar show:YES];
-}
 
-
-/////// in case error occured in web service
-
--(void) webServiceError:(NSString *)errorType {
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:errorType preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    
-    //    UIAlertAction *retry = [UIAlertAction actionWithTitle:@"Retry" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    //
-    //    }];
-    [alertController addAction:cancel];
-    //    [alertController addAction:retry];
-    [progressBar hide:YES];
-}
-
-// successful web service call end //////////
--(void) webServiceEnd:(id)returnObject andResponseType:(id)responseType {
-    
-    [progressBar hide:YES];
-    
-    if ([responseType isEqualToString:@"destination"]) {
-        
-        if (apiCallCount+1 == model.flightSegmentsArray.count) {
-            [self.tableview reloadData];
-        }else {
-            apiCallCount = apiCallCount+1;
-            [self multipleCalls];
-        }
-    }
-}
 
 typedef void(^addressCompletion)(NSString *);
 

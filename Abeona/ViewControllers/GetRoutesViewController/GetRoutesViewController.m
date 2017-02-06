@@ -286,6 +286,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     RouteDetailsViewController *detailVC = [self. storyboard instantiateViewControllerWithIdentifier:@"RouteDetailsViewController"];
+    
     if (!isFlight) {
         if (model.legsDrivingDict) {
             if (indexPath.row == 0) {
@@ -311,12 +312,8 @@
             detailVC.arrivalDate = transitArrivalDate;
             [self.navigationController pushViewController:detailVC animated:true];
         }else {
-            detailVC.isFlight = true;
-            detailVC.isDriving = false;
-            detailVC.departDate = flightDepartureDate;
-            detailVC.arrivalDate = flightArrivalDate;
-            [self.navigationController pushViewController:detailVC animated:true];
-
+            model.stepsAdressArray = [NSMutableArray new];
+            [self multipleCalls];
         }
     }
 }
@@ -409,12 +406,8 @@
             detailVC.arrivalDate = transitArrivalDate;
             [self.navigationController pushViewController:detailVC animated:true];
         }else {
-            detailVC.isFlight = true;
-            detailVC.isDriving = false;
-            detailVC.departDate = flightDepartureDate;
-            detailVC.arrivalDate = flightArrivalDate;
-            [self.navigationController pushViewController:detailVC animated:true];
-            
+            model.stepsAdressArray = [NSMutableArray new];
+            [self multipleCalls];
         }
     }
 }
@@ -499,6 +492,68 @@
     
 }
 
+- (void)multipleCalls {
+    
+    [self webServiceStart];
+    
+    for (NSDictionary *dict in model.flightSegmentsArray) {
+        NSString *code = [[[dict valueForKey:@"leg"] objectAtIndex:0] valueForKey:@"destination"];
+        
+        NSString *strUrl = [NSString stringWithFormat:@"http://www.webservicex.com/airport.asmx/getAirportInformationByAirportCode?airportCode=%@",code];
+        
+//        NSURL *url = [NSURL URLWithString:[strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+//        NSData *data = [NSData dataWithContentsOfURL:url];
+        
+        NSURLSession *defaultSession = [NSURLSession sharedSession];
+        NSURLSessionDataTask * dataTask = [defaultSession dataTaskWithURL:[NSURL URLWithString:strUrl]
+                                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                            
+        if(error == nil)
+        {
+            NSDictionary *dict = [XMLReader dictionaryForXMLData:data
+                                                         options:XMLReaderOptionsProcessNamespaces
+                                                           error:&error];
+            
+            NSString *xml = [[dict objectForKey:@"string"] objectForKey:@"text"];
+            
+            NSRange r1 = [xml rangeOfString:@"<Country>"];
+            NSRange r2 = [xml rangeOfString:@"</Country>"];
+            NSRange rSub = NSMakeRange(r1.location + r1.length, r2.location - r1.location - r1.length);
+            NSString *countryName = [xml substringWithRange:rSub];
+            
+            NSRange airPortR1 = [xml rangeOfString:@"<CityOrAirportName>"];
+            NSRange airPortR2 = [xml rangeOfString:@"</CityOrAirportName>"];
+            NSRange airPortrSub = NSMakeRange(airPortR1.location + airPortR1.length, airPortR2.location - airPortR1.location - airPortR1.length);
+            NSString *airportName = [xml substringWithRange:airPortrSub];
+            
+            NSString *finalStr = [NSString stringWithFormat:@"%@, %@",airportName,countryName];
+            [model.stepsAdressArray addObject:finalStr];
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                if (model.stepsAdressArray.count == model.flightSegmentsArray.count) {
+                    [progressBar hide:YES];
+                    RouteDetailsViewController *detailVC = [self. storyboard instantiateViewControllerWithIdentifier:@"RouteDetailsViewController"];
+                    detailVC.isFlight = true;
+                    detailVC.isDriving = false;
+                    detailVC.departDate = flightDepartureDate;
+                    detailVC.arrivalDate = flightArrivalDate;
+                    [self.navigationController pushViewController:detailVC animated:true];
+                    
+                }
+            });
+            
+        }
+                                                        }];
+        [dataTask resume];
+    }
+
+}
+
+-(void) webServiceStart {
+    progressBar=[MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] delegate] window] animated:NO];
+    progressBar.labelText=@"Please Wait...";
+    [progressBar show:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
