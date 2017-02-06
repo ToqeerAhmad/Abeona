@@ -65,7 +65,7 @@
     
     [self.locationManager stopUpdatingLocation];
     model.userCoordinates = manager.location.coordinate;
-   // model.userCoordinates = CLLocationCoordinate2DMake(51.8332, -1.3126) ;
+    model.userCoordinates = CLLocationCoordinate2DMake(40.0799, 116.6031) ;
     [self updateLocation];
 }
 

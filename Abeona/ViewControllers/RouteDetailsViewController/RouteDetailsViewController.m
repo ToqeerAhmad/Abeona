@@ -84,12 +84,21 @@
 
 - (void)multipleCalls {
     
-    NSMutableDictionary *dict;
+//    NSMutableDictionary *dict;
     NSString *code = [[[[model.flightSegmentsArray objectAtIndex:apiCallCount] valueForKey:@"leg"] objectAtIndex:0] valueForKey:@"destination"];
     WebServices *service = [[WebServices alloc] init];
     service.delegate = (id)self;
-    NSString *url = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@&sensor=true",code];
-    [service SendRequestForData:dict andServiceURL:url andServiceReturnType:@"destination"];
+    NSString *strUrl = [NSString stringWithFormat:@"http://www.webservicex.com/airport.asmx/getAirportInformationByAirportCode?airportCode=%@",code];
+//    [service SendRequestForData:dict andServiceURL:url andServiceReturnType:@"destination"];
+    
+    NSURL *url = [NSURL URLWithString:[strUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+
+    NSError *error = nil;
+    NSDictionary *dict = [XMLReader dictionaryForXMLData:data
+                                                 options:XMLReaderOptionsProcessNamespaces
+                                                   error:&error];
+
 }
 
 - (IBAction)showStopsView:(id)sender {

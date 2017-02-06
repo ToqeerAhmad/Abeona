@@ -58,6 +58,8 @@
 		464B2BF61E22C43F00535E99 /* DetailDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464B2BF41E22C43F00535E99 /* DetailDescriptionTableViewCell.xib */; };
 		464B2BFA1E22C75100535E99 /* MapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B2BF81E22C75100535E99 /* MapTableViewCell.m */; };
 		464B2BFB1E22C75100535E99 /* MapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464B2BF91E22C75100535E99 /* MapTableViewCell.xib */; };
+		46A0EB6B1E48F1F400CAE1F8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 46A0EB681E48F1F400CAE1F8 /* README.md */; };
+		46A0EB6C1E48F1F400CAE1F8 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A0EB6A1E48F1F400CAE1F8 /* XMLReader.m */; };
 		46B4C8971E27F00E009407CA /* ModelLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B4C8951E27F00E009407CA /* ModelLocator.m */; };
 		46B4C8BC1E28042A009407CA /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B4C89A1E28042A009407CA /* MKAnnotationView+WebCache.m */; };
 		46B4C8BD1E28042A009407CA /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B4C89C1E28042A009407CA /* NSData+ImageContentType.m */; };
@@ -225,6 +227,9 @@
 		464B2BF71E22C75100535E99 /* MapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTableViewCell.h; sourceTree = "<group>"; };
 		464B2BF81E22C75100535E99 /* MapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTableViewCell.m; sourceTree = "<group>"; };
 		464B2BF91E22C75100535E99 /* MapTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapTableViewCell.xib; sourceTree = "<group>"; };
+		46A0EB681E48F1F400CAE1F8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		46A0EB691E48F1F400CAE1F8 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		46A0EB6A1E48F1F400CAE1F8 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		46B4C8951E27F00E009407CA /* ModelLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelLocator.m; sourceTree = "<group>"; };
 		46B4C8961E27F00E009407CA /* ModelLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelLocator.h; sourceTree = "<group>"; };
 		46B4C8991E28042A009407CA /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -566,6 +571,16 @@
 			path = UITableViewCells;
 			sourceTree = "<group>";
 		};
+		46A0EB671E48F1F400CAE1F8 /* XMLReader-master */ = {
+			isa = PBXGroup;
+			children = (
+				46A0EB681E48F1F400CAE1F8 /* README.md */,
+				46A0EB691E48F1F400CAE1F8 /* XMLReader.h */,
+				46A0EB6A1E48F1F400CAE1F8 /* XMLReader.m */,
+			);
+			path = "XMLReader-master";
+			sourceTree = "<group>";
+		};
 		46B4C8981E28042A009407CA /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -765,6 +780,7 @@
 		46CF8F071E1EB46000657F55 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				46A0EB671E48F1F400CAE1F8 /* XMLReader-master */,
 				180D005F1E42E982004ACD7F /* IQKeyboardManager */,
 				180D005B1E42E6AF004ACD7F /* IQDropDownTextField */,
 				46B4C8981E28042A009407CA /* SDWebImage */,
@@ -1243,6 +1259,7 @@
 				464B2BD31E22933800535E99 /* DXAnnotationView.m in Sources */,
 				464B2BC61E217D3A00535E99 /* RouteTableViewCell.m in Sources */,
 				464B2BEB1E22B99B00535E99 /* PicturesTableViewCell.m in Sources */,
+				46A0EB6C1E48F1F400CAE1F8 /* XMLReader.m in Sources */,
 				46D090141E201EC400C323F1 /* UIButtonExtension.m in Sources */,
 				46B4C8CA1E28042A009407CA /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				46B4C8CC1E28042A009407CA /* UIView+WebCacheOperation.m in Sources */,
@@ -1257,6 +1274,7 @@
 				46B4C8C61E28042A009407CA /* UIImage+GIF.m in Sources */,
 				180D00851E42E982004ACD7F /* IQUIScrollView+Additions.m in Sources */,
 				464A89431E27EB7B00396751 /* AFHTTPRequestOperationManager.m in Sources */,
+				46A0EB6B1E48F1F400CAE1F8 /* README.md in Sources */,
 				464B2BD21E22933800535E99 /* DXAnnotationSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

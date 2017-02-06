@@ -94,7 +94,7 @@
     AFHTTPRequestOperationManager *operation = [[AFHTTPRequestOperationManager alloc] init];
     operation.securityPolicy.validatesDomainName = NO;
     operation.securityPolicy.allowInvalidCertificates = YES;
-
+    
     [operation GET:serviceURL parameters:paramsDict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         
         NSError *error;
